@@ -38,4 +38,4 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
 
 
     }
-}
+
