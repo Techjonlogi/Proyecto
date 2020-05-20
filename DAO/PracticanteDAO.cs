@@ -22,8 +22,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 practicante.NombresPracticante == String.Empty ||
                 practicante.ApellidoPaternoPracticante == String.Empty ||
                 practicante.ApellidoMaternoPracticante == String.Empty ||
-                practicante.PeriodoPracticante == String.Empty ||
-                practicante.SectorSocialPracticante == String.Empty)
+                practicante.PeriodoPracticante == String.Empty)
             {
                 throw new FormatException("Existen campos vacíos ");
             }
@@ -70,14 +69,14 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Practicante VALUES(@Nombr@Matricula, es, @ApellidoPaterno, @ApellidoMaterno, @Periodo, @SectorSocial)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Practicante VALUES(@Nombr@Matricula, es, @ApellidoPaterno, @ApellidoMaterno, @Periodo)", connection))
                 {
                     command.Parameters.Add(new SqlParameter("@Matricula", practicante.MatriculaPracticante));
                     command.Parameters.Add(new SqlParameter("@Nombres", practicante.NombresPracticante));
                     command.Parameters.Add(new SqlParameter("@ApellidoPaterno", practicante.ApellidoPaternoPracticante));
                     command.Parameters.Add(new SqlParameter("@ApellidoMaterno", practicante.ApellidoMaternoPracticante));
                     command.Parameters.Add(new SqlParameter("@Periodo", practicante.PeriodoPracticante));
-                    command.Parameters.Add(new SqlParameter("@SectorSocial", practicante.SectorSocialPracticante));
+                    
                     try
                     {
                         command.ExecuteNonQuery();
@@ -121,7 +120,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         practicante.ApellidoPaternoPracticante = reader["ApellidoPaterno"].ToString();
                         practicante.ApellidoMaternoPracticante = reader["ApellidoMaterno"].ToString();
                         practicante.PeriodoPracticante = reader["Periodo"].ToString();
-                        practicante.SectorSocialPracticante = reader["SectorSocial"].ToString();
+                        
                         listaPracticante.Add(practicante);
                     }
                 }
@@ -157,7 +156,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         practicante.ApellidoPaternoPracticante = reader["ApellidoPaterno"].ToString();
                         practicante.ApellidoMaternoPracticante = reader["ApellidoMaterno"].ToString();
                         practicante.PeriodoPracticante = reader["Periodo"].ToString();
-                        practicante.SectorSocialPracticante = reader["SectorSocial"].ToString();
+                        
                     }
                 }
                 connection.Close();

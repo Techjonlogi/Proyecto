@@ -24,7 +24,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             SQLFail,
             ExistingRecord
         }
-        public OperationResult AddAlumno(String Matricula, String Nombre, String Seccion, String Bloque, String Carrera, String Contraseña, String apellidoPaterno, String apellidoMaterno, String periodo, String sectorSocial)
+        public OperationResult AddAlumno(String Matricula, String Nombre, String Carrera, String Contraseña, String apellidoPaterno, String apellidoMaterno, String periodo)
         {
             OperationResult operation = OperationResult.UnknowFail;
             if (GetAlumnoByMatricula(Matricula).MatriculaPracticante == null)
@@ -35,7 +35,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
                 instancePracticante.ApellidoPaternoPracticante = apellidoPaterno;
                 instancePracticante.ApellidoMaternoPracticante = apellidoMaterno;
                 instancePracticante.PeriodoPracticante = periodo;
-                instancePracticante.SectorSocialPracticante = sectorSocial;
+                
                 
                 PracticanteDAO instancePracticanteDAO = new PracticanteDAO();
                 if ((OperationResult)instancePracticanteDAO.AddPracticante(instancePracticante) == OperationResult.Success)
@@ -65,6 +65,8 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         }
 
         private OperationResult CreateUserForAlumno(String Matricula, String Password, String Nombre) {
+            OperationResult op = OperationResult.Success;
+            return op;
         
         }
         /*private OperationResult CreateUserForAlumno(String Matricula, String Password, String Nombre)

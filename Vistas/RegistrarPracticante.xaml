@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sistema_de_Prácticas_Profesionales.Vistas"
         mc:Ignorable="d"
-        Title="RegistrarPracticante" Height="450" Width="800">
+        Title="RegistrarPracticante" Height="728.622" Width="814.72">
     <Grid RenderTransformOrigin="0.514,0.497">
-        <Button x:Name="botonRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="105,361,0,0" VerticalAlignment="Top" Width="75" Click="registrarBtn_Click"/>
-        <Button x:Name="botonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="594,361,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="643*"/>
+            <ColumnDefinition Width="149*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="botonRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="89,613,0,0" VerticalAlignment="Top" Width="75" Click="registrarBtn_Click"/>
+        <Button x:Name="botonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="0,613,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="105,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="362" FontFamily="Microsoft Tai Le" FontWeight="Bold"><Run Text="Por favor "/><Run Text="ingresa"/><Run Text=" los datos del estudiante a "/><Run Text="registrar"/><Run Text="."/></TextBlock>
         <TextBox x:Name="textboxMatricula" HorizontalAlignment="Left" Height="23" Margin="221,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" TextChanged="TextBox_TextChanged"/>
         <TextBox x:Name="textboxNombre" HorizontalAlignment="Left" Height="23" Margin="221,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" TextChanged="TextBox_TextChanged"/>
@@ -29,12 +33,17 @@
             <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="244" Selected="ComboBoxItem_Selected"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="73,311,0,0" TextWrapping="Wrap" Text="Periodo escolar" VerticalAlignment="Top" Height="23" Width="107"/>
-        <TextBox x:Name="alumnoPassword" HorizontalAlignment="Left" Height="23" Margin="634,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="alumnoPasswordRepite" HorizontalAlignment="Left" Height="23" Margin="638,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="531,237,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="504,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Repetir contraseña"/><LineBreak/><Run/></TextBlock>
-        <PasswordBox HorizontalAlignment="Left" Margin="690,329,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="btContraseña" HorizontalAlignment="Left" Margin="634,190,0,0" VerticalAlignment="Top" Width="124"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,473,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,531,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Repetir contraseña"/><LineBreak/><Run/></TextBlock>
+        <PasswordBox HorizontalAlignment="Left" Margin="47.388,329,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <ComboBox x:Name="ComboCarrera" HorizontalAlignment="Left" Margin="221,372,0,0" VerticalAlignment="Top" Width="246" Height="23">
+            <ComboBoxItem Content="Ing. de Software" HorizontalAlignment="Left" Width="244" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem Content="Tecnologías computacionales" HorizontalAlignment="Left" Width="244"/>
+            <ComboBoxItem Content="Redes y Servicios" HorizontalAlignment="Left" Width="244"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="73,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="107"><Run Text="Carrera"/><LineBreak/><Run/></TextBlock>
+        <PasswordBox x:Name="alumnoPassword" HorizontalAlignment="Left" Margin="221,473,0,0" VerticalAlignment="Top" Height="24" Width="246"/>
+        <PasswordBox x:Name="alumnoPasswordRepite" HorizontalAlignment="Left" Margin="221,531,0,0" VerticalAlignment="Top" Height="21" Width="249"/>
 
     </Grid>
 </Window>

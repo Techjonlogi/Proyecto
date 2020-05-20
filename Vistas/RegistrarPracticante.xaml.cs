@@ -52,7 +52,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         private ChecResults CheckEmptyFields()
         {
             ChecResults check = ChecResults.Failed;
-            if (textboxMatricula.Text == String.Empty || textboxNombre.Text == String.Empty || comboPeriodo.Text == String.Empty || alumnoPassword.Text == String.Empty)
+            if (textboxMatricula.Text == String.Empty || textboxNombre.Text == String.Empty || comboPeriodo.Text == String.Empty || alumnoPassword.Password == String.Empty)
             {
                 check = ChecResults.Failed;
             }
@@ -78,7 +78,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             {
                 MessageBox.Show("Formato de matricula incorrecto");
             }
-            else if (validarCampos.ValidarContraseña(alumnoPassword.Text) == Logica.CheckFields.ResultadosValidación.ContraseñaInvalida)
+            else if (validarCampos.ValidarContraseña(alumnoPassword.Password) == Logica.CheckFields.ResultadosValidación.ContraseñaInvalida)
             {
                 MessageBox.Show("La contraseña es muy débil \n Intenta combinar letras mayúsculas, minúsculas y números");
             }
@@ -123,14 +123,14 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
                 if (CheckFields() == ChecResults.Passed)
                 {
                     PracticanteController practicantecontroller = new PracticanteController();
-                    ComprobarResultado((OperationResult)practicantecontroller.AddAlumno(textboxMatricula.Text, textboxNombre.Text, comboPeriodo.Text, alumnoPassword.Text));
+                    ComprobarResultado((OperationResult)practicantecontroller.AddAlumno(textboxMatricula.Text, textboxNombre.Text,ComboCarrera.Text,alumnoPassword.Password, textboxAPaterno.Text,textboxAMaterno.Text,comboPeriodo.Text  ));
                 }
             }
             else
             {
                 MessageBox.Show("Las contraseñas no coinciden");
-                alumnoPassword.Text = String.Empty;
-                alumnoPasswordRepite.Text = String.Empty;
+                alumnoPassword.Password = String.Empty;
+                alumnoPasswordRepite.Password = String.Empty;
             }
            
 
