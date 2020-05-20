@@ -109,11 +109,17 @@
     <Compile Include="Pojos\Administrador\Administrador.cs" />
     <Compile Include="Pojos\Coordinador\Coordinador.cs" />
     <Compile Include="Pojos\Usuario\Usuario.cs" />
+    <Compile Include="Vistas\RegistrarOrganizacion.xaml.cs">
+      <DependentUpon>RegistrarOrganizacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\RegistrarPracticante.xaml.cs">
       <DependentUpon>RegistrarPracticante.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\RegistrarProfesor.xaml.cs">
       <DependentUpon>RegistrarProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RegistrarProyecto.xaml.cs">
+      <DependentUpon>RegistrarProyecto.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -127,11 +133,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\RegistrarOrganizacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\RegistrarPracticante.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\RegistrarProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\RegistrarProyecto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
