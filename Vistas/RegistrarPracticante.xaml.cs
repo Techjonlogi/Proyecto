@@ -52,7 +52,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         private ChecResults CheckEmptyFields()
         {
             ChecResults check = ChecResults.Failed;
-            if (textboxMatricula.Text == String.Empty || textboxNombre.Text == String.Empty || comboPeriodo.Text == String.Empty || alumnoPassword.Password == String.Empty)
+            if (textboxMatricula.Text == String.Empty || textboxNombre.Text == String.Empty || comboPeriodo.Text == String.Empty || alumnoPassword.Password == String.Empty|| textboxAPaterno.Text == String.Empty || textboxAMaterno.Text == String.Empty || ComboCarrera.Text == String.Empty || alumnoPasswordRepite.Password==String.Empty)
             {
                 check = ChecResults.Failed;
             }
@@ -118,7 +118,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
         private void registrarBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (alumnoPassword == alumnoPasswordRepite)
+            if (alumnoPassword.Password == alumnoPasswordRepite.Password)
             {
                 if (CheckFields() == ChecResults.Passed)
                 {
