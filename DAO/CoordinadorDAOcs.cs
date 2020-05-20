@@ -15,7 +15,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     {
         private AddResult CheckObjectCoordinador(Coordinador coordinador)
         {
-            checkFields validarCampos = new checkFields();
+            CheckFields validarCampos = new CheckFields();
             AddResult result = AddResult.UnknowFail;
             if (coordinador.NoPersonal == String.Empty ||
                 coordinador.NombresCoordinador == String.Empty ||
@@ -30,12 +30,12 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarUsuario(coordinador.UsuarioCoordinador) == checkFields.ResultadosValidación.UsuarioInvalido)
+            if (validarCampos.ValidarUsuario(coordinador.UsuarioCoordinador) == CheckFields.ResultadosValidación.UsuarioInvalido)
             {
                 throw new FormatException("Usuario inválido " + coordinador.UsuarioCoordinador);
             }
             else
-                if (validarCampos.ValidarNombres(coordinador.NombresCoordinador) == checkFields.ResultadosValidación.NombresInvalidos)
+                if (validarCampos.ValidarNombres(coordinador.NombresCoordinador) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
                 throw new FormatException("Nombre inválido " + coordinador.NombresCoordinador);
             }

@@ -28,7 +28,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             {
                 throw new FormatException("Existen campos vacíos ");
             }
-            if (instanceCheckFields.ValidarNombreArtefacto(instanceActividad.NombreActividad) == CheckFields.ResultadosValidación.NombreArtefactoInvalido)
+            if (instanceCheckFields.ValidarNombres(instanceActividad.NombreActividad) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
                 throw new FormatException("Nombre inválido " + instanceActividad.NombreActividad);
             }

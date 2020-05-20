@@ -16,7 +16,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     {
         private AddResult CheckObjectOrganizacion(OrganizacionVinculada instanceorganizacion)
         {
-            checkFields instancevalidarCampos = new checkFields();
+            CheckFields instancevalidarCampos = new CheckFields();
             AddResult instanceresult = AddResult.UnknowFail;
             if (instanceorganizacion.IdOrganizacion == String.Empty ||
                 instanceorganizacion.NombreEmpresa == String.Empty ||
@@ -32,12 +32,12 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (instancevalidarCampos.ValidarMatricula(instanceorganizacion.IdOrganizacion) == checkFields.ResultadosValidación.MatriculaInvalida)
+            if (instancevalidarCampos.ValidarMatricula(instanceorganizacion.IdOrganizacion) == CheckFields.ResultadosValidación.MatriculaInvalida)
             {
                 throw new FormatException("ID invalida " + instanceorganizacion.IdOrganizacion);
             }
             else
-            if (instancevalidarCampos.ValidarNombres(instanceorganizacion.NombreEmpresa) == checkFields.ResultadosValidación.NombresInvalidos)
+            if (instancevalidarCampos.ValidarNombres(instanceorganizacion.NombreEmpresa) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
                 throw new FormatException("Nombre inválido " + instanceorganizacion.NombreEmpresa);
             }

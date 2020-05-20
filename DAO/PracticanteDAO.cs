@@ -16,7 +16,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     {
         private AddResult CheckObjectPracticante(Practicante practicante)
         {
-            checkFields validarCampos = new checkFields();
+            CheckFields validarCampos = new CheckFields();
             AddResult result = AddResult.UnknowFail;
             if (practicante.MatriculaPracticante == String.Empty ||
                 practicante.NombresPracticante == String.Empty ||
@@ -28,12 +28,12 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarMatricula(practicante.MatriculaPracticante) == checkFields.ResultadosValidación.MatriculaInvalida)
+            if (validarCampos.ValidarMatricula(practicante.MatriculaPracticante) == CheckFields.ResultadosValidación.MatriculaInvalida)
             {
                 throw new FormatException("Matricula inválida " + practicante.MatriculaPracticante);
             }
             else
-            if (validarCampos.ValidarNombres(practicante.NombresPracticante) == checkFields.ResultadosValidación.NombresInvalidos)
+            if (validarCampos.ValidarNombres(practicante.NombresPracticante) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
                 throw new FormatException("Nombre inválido " + practicante.NombresPracticante);
             }

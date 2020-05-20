@@ -36,5 +36,6 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Administrador
             this.usuarioAdministrador = usuarioAdministrador;
             this.contraseñaAdministrador = contraseñaAdministrador;
         }
+        public Administrador() { }
     }
 }

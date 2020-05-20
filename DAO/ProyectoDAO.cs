@@ -16,7 +16,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     {
         private AddResult CheckObjectProyecto(Proyecto instanceproyecto)
         {
-            checkFields validarCampos = new checkFields();
+            CheckFields validarCampos = new CheckFields();
             AddResult instanceresult = AddResult.UnknowFail;
             if (instanceproyecto.IdProyecto == String.Empty ||
                 instanceproyecto.Responsabilidades == String.Empty ||
@@ -37,12 +37,12 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarMatricula(instanceproyecto.IdProyecto) == checkFields.ResultadosValidación.MatriculaInvalida)
+            if (validarCampos.ValidarMatricula(instanceproyecto.IdProyecto) == CheckFields.ResultadosValidación.MatriculaInvalida)
             {
                 throw new FormatException("id de proyecto invalido " + instanceproyecto.IdProyecto);
             }
             else
-            if (validarCampos.ValidarNombres(instanceproyecto.NombreProyecto) == checkFields.ResultadosValidación.NombresInvalidos)
+            if (validarCampos.ValidarNombres(instanceproyecto.NombreProyecto) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
                 throw new FormatException("Nombre inválido " + instanceproyecto.NombreProyecto);
             }

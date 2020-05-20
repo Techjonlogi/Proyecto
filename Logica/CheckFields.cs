@@ -26,6 +26,8 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
             RfcInválido,
             RfcVálido,
 
+            UsuarioValido,
+            UsuarioInvalido
 
         }
 
@@ -40,11 +42,11 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
 
             }
 
-                return ResultadosValidación.ContraseñaInvalida;
+            return ResultadosValidación.ContraseñaInvalida;
 
         }
 
-    
+
         public ResultadosValidación ValidarMatricula(string matricula)
         {
             string ValidChar = @"^[a-z][A-Z][0-9]+$"; ;
@@ -87,6 +89,19 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
 
 
 
+        public ResultadosValidación ValidarUsuario(string usuario)
+        {
+            string ValidChar = @"^[0-9](?=.*[a-z])(?=.*[A-Z])(?=.*\s).{3,35}$";
+            if (Regex.IsMatch(usuario, ValidChar))
+            {
+                return ResultadosValidación.UsuarioValido;
+            }
+            return ResultadosValidación.UsuarioInvalido;
 
+
+
+
+
+        }
     }
 }

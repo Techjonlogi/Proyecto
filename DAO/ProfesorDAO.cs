@@ -17,7 +17,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 
         private AddResult CheckObjectProfesor(Profesor profesor)
         {
-            checkFields validarCampos = new checkFields();
+            CheckFields validarCampos = new CheckFields();
             AddResult result = AddResult.UnknowFail;
             if (profesor.IdProfesor == String.Empty ||
                 profesor.DiasEnServicioProfesor == String.Empty ||
@@ -32,12 +32,12 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarMatricula(profesor.IdProfesor) == checkFields.ResultadosValidación.MatriculaInvalida)
+            if (validarCampos.ValidarMatricula(profesor.IdProfesor) == CheckFields.ResultadosValidación.MatriculaInvalida)
             {
                 throw new FormatException("Numero invalido " + profesor.IdProfesor);
             }
             else
-            if (validarCampos.ValidarNombres(profesor.NombresProfesor) == checkFields.ResultadosValidación.NombresInvalidos)
+            if (validarCampos.ValidarNombres(profesor.NombresProfesor) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
                 throw new FormatException("Nombre inválido " + profesor.NombresProfesor);
             }

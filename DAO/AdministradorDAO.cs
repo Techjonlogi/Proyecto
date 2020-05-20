@@ -17,7 +17,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
         {
         private AddResult CheckObjectAdministrador(Administrador administrador)
         {
-            checkFields validarCampos = new checkFields();
+            CheckFields validarCampos = new CheckFields();
             AddResult result = AddResult.UnknowFail;
             if (administrador.UsuarioAdministrador == String.Empty ||
                 administrador.ContraseñaAdministrador == String.Empty ||
@@ -28,12 +28,12 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarUsuario(administrador.UsuarioAdministrador) == checkFields.ResultadosValidación.UsuarioInvalido)
+            if (validarCampos.ValidarUsuario(administrador.UsuarioAdministrador) == CheckFields.ResultadosValidación.UsuarioInvalido)
                 {
                     throw new FormatException("Usuario inválido " + administrador.UsuarioAdministrador);
                 }
                 else
-                if (validarCampos.ValidarNombres(administrador.NombresAdministrador) == checkFields.ResultadosValidación.NombresInvalidos)
+                if (validarCampos.ValidarNombres(administrador.NombresAdministrador) == CheckFields.ResultadosValidación.NombresInvalidos)
                 {
                     throw new FormatException("Nombre inválido " + administrador.NombresAdministrador);
                 }
