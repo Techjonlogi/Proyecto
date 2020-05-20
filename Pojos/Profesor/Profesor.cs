@@ -39,5 +39,18 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Profesor
 
         public String FechaBajaProfesor { get => fechaBajaProfesor; set => fechaBajaProfesor = value; }
 
+        public Profesor(string idprofesor, string diasenservicio, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja) {
+            this.idProfesor = idprofesor;
+            this.diasEnServicioProfesor = diasenservicio;
+            this.nombresProfesor = nombresprofesor;
+            this.apellidoMaternoProfesor = apellidomaterno;
+            this.apellidoPaternoProfesor = apellidopaterno;
+            this.usuarioProfesor = usuario;
+            this.contraseñaProfesor = contraseña;
+            this.fechaRegistroProfesor = fechaderegistro;
+            this.fechaBajaProfesor = fechadebaja;
+        
+        }
+        public Profesor() { }
     }
 }

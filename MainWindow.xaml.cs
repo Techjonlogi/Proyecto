@@ -1,4 +1,4 @@
-﻿using Formación_de_Profesionales_en_Accesibilidad.Ventanas;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Sistema_de_Prácticas_Profesionales.Pojos.Administrador;
+using Sistema_de_Prácticas_Profesionales.Controller;
+using Sistema_de_Prácticas_Profesionales.DAO;
+using Sistema_de_Prácticas_Profesionales.Vistas;
 
 namespace Formación_de_Profesionales_en_Accesibilidad
+  
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
@@ -28,15 +33,15 @@ namespace Formación_de_Profesionales_en_Accesibilidad
 
         private void btn_IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            LoginAdministrador loginAdministrador = new LoginAdministrador();
+            Administrador loginAdministrador = new Administrador();
             MessageBox.Show("Logueado Correctamente");
-            loginAdministrador.Show();
+            
             this.Close();
         }
 
         private void btn_ClickAqui_Click(object sender, RoutedEventArgs e)
         {
-            RegistrarseATaller reg = new RegistrarseATaller();
+             RegistrarPracticante reg = new RegistrarPracticante();
             reg.Show();
             this.Close();
         }

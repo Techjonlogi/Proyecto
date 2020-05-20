@@ -35,5 +35,11 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Coordinador
         public string FechaDeBajaCoordinador { get => fechaDeBajaCoordinador; set => fechaDeBajaCoordinador = value; }
 
         public string FechaDeRegistroCoordinador { get => fechaDeRegistroCoordinador; set => fechaDeRegistroCoordinador = value; }
+
+        public Coordinador(String noPersonal) {
+            this.noPersonal = noPersonal;
+        }
+        public Coordinador() { }
     }
+
 }

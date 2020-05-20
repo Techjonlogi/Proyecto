@@ -140,5 +140,10 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         {
             this.Close();
         }
+
+        private void comboPeriodo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

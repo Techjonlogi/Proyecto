@@ -90,12 +90,14 @@
     <Compile Include="DAO\IProfesorDAO.cs" />
     <Compile Include="DAO\IProyectoDAO.cs" />
     <Compile Include="DAO\IResponsableDeProyectoDao.cs" />
+    <Compile Include="DAO\IUsuarioDao.cs" />
     <Compile Include="DAO\OrganizacionVinculadaDAO.cs" />
     <Compile Include="DAO\PracticaDAO.cs" />
     <Compile Include="DAO\PracticanteDAO.cs" />
     <Compile Include="DAO\ProfesorDAO.cs" />
     <Compile Include="DAO\ProyectoDAO.cs" />
     <Compile Include="DAO\ResponsableDeProyectoDAO.cs" />
+    <Compile Include="DAO\UsuarioDao.cs" />
     <Compile Include="Logica\AddEnum.cs" />
     <Compile Include="Logica\CheckFields.cs" />
     <Compile Include="DAO\IPracticanteDAO.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Pojos\Profesor\Profesor.cs" />
     <Compile Include="Pojos\Administrador\Administrador.cs" />
     <Compile Include="Pojos\Coordinador\Coordinador.cs" />
+    <Compile Include="Pojos\Usuario\Usuario.cs" />
     <Compile Include="Vistas\RegistrarPracticante.xaml.cs">
       <DependentUpon>RegistrarPracticante.xaml</DependentUpon>
     </Compile>

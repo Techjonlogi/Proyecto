@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using static Sistema_de_Prácticas_Profesionales.Logica.AddEnum;
 using Sistema_de_Prácticas_Profesionales.DAO;
 using Sistema_de_Prácticas_Profesionales.Pojos.Profesor;
+using Sistema_de_Prácticas_Profesionales.Pojos.Usuario;
 
 
 
@@ -21,13 +22,13 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         /// <param name="correo">correo.</param>
         /// <param name="contraseña"> contraseña.</param>
         /// <returns>Resultado de la operación</returns>
-        public AddResult AñadirCoordinador(string idprofesor, string diasenservicio, string nombresprofesor, String apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja)
+        public AddResult AñadirCoordinador(string idprofesor, string diasenservicio, string nombresprofesor, String apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string correo)
         {
             ProfesorDAO instanceProfesorDAO = new ProfesorDAO();
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            UsuarioDao usuarioDAO = new UsuarioDao();
             Profesor instanceProfesor = new Profesor(idprofesor,diasenservicio,nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro, fechadebaja);
             DateTime dateTime = DateTime.Now;
-            Usuario instanceUsuario = new Usuario(idprofesor, contraseña, "Coordinador", dateTime, nombresprofesor);
+            Usuario instanceUsuario = new Usuario(idprofesor, contraseña, "Coordinador", dateTime, nombresprofesor,correo);
             if (instanceProfesorDAO.AddProfesor(instanceProfesor) == AddResult.Success && usuarioDAO.AddUsuario(instanceUsuario) == AddResult.Success)
             {
                 return AddResult.Success;

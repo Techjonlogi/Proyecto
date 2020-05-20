@@ -14,30 +14,30 @@
         <Button x:Name="botonRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="89,613,0,0" VerticalAlignment="Top" Width="75" Click="registrarBtn_Click"/>
         <Button x:Name="botonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="0,613,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="105,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="362" FontFamily="Microsoft Tai Le" FontWeight="Bold"><Run Text="Por favor "/><Run Text="ingresa"/><Run Text=" los datos del estudiante a "/><Run Text="registrar"/><Run Text="."/></TextBlock>
-        <TextBox x:Name="textboxMatricula" HorizontalAlignment="Left" Height="23" Margin="221,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="textboxNombre" HorizontalAlignment="Left" Height="23" Margin="221,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="textboxAPaterno" HorizontalAlignment="Left" Height="23" Margin="221,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="textboxAMaterno" HorizontalAlignment="Left" Height="23" Margin="221,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="textboxMatricula" HorizontalAlignment="Left" Height="23" Margin="221,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <TextBox x:Name="textboxNombre" HorizontalAlignment="Left" Height="23" Margin="221,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" />
+        <TextBox x:Name="textboxAPaterno" HorizontalAlignment="Left" Height="23" Margin="221,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <TextBox x:Name="textboxAMaterno" HorizontalAlignment="Left" Height="23" Margin="221,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
         <TextBlock HorizontalAlignment="Left" Margin="112,88,0,0" TextWrapping="Wrap" Text="Matricula" VerticalAlignment="Top" Height="23" Width="68" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="112,141,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Height="23" Width="75" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="73,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="143" FontSize="14"><Run Text="Apellido Pater"/><Run Text="no"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="73,251,0,0" TextWrapping="Wrap" Text="Apellido Materno" VerticalAlignment="Top" Height="23" Width="114" FontSize="14"/>
-        <ComboBox x:Name="comboPeriodo" HorizontalAlignment="Left" Margin="221,311,0,0" VerticalAlignment="Top" Width="246" Height="23" SelectionChanged="ComboBox_SelectionChanged">
-            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="244" Selected="ComboBoxItem_Selected"/>
+        <ComboBox x:Name="comboPeriodo" HorizontalAlignment="Left" Margin="221,311,0,0" VerticalAlignment="Top" Width="246" Height="23">
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="244"/>
-            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="244" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="244"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="73,311,0,0" TextWrapping="Wrap" Text="Periodo escolar" VerticalAlignment="Top" Height="23" Width="107"/>
         <TextBlock HorizontalAlignment="Left" Margin="73,473,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="73,531,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Repetir contraseña"/><LineBreak/><Run/></TextBlock>
         <PasswordBox HorizontalAlignment="Left" Margin="47.388,329,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <ComboBox x:Name="ComboCarrera" HorizontalAlignment="Left" Margin="221,372,0,0" VerticalAlignment="Top" Width="246" Height="23">
-            <ComboBoxItem Content="Ing. de Software" HorizontalAlignment="Left" Width="244" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem Content="Ing. de Software" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="Tecnologías computacionales" HorizontalAlignment="Left" Width="244"/>
             <ComboBoxItem Content="Redes y Servicios" HorizontalAlignment="Left" Width="244"/>
         </ComboBox>
