@@ -1,0 +1,19 @@
+﻿<Window x:Class="Sistema_de_Prácticas_Profesionales.Vistas.Administrador.AdministrarCoordinadores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema_de_Prácticas_Profesionales.Vistas.Administrador"
+        mc:Ignorable="d"
+        Title="AdministrarCoordinadores" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="Agregar" Content="Agregar" HorizontalAlignment="Left" Margin="109,366,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="buttonEliminar"  Content="Eliminar" HorizontalAlignment="Left" Margin="597,366,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListBox x:Name="listBoxCoordinadores" HorizontalAlignment="Left" Height="199" Margin="85,121,0,0" VerticalAlignment="Top" Width="612" BorderBrush="Black" Background="#FFCBCBEE" Foreground="{x:Null}">
+        </ListBox>
+        <Button x:Name="buttonRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="711,27,0,0" VerticalAlignment="Top" Width="49" Height="49"/>
+        <Button x:Name="buttonEditar" Content="Editar" HorizontalAlignment="Left" Margin="341,366,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="A continuación, la lista de los coordinadores ya registrados" HorizontalAlignment="Left" Margin="85,36,0,0" VerticalAlignment="Top" Height="40" Width="488" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
