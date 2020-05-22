@@ -68,7 +68,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             OrganizacionVinculadaDAO instanceorganizacionDAO = new OrganizacionVinculadaDAO();
             return (OperationResult)instanceorganizacionDAO.DeleteOrganizacionByID(id);
         }
-
+       
     }
 }
     

@@ -23,11 +23,14 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
             NúmeroInválido,
             NúmeroVálido,
 
-            RfcInválido,
+            RfcInvalido,
             RfcVálido,
 
             UsuarioValido,
-            UsuarioInvalido
+            UsuarioInvalido,
+
+            CorreoVálido,
+            Correoinválido
 
         }
 
@@ -84,7 +87,7 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
             {
                 return ResultadosValidación.RfcVálido;
             }
-            return ResultadosValidación.RfcInválido;
+            return ResultadosValidación.RfcInvalido;
         }
 
 
@@ -102,6 +105,16 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
 
 
 
+        }
+
+        public ResultadosValidación ValidarCorreo(string correo)
+        {
+            string patrón = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+            if (Regex.IsMatch(correo, patrón))
+            {
+                return ResultadosValidación.CorreoVálido;
+            }
+            return ResultadosValidación.Correoinválido;
         }
     }
 }
