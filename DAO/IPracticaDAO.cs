@@ -13,6 +13,6 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
         List<Practica> GetPractica();
         Practica GetPracticaNombre(String idToSearch);
         AddResult AddPractica(Practica instancePractica);
-
+        AddResult DeletePracticaNombre(String toSearchInBD);
     }
 }

@@ -24,7 +24,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         public OperationResult AddActividad(String id, String nombre, int diaEntrega, int mesEntrega, String añoEntrega, Double valor)
         {
 
-            OperationResult operation = OperationResult.UnknowFail;
+            OperationResult operationResult = OperationResult.UnknowFail;
             if (GetActividadId(id).IdActividad == null)
             {
                 Actividad actividad = new Actividad();
@@ -37,14 +37,14 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
                 actividad.ValorActividad = valor;
 
                 ActividadDAO actividadDAO = new ActividadDAO();
-                operation = (OperationResult)actividadDAO.AddActividad(actividad);
+                operationResult = (OperationResult)actividadDAO.AddActividad(actividad);
             }
             else
             {
-                operation = OperationResult.ExistingRecord;
+                operationResult = OperationResult.ExistingRecord;
             }
 
-            return operation;
+            return operationResult;
         }
 
         public List<Actividad> GetActividad()

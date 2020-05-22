@@ -72,9 +72,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Conexion\Conection.cs" />
+    <Compile Include="Controller\ActividadController.cs" />
     <Compile Include="Controller\AdministradorController.cs" />
     <Compile Include="Controller\CoordinadorController.cs" />
     <Compile Include="Controller\OrganizacionVinculadaController.cs" />
+    <Compile Include="Controller\PracticaController.cs" />
     <Compile Include="Controller\PracticanteController.cs" />
     <Compile Include="Controller\ProfesorController.cs" />
     <Compile Include="Controller\ProyectoController.cs" />
@@ -86,7 +88,7 @@
     <Compile Include="DAO\IAdministradorDAO.cs" />
     <Compile Include="DAO\ICoordinadorDAO.cs" />
     <Compile Include="DAO\IOrganizacionVinculadaDao.cs" />
-    <Compile Include="DAO\IPractica.cs" />
+    <Compile Include="DAO\IPracticaDAO.cs" />
     <Compile Include="DAO\IProfesorDAO.cs" />
     <Compile Include="DAO\IProyectoDAO.cs" />
     <Compile Include="DAO\IResponsableDeProyectoDao.cs" />
