@@ -14,29 +14,27 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 {
     public class PracticaDAO : IPracticaDAO
     {
-        private AddResult CheckObjectPractica(Practica instancePractica)
+        private AddResult CheckObjectPractica(Practica practica)
         {
-            CheckFields instanceCheckFields = new CheckFields();
-            AddResult instanceAddResult = AddResult.UnknowFail;
+            CheckFields checkFields = new CheckFields();
+            AddResult addResult = AddResult.UnknowFail;
 
-            if (instancePractica.NombrePractica == String.Empty ||
-                instancePractica.NumOrgVincPractica == 0 ||
-                instancePractica.NumPracticantes == 0 ||
-                instancePractica.NumProfesores == 0 ||
-                instancePractica.NumProyectos == 0 ||
-                instancePractica.PeriodoPractica == String.Empty)
+            if (practica.NombrePractica == String.Empty ||
+                practica.NombreOrgVincPractica == String.Empty ||
+                practica.NumEspaciosPractica == 0 ||
+                practica.PeriodoPractica == String.Empty)
             {
                 throw new FormatException("Existen campos vacíos ");
             }
-            if (instanceCheckFields.ValidarNombres(instancePractica.NombrePractica) == CheckFields.ResultadosValidación.NombresInvalidos)
+            if (checkFields.ValidarNombres(practica.NombrePractica) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
-                throw new FormatException("Nombre inválido " + instancePractica.NombrePractica);
+                throw new FormatException("Nombre inválido " + practica.NombrePractica);
             }
             else
             {
-                instanceAddResult = AddResult.Success;
+                addResult = AddResult.Success;
             }
-            return instanceAddResult;
+            return addResult;
         }
 
 
@@ -44,121 +42,141 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 
 
 
-        public AddResult AddPractica(Practica instancePractica)
+        public AddResult AddPractica(Practica practica)
         {
-            AddResult instanceAddResult = AddResult.UnknowFail;
-            DbConnection instanceDbConnection = new DbConnection();
+            AddResult addResult = AddResult.UnknowFail;
+            DbConnection dbConnection = new DbConnection();
             AddResult checkForEmpty = AddResult.UnknowFail;
             try
             {
-                checkForEmpty = CheckObjectPractica(instancePractica);
+                checkForEmpty = CheckObjectPractica(practica);
             }
             catch (ArgumentNullException)
             {
-                instanceAddResult = AddResult.NullObject;
-                return instanceAddResult;
+                addResult = AddResult.NullObject;
+                return addResult;
             }
             catch (FormatException ex)
             {
                 throw ex;
             }
-            using (SqlConnection instanceSqlConnection = instanceDbConnection.GetConnection())
+            using (SqlConnection sqlConnection = dbConnection.GetConnection())
             {
-                instanceSqlConnection.Open();
-                using (SqlCommand instanceSqlCommand = new SqlCommand("INSERT INTO dbo.Practica VALUES(@Nombre, @NumOrgVincPractica, @NumPracticantes, @NumProfesores, @NumProyectos, @Periodo)", instanceSqlConnection))
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO dbo.Practica VALUES(@Nombre, " +
+                                                "@NumOrgVincPractica, @NumPracticantes, @Periodo)", sqlConnection))
                 {
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@Id", instancePractica.NombrePractica));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@Nombre", instancePractica.NumOrgVincPractica));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@DiaEntrega", instancePractica.NumPracticantes));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@MesEntrega", instancePractica.NumProfesores));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@AñoEntrega", instancePractica.NumProyectos));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@Valor", instancePractica.PeriodoPractica));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Nombre", practica.NombrePractica));
+                    sqlCommand.Parameters.Add(new SqlParameter("@NombreOrgVinc", practica.NombreOrgVincPractica));
+                    sqlCommand.Parameters.Add(new SqlParameter("@NumEspacios", practica.NumEspaciosPractica));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Periodo", practica.PeriodoPractica));
                     try
                     {
-                        instanceSqlCommand.ExecuteNonQuery();
+                        sqlCommand.ExecuteNonQuery();
                     }
                     catch (SqlException)
                     {
-                        instanceAddResult = AddResult.SQLFail;
-                        return instanceAddResult;
+                        addResult = AddResult.SQLFail;
+                        return addResult;
                     }
-                    instanceAddResult = AddResult.Success;
+                    addResult = AddResult.Success;
                 }
-                instanceSqlConnection.Close();
+                sqlConnection.Close();
             }
-            return instanceAddResult;
+            return addResult;
         }
 
         public List<Practica> GetPractica()
         {
 
-            List<Practica> instanceListaPractica = new List<Practica>();
-            DbConnection instanceDbConnection = new DbConnection();
-            using (SqlConnection instanceSqlConnection = instanceDbConnection.GetConnection())
+            List<Practica> listPractica = new List<Practica>();
+            DbConnection dbConnection = new DbConnection();
+            using (SqlConnection sqlConnection = dbConnection.GetConnection())
             {
                 try
                 {
-                    instanceSqlConnection.Open();
+                    sqlConnection.Open();
                 }
                 catch (SqlException ex)
                 {
                     throw (ex);
                 }
-                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM dbo.Practica", instanceSqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM dbo.Practica", sqlConnection))
                 {
-                    SqlDataReader reader = instanceSqlCommand.ExecuteReader();
-                    while (reader.Read())
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
                     {
-                        Practica instancePractica = new Practica();
+                        Practica practica = new Practica();
 
-                        instancePractica.NombrePractica = reader["Id"].ToString();
-                        instancePractica.NumOrgVincPractica = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instancePractica.NumPracticantes = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instancePractica.NumProfesores = Convert.ToInt16(reader["DiaEntrega"].ToString());
-                        instancePractica.NumProyectos = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instancePractica.PeriodoPractica = reader["Valor"].ToString();
+                        practica.NombrePractica = sqlDataReader["Nombre"].ToString();
+                        practica.NombreOrgVincPractica = sqlDataReader["NombreOrgVinc"].ToString();
+                        practica.NumEspaciosPractica = Convert.ToInt32(sqlDataReader["NumEspacios"].ToString());
+                        practica.PeriodoPractica = sqlDataReader["Periodo"].ToString();
 
-                        instanceListaPractica.Add (instancePractica);
+                        listPractica.Add(practica);
                     }
                 }
-                instanceSqlConnection.Close();
+                sqlConnection.Close();
             }
-            return instanceListaPractica;
+            return listPractica;
         }
 
 
 
         public Practica GetPracticaNombre(String toSearchInBD)
         {
-            Practica instancePractica = new Practica();
-            DbConnection instanceDbConnection = new DbConnection();
-            using (SqlConnection instanceSqlConnection = instanceDbConnection.GetConnection())
+            Practica practica = new Practica();
+            DbConnection dbConnection = new DbConnection();
+            using (SqlConnection sqlConnection = dbConnection.GetConnection())
             {
                 try
                 {
-                    instanceSqlConnection.Open();
+                    sqlConnection.Open();
                 }
                 catch (SqlException ex)
                 {
                     throw (ex);
                 }
-                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM dbo.Practica WHERE Nombre = @NombreToSearch", instanceSqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM dbo.Practica WHERE Nombre = @NombreToSearch", sqlConnection))
                 {
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("NombreToSearch", toSearchInBD));
-                    SqlDataReader reader = instanceSqlCommand.ExecuteReader();
-                    while (reader.Read())
+                    sqlCommand.Parameters.Add(new SqlParameter("NombreToSearch", toSearchInBD));
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
                     {
-                        instancePractica.NombrePractica = reader["Id"].ToString();
-                        instancePractica.NumOrgVincPractica = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instancePractica.NumPracticantes = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instancePractica.NumProfesores = Convert.ToInt16(reader["DiaEntrega"].ToString());
-                        instancePractica.NumProyectos = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instancePractica.PeriodoPractica = reader["Valor"].ToString();
+                        practica.NombrePractica = sqlDataReader["Nombre"].ToString();
+                        practica.NombreOrgVincPractica = sqlDataReader["NombreOrgVinc"].ToString();
+                        practica.NumEspaciosPractica = Convert.ToInt16(sqlDataReader["NumEspacios"].ToString());
+                        practica.PeriodoPractica = sqlDataReader["Periodo"].ToString();
                     }
                 }
-                instanceSqlConnection.Close();
+                sqlConnection.Close();
             }
-            return instancePractica;
+            return practica;
+        }
+
+        public AddResult DeletePracticaNombre(String toSearchInBD)
+        {
+            AddResult addResult = AddResult.UnknowFail;
+            DbConnection dbConnection = new DbConnection();
+            using (SqlConnection sqlConnection = dbConnection.GetConnection())
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (SqlException ex)
+                {
+                    throw (ex);
+                }
+                using (SqlCommand sqlCommand = new SqlCommand("DELETE FROM dbo.Practica WHERE Nombre = @IdToSearch", sqlConnection))
+                {
+                    sqlCommand.Parameters.Add(new SqlParameter("NombrePracticaToSearch", toSearchInBD));
+                    sqlCommand.ExecuteNonQuery();
+                    addResult = AddResult.Success;
+                }
+                sqlConnection.Close();
+            }
+            return addResult;
         }
 
     }

@@ -20,6 +20,9 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
             NombresValidos,
             NombresInvalidos,
 
+            NombreArtefactoValido,
+            NombreArtefactoInvalido,
+
             NúmeroInválido,
             NúmeroVálido,
 
@@ -68,6 +71,16 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
                 return ResultadosValidación.NombresValidos;
             }
             return ResultadosValidación.NombresInvalidos;
+        }
+
+        public ResultadosValidación ValidarNombreArtefacto(string nombre)
+        {
+            string ValidChar = @"^(?=.*[a-z])(?=.*[A-Z]).{3,35}$";
+            if (Regex.IsMatch(nombre, ValidChar))
+            {
+                return ResultadosValidación.NombreArtefactoValido;
+            }
+            return ResultadosValidación.NombreArtefactoInvalido;
         }
 
         public ResultadosValidación ValidarNúmero(string númeroInt)

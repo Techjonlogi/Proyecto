@@ -28,7 +28,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             {
                 throw new FormatException("Existen campos vacíos ");
             }
-            if (instanceCheckFields.ValidarNombres(instanceActividad.NombreActividad) == CheckFields.ResultadosValidación.NombresInvalidos)
+            if (instanceCheckFields.ValidarNombreArtefacto(instanceActividad.NombreActividad) == CheckFields.ResultadosValidación.NombreArtefactoInvalido)
             {
                 throw new FormatException("Nombre inválido " + instanceActividad.NombreActividad);
             }
@@ -109,16 +109,16 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     SqlDataReader reader = instanceSqlCommand.ExecuteReader();
                     while (reader.Read())
                     {
-                        Actividad instanceActividad = new Actividad();
+                        Actividad actividad = new Actividad();
 
-                        instanceActividad.IdActividad = reader["Id"].ToString();
-                        instanceActividad.NombreActividad = reader["Nombre"].ToString();
-                        instanceActividad.DiaEntregaActividad = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instanceActividad.MesEntregaActividad = Convert.ToInt32(reader["MesEntrega"].ToString());
-                        instanceActividad.AñoEntregaActividad = reader["AñoEntrega"].ToString();
-                        instanceActividad.ValorActividad = Convert.ToDouble(reader["Valor"].ToString());
+                        actividad.IdActividad = reader["Id"].ToString();
+                        actividad.NombreActividad = reader["Nombre"].ToString();
+                        actividad.DiaEntregaActividad = Convert.ToInt32(reader["DiaEntrega"].ToString());
+                        actividad.MesEntregaActividad = Convert.ToInt32(reader["MesEntrega"].ToString());
+                        actividad.AñoEntregaActividad = reader["AñoEntrega"].ToString();
+                        actividad.ValorActividad = Convert.ToDouble(reader["Valor"].ToString());
 
-                        instanceListaActividad.Add (instanceActividad);
+                        instanceListaActividad.Add(actividad);
                     }
                 }
                 instanceSqlConnection.Close();
@@ -159,6 +159,31 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 instanceSqlConnection.Close();
             }
             return instanceActividad;
+        }
+
+        public AddResult DeleteActividadID(String toSearchInBD)
+        {
+            AddResult result = AddResult.UnknowFail;
+            DbConnection dbconnection = new DbConnection();
+            using (SqlConnection connection = dbconnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                }
+                catch (SqlException ex)
+                {
+                    throw (ex);
+                }
+                using (SqlCommand instancecommand = new SqlCommand("DELETE FROM dbo.Actividad WHERE  Id = @IdToSearch", connection))
+                {
+                    instancecommand.Parameters.Add(new SqlParameter("IdActividadToSearch", toSearchInBD));
+                    instancecommand.ExecuteNonQuery();
+                    result = AddResult.Success;
+                }
+                connection.Close();
+            }
+            return result;
         }
 
     }
