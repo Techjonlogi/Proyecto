@@ -136,14 +136,9 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void botonCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void comboPeriodo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

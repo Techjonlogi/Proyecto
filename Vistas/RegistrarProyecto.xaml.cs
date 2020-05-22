@@ -23,5 +23,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         {
             InitializeComponent();
         }
+
+        
     }
 }
