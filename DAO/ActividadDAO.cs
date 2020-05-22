@@ -39,9 +39,6 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             return instanceAddResult;
         }
 
-        sfasfasf
-
-
 
 
         public AddResult AddActividad(Actividad instanceActividad)
