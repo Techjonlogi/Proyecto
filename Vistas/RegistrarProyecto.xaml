@@ -32,10 +32,8 @@
         <TextBox HorizontalAlignment="Left" Height="143" Margin="623,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
         <TextBox HorizontalAlignment="Left" Height="81" Margin="623,641,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="231,467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="231,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
         <TextBox HorizontalAlignment="Left" Height="44" Margin="231,692,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
         <Button Content="Registrar" HorizontalAlignment="Left" Margin="130,1077,0,0" VerticalAlignment="Top" Width="146" Height="54"/>
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="692,1077,0,0" VerticalAlignment="Top" Width="146" Height="54
                 "/>

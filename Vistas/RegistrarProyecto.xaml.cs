@@ -26,6 +26,8 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         {
             InitializeComponent();
             LlenarOrganizaciones();
+            LlenarCoordinadores():
+
 
         }
 
@@ -44,10 +46,10 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
         }
 
-        public void Coordinadores()
+        public void LlenarCoordinadores()
         {
             CoordinadorController cordinadorController = new CoordinadorController();
-            List<Coordinador> cordinadores = cordinadorController.GetCorodinadores();
+            List<Coordinador> cordinadores = cordinadorController.GetCoordinador();
             if (!cordinadores.Any())
             {
                 MessageBox.Show("No se encontraron organizaciones");
