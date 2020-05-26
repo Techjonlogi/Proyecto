@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Sistema_de_Prácticas_Profesionales.Controller;
+using Sistema_de_Prácticas_Profesionales.Pojos.OrganizacionVinculada;
+using Sistema_de_Prácticas_Profesionales.Pojos.Coordinador;
 
 namespace Sistema_de_Prácticas_Profesionales.Vistas
 {
@@ -22,8 +25,41 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         public RegistrarProyecto()
         {
             InitializeComponent();
+            LlenarOrganizaciones();
+
         }
 
-        
+        public void LlenarOrganizaciones()
+        {
+            OrganizacionVinculadaController controladorOrganización = new OrganizacionVinculadaController();
+            List<OrganizacionVinculada> organizaciones = controladorOrganización.GetOrganizacion();
+            if (!organizaciones.Any())
+            {
+                MessageBox.Show("No se encontraron organizaciones");
+            }
+            else
+            {
+                comboOrganizaciones.ItemsSource = organizaciones;
+            }
+
+        }
+
+        public void Coordinadores()
+        {
+            CoordinadorController cordinadorController = new CoordinadorController();
+            List<Coordinador> cordinadores = cordinadorController.GetCorodinadores();
+            if (!cordinadores.Any())
+            {
+                MessageBox.Show("No se encontraron organizaciones");
+            }
+            else
+            {
+                comboCordinador.ItemsSource = cordinadores;
+            }
+
+        }
+
+
+
     }
 }
