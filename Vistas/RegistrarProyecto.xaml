@@ -22,12 +22,12 @@
         <TextBlock HorizontalAlignment="Left" Margin="53,874,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="51,941,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Nombre"/><Run Text=" y apellidos"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="55,693,0,0" TextWrapping="Wrap" Text="Metodologia" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="53,194,0,0" TextWrapping="Wrap" Text="organizacion" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,194,0,0" TextWrapping="Wrap" Text="organizacion" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="468,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Coordinador"/><Run Text=" Encargado"/></TextBlock>
         <TextBox HorizontalAlignment="Left" Height="36" Margin="623,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
-        <ComboBox HorizontalAlignment="Left" Margin="231,194,0,0" VerticalAlignment="Top" Width="164"/>
+        <ComboBox x:Name="comboOrganizaciones" HorizontalAlignment="Left" Margin="231,194,0,0" VerticalAlignment="Top" Width="164"/>
         <TextBox HorizontalAlignment="Left" Height="36" Margin="231,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
-        <ComboBox HorizontalAlignment="Left" Margin="623,194,0,0" VerticalAlignment="Top" Width="158"/>
+        <ComboBox x:Name="comboCordinador" HorizontalAlignment="Left" Margin="623,194,0,0" VerticalAlignment="Top" Width="158"/>
         <TextBox HorizontalAlignment="Left" Height="157" Margin="616,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" />
         <TextBox HorizontalAlignment="Left" Height="143" Margin="623,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
         <TextBox HorizontalAlignment="Left" Height="81" Margin="623,641,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
