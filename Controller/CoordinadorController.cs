@@ -54,5 +54,11 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             return coordinadorDAO.GetNoPersonalCoordinador(noPersonal);
         }
 
+        public List<Coordinador> GetCoordinador()
+        {
+            CoordinadorDAO coordinador = new CoordinadorDAO();
+            List<Coordinador> list = coordinador.GetCoordinador();
+            return list;
+        }
     }
 }
