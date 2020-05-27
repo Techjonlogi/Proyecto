@@ -9,7 +9,7 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="75,32,0,0" TextWrapping="Wrap" Text="Ingrese los datos del proyecto a registrar" VerticalAlignment="Top" Height="31" Width="365" FontWeight="Bold" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="63,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="125" Text="Clave del Proyecto"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="231,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+        <TextBox x:Name="textBoxClaveProyecto" HorizontalAlignment="Left" Height="28" Margin="231,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
         <TextBlock HorizontalAlignment="Left" Margin="481,662,0,0" TextWrapping="Wrap" Text="Responsabilidades" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="51,596,0,0" TextWrapping="Wrap" Text="Actividad" VerticalAlignment="Top" RenderTransformOrigin="-1.495,1.598"/>
         <TextBlock HorizontalAlignment="Left" Margin="55,307,0,0" TextWrapping="Wrap" Text="Duracion" VerticalAlignment="Top"/>
@@ -24,22 +24,24 @@
         <TextBlock HorizontalAlignment="Left" Margin="55,693,0,0" TextWrapping="Wrap" Text="Metodologia" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,194,0,0" TextWrapping="Wrap" Text="organizacion" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="468,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Coordinador"/><Run Text=" Encargado"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="623,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="textBoxNombreProyecto" HorizontalAlignment="Left" Height="36" Margin="623,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" TextChanged="TextBox_TextChanged"/>
         <ComboBox x:Name="comboOrganizaciones" HorizontalAlignment="Left" Margin="231,194,0,0" VerticalAlignment="Top" Width="164"/>
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="231,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+        <TextBox x:Name="textBoxDuracion" HorizontalAlignment="Left" Height="36" Margin="231,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
         <ComboBox x:Name="comboCordinador" HorizontalAlignment="Left" Margin="623,194,0,0" VerticalAlignment="Top" Width="158"/>
-        <TextBox HorizontalAlignment="Left" Height="157" Margin="616,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" />
-        <TextBox HorizontalAlignment="Left" Height="143" Margin="623,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
-        <TextBox HorizontalAlignment="Left" Height="81" Margin="623,641,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="231,467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="231,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
-        <TextBox HorizontalAlignment="Left" Height="44" Margin="231,692,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
-        <Button Content="Registrar" HorizontalAlignment="Left" Margin="130,1077,0,0" VerticalAlignment="Top" Width="146" Height="54"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="692,1077,0,0" VerticalAlignment="Top" Width="146" Height="54
-                "/>
-        <TextBox HorizontalAlignment="Left" Height="32" Margin="179,798,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="179,876,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="179,941,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+        <TextBox x:Name="textBoxObjetivoGeneral" HorizontalAlignment="Left" Height="157" Margin="616,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" />
+        <TextBox x:Name="textBoxObjetivoMediato" HorizontalAlignment="Left" Height="143" Margin="623,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
+        <TextBox x:Name="textBoxresponsabilidades" HorizontalAlignment="Left" Height="81" Margin="623,641,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
+        <TextBox x:Name="textBoxDescripcion" HorizontalAlignment="Left" Height="30" Margin="231,467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+        <TextBox x:Name="textBoxActividad" HorizontalAlignment="Left" Height="33" Margin="231,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+        <TextBox x:Name="textBoxMetodologia" HorizontalAlignment="Left" Height="44" Margin="231,692,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+        <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="130,1077,0,0" VerticalAlignment="Top" Width="146" Height="54" Click="btnRegistrar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="692,1077,0,0" VerticalAlignment="Top" Width="146" Height="54
+                " Click="btnCancelar_Click"/>
+        <TextBox x:Name="textBoxCargoEncargado" HorizontalAlignment="Left" Height="32" Margin="179,798,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="textBoxEmailEncargado" HorizontalAlignment="Left" Height="31" Margin="179,876,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="textBoxNombreyapellidosResponsable" HorizontalAlignment="Left" Height="31" Margin="179,941,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+        <TextBlock HorizontalAlignment="Left" Margin="468,741,0,0" TextWrapping="Wrap" Text="Recursos" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxRecursos" HorizontalAlignment="Left" Height="39" Margin="634,764,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
 
     </Grid>
 </Window>
