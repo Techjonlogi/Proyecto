@@ -23,5 +23,32 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
         {
             InitializeComponent();
         }
+
+
+
+
+
+        private void buttonEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Agregar_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarCoordinador RC = new RegistrarCoordinador();
+            RC.Show();
+            this.Close();
+        }
+
+       
+
+
+
+
+
+
+
+
+
     }
 }

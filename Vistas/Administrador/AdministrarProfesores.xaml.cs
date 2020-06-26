@@ -23,5 +23,12 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
         {
             InitializeComponent();
         }
+
+        private void Agregar_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarProfesor RP = new RegistrarProfesor();
+            RP.Show();
+            this.Close();
+        }
     }
 }

@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="AdministrarCoordinadores" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Agregar" Content="Agregar" HorizontalAlignment="Left" Margin="109,366,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="buttonEliminar"  Content="Eliminar" HorizontalAlignment="Left" Margin="597,366,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Agregar" Content="Agregar" HorizontalAlignment="Left" Margin="109,366,0,0" VerticalAlignment="Top" Width="75" Click="Agregar_Click"/>
+        <Button x:Name="buttonEliminar"  Content="Eliminar" HorizontalAlignment="Left" Margin="597,366,0,0" VerticalAlignment="Top" Width="75" Click="buttonEliminar_Click"/>
         <ListBox x:Name="listBoxCoordinadores" HorizontalAlignment="Left" Height="199" Margin="85,121,0,0" VerticalAlignment="Top" Width="612" BorderBrush="Black" Background="#FFCBCBEE" Foreground="{x:Null}">
         </ListBox>
         <Button x:Name="buttonRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="711,27,0,0" VerticalAlignment="Top" Width="49" Height="49"/>

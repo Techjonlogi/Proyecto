@@ -20,10 +20,10 @@
         <TextBlock HorizontalAlignment="Left" Margin="73,368,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="73,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Repetir contraseña"/><LineBreak/><Run/></TextBlock>
         <PasswordBox HorizontalAlignment="Left" Margin="703.388,329,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="alumnoPassword" HorizontalAlignment="Left" Margin="221,368,0,0" VerticalAlignment="Top" Height="24" Width="246"/>
-        <PasswordBox x:Name="alumnoPasswordRepite" HorizontalAlignment="Left" Margin="221,426,0,0" VerticalAlignment="Top" Height="21" Width="249"/>
+        <PasswordBox x:Name="CoordinadorPassword" HorizontalAlignment="Left" Margin="221,368,0,0" VerticalAlignment="Top" Height="24" Width="246"/>
+        <PasswordBox x:Name="CoordinadorPasswordRepite" HorizontalAlignment="Left" Margin="221,426,0,0" VerticalAlignment="Top" Height="21" Width="249"/>
         <TextBox x:Name="textboxCubiculo" HorizontalAlignment="Left" Height="23" Margin="221,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249"/>
-        <Button x:Name="buttonRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="127,517,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="buttonRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="127,517,0,0" VerticalAlignment="Top" Width="75" Click="buttonRegistrar_Click"/>
         <Button x:Name="buttonRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="472,517,0,0" VerticalAlignment="Top" Width="74" Height="19"/>
 
     </Grid>
