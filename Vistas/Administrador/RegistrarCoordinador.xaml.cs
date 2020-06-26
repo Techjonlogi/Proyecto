@@ -66,7 +66,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             }
             else if (validarCampos.ValidarMatricula(textboxNoPersonal.Text) == Logica.CheckFields.ResultadosValidación.MatriculaInvalida)
             {
-                MessageBox.Show("Formato de matricula incorrecto");
+                MessageBox.Show("Numero de personal incorrecto");
             }
             else if (validarCampos.ValidarContraseña(CoordinadorPassword.Password) == Logica.CheckFields.ResultadosValidación.ContraseñaInvalida)
             {
@@ -96,7 +96,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             }
             else if (result == OperationResult.ExistingRecord)
             {
-                MessageBox.Show("El alumno ya existe en el sistema");
+                MessageBox.Show("El Coordiandor ya existe en el sistema");
             }
         }
 
