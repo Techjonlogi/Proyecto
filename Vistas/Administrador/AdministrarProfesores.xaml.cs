@@ -92,7 +92,6 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
                 UpdateGrid();
             }
             else MessageBox.Show("Debe seleccionar un celda valida para eliminar");
-
         }
     }
 }
