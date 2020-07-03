@@ -24,7 +24,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="55,693,0,0" TextWrapping="Wrap" Text="Metodologia" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,194,0,0" TextWrapping="Wrap" Text="organizacion" VerticalAlignment="Top" Height="19" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Margin="468,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Coordinador"/><Run Text=" Encargado"/></TextBlock>
-        <TextBox x:Name="textBoxNombreProyecto" HorizontalAlignment="Left" Height="36" Margin="623,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="textBoxNombreProyecto" HorizontalAlignment="Left" Height="36" Margin="623,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
         <ComboBox x:Name="comboOrganizaciones" HorizontalAlignment="Left" Margin="231,194,0,0" VerticalAlignment="Top" Width="164"/>
         <TextBox x:Name="textBoxDuracion" HorizontalAlignment="Left" Height="36" Margin="231,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
         <ComboBox x:Name="comboCordinador" HorizontalAlignment="Left" Margin="623,194,0,0" VerticalAlignment="Top" Width="158"/>
