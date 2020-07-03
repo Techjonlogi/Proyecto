@@ -15,6 +15,19 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
 {
     public class ProfesorController
     {
+
+
+
+        public enum OperationResult
+        {
+            Success,
+            NullCoordinador,
+            InvaliCoordinador,
+            UnknowFail,
+            SQLFail,
+            ExistingRecord
+
+        }
         /// <summary>Crea objetos coordinador y usuario para comunicarlos con los dao</summary>
         /// <param name="nombre"> Nombre.</param>
         /// <param name="númeroPersonal">número personal.</param>
@@ -22,11 +35,11 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         /// <param name="correo">correo.</param>
         /// <param name="contraseña"> contraseña.</param>
         /// <returns>Resultado de la operación</returns>
-        public AddResult AñadirCoordinador(string idprofesor, string diasenservicio, string nombresprofesor, String apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string correo)
+        public AddResult AñadirCoordinador(string idprofesor, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string correo)
         {
             ProfesorDAO instanceProfesorDAO = new ProfesorDAO();
             UsuarioDao usuarioDAO = new UsuarioDao();
-            Profesor instanceProfesor = new Profesor(idprofesor,diasenservicio,nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro, fechadebaja);
+            Profesor instanceProfesor = new Profesor(idprofesor,nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro,fechadebaja);
             DateTime dateTime = DateTime.Now;
             Usuario instanceUsuario = new Usuario(idprofesor, contraseña, "Coordinador", dateTime, nombresprofesor,correo);
             if (instanceProfesorDAO.AddProfesor(instanceProfesor) == AddResult.Success && usuarioDAO.AddUsuario(instanceUsuario) == AddResult.Success)
@@ -37,6 +50,17 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
 
         }
 
+        public List<Profesor> GetProfesor()
+        {
+            ProfesorDAO dao = new ProfesorDAO();
+            List<Profesor> list = dao.GetProfesor();
+            return list;
+        }
+        public OperationResult DeleteProfesor(String Matricula)
+        {
+           ProfesorDAO dao = new ProfesorDAO();
+            return (OperationResult)dao.DeleteProfesorByID(Matricula);
+        }
 
     }
 }

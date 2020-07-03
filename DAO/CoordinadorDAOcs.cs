@@ -176,5 +176,30 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             return coordinador;
         }
 
+        public AddResult DeleteCoordiandorpornumerodePersonal(String toSearchInBD)
+        {
+            AddResult result = AddResult.UnknowFail;
+            DbConnection dbconnection = new DbConnection();
+            using (SqlConnection connection = dbconnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                }
+                catch (SqlException ex)
+                {
+                    throw (ex);
+                }
+                using (SqlCommand command = new SqlCommand("DELETE FROM dbo.coordinador WHERE NumdePersonal = @Numeroabuscar", connection))
+                {
+                    command.Parameters.Add(new SqlParameter("Numeroabuscar", toSearchInBD));
+                    command.ExecuteNonQuery();
+                    result = AddResult.Success;
+                }
+                connection.Close();
+            }
+            return result;
+        }
+
     }
 }

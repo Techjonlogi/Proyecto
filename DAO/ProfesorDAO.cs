@@ -20,7 +20,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             CheckFields validarCampos = new CheckFields();
             AddResult result = AddResult.UnknowFail;
             if (profesor.IdProfesor == String.Empty ||
-                profesor.DiasEnServicioProfesor == String.Empty ||
+                
                 profesor.NombresProfesor == String.Empty ||
                 profesor.ApellidoPaternoProfesor == String.Empty ||
                 profesor.ApellidoMaternoProfesor == String.Empty ||
@@ -72,7 +72,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Profesor VALUES(@NumdePersonal, @DiasenServicio, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Usuario, @Contraseña, @FechadeRegistro, @FechadeBaja)", connection))
                 {
                     command.Parameters.Add(new SqlParameter("@NumdePersonal", profesor.IdProfesor));
-                    command.Parameters.Add(new SqlParameter("@DiasenServicio", profesor.DiasEnServicioProfesor));
+                    
                     command.Parameters.Add(new SqlParameter("@Nombres", profesor.NombresProfesor));
                     command.Parameters.Add(new SqlParameter("@ApellidoPaterno", profesor.ApellidoPaternoProfesor));
                     command.Parameters.Add(new SqlParameter("@ApellidoMaterno", profesor.ApellidoMaternoProfesor));
@@ -120,7 +120,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         Profesor profesor = new Profesor();
 
                         profesor.IdProfesor = reader["IdProfesor"].ToString();
-                        profesor.DiasEnServicioProfesor = reader["DiasenServicio"].ToString();
+                       
                         profesor.NombresProfesor = reader["Nombres"].ToString();
                         profesor.ApellidoPaternoProfesor = reader["ApellidoPaterno"].ToString();
                         profesor.ApellidoMaternoProfesor = reader["ApellidoMaterno"].ToString();
@@ -157,7 +157,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     while (reader.Read())
                     {
                         profesor.IdProfesor = reader["NumdePersonal"].ToString();
-                        profesor.DiasEnServicioProfesor = reader["DiasenServicio"].ToString();
+                        
                         profesor.NombresProfesor = reader["Nombres"].ToString();
                         profesor.ApellidoPaternoProfesor = reader["ApellidoPaterno"].ToString();
                         profesor.ApellidoMaternoProfesor = reader["Materno"].ToString();

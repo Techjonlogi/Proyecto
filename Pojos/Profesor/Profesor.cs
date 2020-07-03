@@ -10,7 +10,7 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Profesor
     public class Profesor
     {
         private String idProfesor;
-        private String diasEnServicioProfesor;
+       
         private String nombresProfesor;
         private String apellidoPaternoProfesor;
         private String apellidoMaternoProfesor;
@@ -23,7 +23,7 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Profesor
 
         public String IdProfesor { get => idProfesor; set => idProfesor = value; }
 
-        public String DiasEnServicioProfesor { get => diasEnServicioProfesor; set => diasEnServicioProfesor = value; }
+        
 
         public String NombresProfesor { get => nombresProfesor; set => nombresProfesor = value; }
 
@@ -39,9 +39,9 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Profesor
 
         public String FechaBajaProfesor { get => fechaBajaProfesor; set => fechaBajaProfesor = value; }
 
-        public Profesor(string idprofesor, string diasenservicio, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja) {
+        public Profesor(string idprofesor,string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja) {
             this.idProfesor = idprofesor;
-            this.diasEnServicioProfesor = diasenservicio;
+            
             this.nombresProfesor = nombresprofesor;
             this.apellidoMaternoProfesor = apellidomaterno;
             this.apellidoPaternoProfesor = apellidopaterno;

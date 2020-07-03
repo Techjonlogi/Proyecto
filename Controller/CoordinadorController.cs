@@ -60,5 +60,10 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             List<Coordinador> list = coordinador.GetCoordinador();
             return list;
         }
+        public OperationResult DeleteCoordinador(String Matricula)
+        {
+            CoordinadorDAO DAO = new CoordinadorDAO();
+            return (OperationResult)DAO.DeleteCoordiandorpornumerodePersonal(Matricula);
+        }
     }
 }
