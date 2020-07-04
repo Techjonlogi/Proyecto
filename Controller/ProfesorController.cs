@@ -35,13 +35,13 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         /// <param name="correo">correo.</param>
         /// <param name="contraseña"> contraseña.</param>
         /// <returns>Resultado de la operación</returns>
-        public AddResult AñadirCoordinador(string idprofesor, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string correo)
+        public AddResult AñadirProfesor(string idprofesor, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string turno, string correo)
         {
             ProfesorDAO instanceProfesorDAO = new ProfesorDAO();
             UsuarioDao usuarioDAO = new UsuarioDao();
-            Profesor instanceProfesor = new Profesor(idprofesor,nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro,fechadebaja);
+            Profesor instanceProfesor = new Profesor(idprofesor,nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro,fechadebaja,turno);
             DateTime dateTime = DateTime.Now;
-            Usuario instanceUsuario = new Usuario(idprofesor, contraseña, "Coordinador", dateTime, nombresprofesor,correo);
+            Usuario instanceUsuario = new Usuario(idprofesor, contraseña, "Profesor", dateTime, nombresprofesor,correo);
             if (instanceProfesorDAO.AddProfesor(instanceProfesor) == AddResult.Success && usuarioDAO.AddUsuario(instanceUsuario) == AddResult.Success)
             {
                 return AddResult.Success;

@@ -32,16 +32,12 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarMatricula(profesor.IdProfesor) == CheckFields.ResultadosValidación.MatriculaInvalida)
+            if (validarCampos.ValidarNumeropersonal(profesor.IdProfesor) == CheckFields.ResultadosValidación.NúmeroInválido)
             {
                 throw new FormatException("Numero invalido " + profesor.IdProfesor);
             }
             else
-            if (validarCampos.ValidarNombres(profesor.NombresProfesor) == CheckFields.ResultadosValidación.NombresInvalidos)
-            {
-                throw new FormatException("Nombre inválido " + profesor.NombresProfesor);
-            }
-            else
+
             {
                 result = AddResult.Success;
             }
@@ -69,7 +65,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Profesor VALUES(@NumdePersonal, @DiasenServicio, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Usuario, @Contraseña, @FechadeRegistro, @FechadeBaja)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.profesor VALUES(@NumdePersonal, @FechadeRegistro, @Contraseña, @Turno, @FechadeBaja, @Nombres, @ApellidoPaterno, @ApellidoMaterno)", connection))
                 {
                     command.Parameters.Add(new SqlParameter("@NumdePersonal", profesor.IdProfesor));
                     
@@ -80,6 +76,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     command.Parameters.Add(new SqlParameter("@Contraseña", profesor.ContraseñaProfesor));
                     command.Parameters.Add(new SqlParameter("@FechadeRegistro", profesor.FechaRegistroProfesor));
                     command.Parameters.Add(new SqlParameter("@FechadeBaja", profesor.FechaBajaProfesor));
+                    command.Parameters.Add(new SqlParameter("@Turno", profesor.Turno));
                     try
                     {
                         command.ExecuteNonQuery();
@@ -112,20 +109,21 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Profesor", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.profesor", connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         Profesor profesor = new Profesor();
 
-                        profesor.IdProfesor = reader["IdProfesor"].ToString();
+                        profesor.IdProfesor = reader["NumdePersonal"].ToString();
                        
                         profesor.NombresProfesor = reader["Nombres"].ToString();
-                        profesor.ApellidoPaternoProfesor = reader["ApellidoPaterno"].ToString();
-                        profesor.ApellidoMaternoProfesor = reader["ApellidoMaterno"].ToString();
-                        profesor.UsuarioProfesor = reader["Usuario"].ToString();
-                        profesor.ContraseñaProfesor = reader["contraseña"].ToString();
+                        profesor.ApellidoPaternoProfesor = reader["apellidoPaterno"].ToString();
+                        profesor.ApellidoMaternoProfesor = reader["apellidoMaterno"].ToString();
+                        profesor.UsuarioProfesor = reader["NumdePersonal"].ToString();
+                        
+                        profesor.Turno = reader["turno"].ToString();
                         profesor.FechaRegistroProfesor = reader["FechadeRegistro"].ToString();
                         profesor.FechaBajaProfesor = reader["FechadeBaja"].ToString();
                         listaProfesor.Add(profesor);
@@ -150,7 +148,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Profesor WHERE NumdePersonal = @NumdePersonalToSearch", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.profesor WHERE NumdePersonal = @NumdePersonalToSearch", connection))
                 {
                     command.Parameters.Add(new SqlParameter("NumdePersonalToSearch", toSearchInBD));
                     SqlDataReader reader = command.ExecuteReader();
@@ -159,10 +157,9 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         profesor.IdProfesor = reader["NumdePersonal"].ToString();
                         
                         profesor.NombresProfesor = reader["Nombres"].ToString();
-                        profesor.ApellidoPaternoProfesor = reader["ApellidoPaterno"].ToString();
-                        profesor.ApellidoMaternoProfesor = reader["Materno"].ToString();
-                        profesor.UsuarioProfesor = reader["Usuario"].ToString();
-                        profesor.ContraseñaProfesor = reader["contraseña"].ToString();
+                        profesor.ApellidoPaternoProfesor = reader["apellidoPaterno"].ToString();
+                        profesor.ApellidoMaternoProfesor = reader["apellidoMaterno"].ToString();
+                        profesor.UsuarioProfesor = reader["usuario"].ToString();
                         profesor.FechaRegistroProfesor = reader["FechaRegistro"].ToString();
                         profesor.FechaBajaProfesor = reader["FechaBaja"].ToString();
 
@@ -187,7 +184,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Profesor WHERE NumdePersonal = @NumdePersonalToSearch", connection))
+                using (SqlCommand command = new SqlCommand("DELETE FROM serviciosocial.profesor WHERE NumdePersonal = @NumdePersonalToSearch", connection))
                 {
                     command.Parameters.Add(new SqlParameter("NumdePersonalToSearch", toSearchInBD));
                     command.ExecuteNonQuery();

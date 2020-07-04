@@ -18,7 +18,8 @@ namespace Conection
         public DbConnection()
 
         {
-            connectionString = ConfigurationManager.ConnectionStrings["ConnectionToSQL"].ConnectionString;
+            connectionString = "Server = localhost; Database = serviciosocial; Integrated Security = true";
+            //connectionString = ConfigurationManager.ConnectionStrings["ConectionSqlServer"].ConnectionString;
 
             connection = new SqlConnection(connectionString);
 

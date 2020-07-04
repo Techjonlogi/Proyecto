@@ -70,9 +70,9 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
                 MessageBox.Show("Existen campos sin llenar");
                 check = ChecResults.Failed;
             }
-            else if (validarCampos.ValidarMatricula(textboxnoPersonal.Text) == Logica.CheckFields.ResultadosValidación.MatriculaInvalida)
+            else if (validarCampos.ValidarNumeropersonal(textboxnoPersonal.Text) == Logica.CheckFields.ResultadosValidación.NúmeroInválido)
             {
-                MessageBox.Show("Formato de matricula incorrecto");
+                MessageBox.Show("numero de personal incorrecto");
             }
             else if (validarCampos.ValidarContraseña(passwordProfesor.Password) == Logica.CheckFields.ResultadosValidación.ContraseñaInvalida)
             {
@@ -112,8 +112,11 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             {
                 if (CheckFields() == ChecResults.Passed)
                 {
-                    PracticanteController practicantecontroller = new PracticanteController();
-                    ComprobarResultado((OperationResult)practicantecontroller.AddAlumno(textboxnoPersonal.Text, textBoxnombres.Text, textBoxAPaterno.Text, textBoxAMaterno.Text, textBoxCorreo.Text,textBoxusuario.Text, passwordProfesor.Password));
+
+                    CoordinadorController coordiandorcontroller = new CoordinadorController();
+                    DateTime fecharegistro = DateTime.Today;
+                    ProfesorController profesorcontroller = new ProfesorController();
+                    ComprobarResultado((OperationResult)profesorcontroller.AñadirProfesor(textboxnoPersonal.Text, textBoxnombres.Text, textBoxAPaterno.Text, textBoxAMaterno.Text, textBoxusuario.Text,passwordProfesor.Password,fecharegistro.ToString(), fecharegistro.ToString(), comboturno.Text,textBoxCorreo.Text));
                 }
             }
             else

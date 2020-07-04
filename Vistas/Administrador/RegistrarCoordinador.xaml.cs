@@ -64,7 +64,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
                 MessageBox.Show("Existen campos sin llenar");
                 check = ChecResults.Failed;
             }
-            else if (validarCampos.ValidarMatricula(textboxNoPersonal.Text) == Logica.CheckFields.ResultadosValidación.MatriculaInvalida)
+            else if (validarCampos.ValidarNumeropersonal(textboxNoPersonal.Text) == Logica.CheckFields.ResultadosValidación.NúmeroInválido)
             {
                 MessageBox.Show("Numero de personal incorrecto");
             }
@@ -108,7 +108,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
                 {
                     CoordinadorController coordiandorcontroller = new CoordinadorController();
                     DateTime fecharegistro =DateTime.Today;
-                    ComprobarResultado((OperationResult)coordiandorcontroller.AddCoordinador(textboxNoPersonal.Text, textboxNombre.Text, textboxAPaterno.Text, textboxAMaterno.Text, textboxNoPersonal.Text, CoordinadorPassword.Password, textboxCubiculo.Text,null,fecharegistro.ToString("d")));
+                    ComprobarResultado((OperationResult)coordiandorcontroller.AddCoordinador(textboxNoPersonal.Text, textboxNombre.Text, textboxAPaterno.Text, textboxAMaterno.Text, textboxusuario.Text, CoordinadorPassword.Password, textboxCubiculo.Text,null,fecharegistro.ToString("d")));
                 }
             }
             else

@@ -71,7 +71,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand instancecommand = new SqlCommand("INSERT INTO dbo.OrganizacionVinculada VALUES(@IdOrganizacion, @NombreEmpresa, @Sector, @UsuarioDirecto, @UsuarioIndirecto, @CorreoElectronico, @Telefono, @Estado, @Ciudad, @Direccion)", connection))
+                using (SqlCommand instancecommand = new SqlCommand("INSERT INTO serviciosocial.OrganizacionVinculada VALUES(@IdOrganizacion, @NombreEmpresa, @Sector, @UsuarioDirecto, @UsuarioIndirecto, @CorreoElectronico, @Telefono, @Estado, @Ciudad, @Direccion)", connection))
                 {
                     instancecommand.Parameters.Add(new SqlParameter("@IdOrganizacion", instanceorganizacion.IdOrganizacion));
                     instancecommand.Parameters.Add(new SqlParameter("@NombreEmpresa", instanceorganizacion.NombreEmpresa));
@@ -115,14 +115,14 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.OrganizacionVinculada", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.OrganizacionVinculada", connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         OrganizacionVinculada instanceorganizacion = new OrganizacionVinculada();
 
-                        instanceorganizacion.IdOrganizacion = reader["IdOrganizacion"].ToString();
+                        instanceorganizacion.IdOrganizacion = reader["idOrganizacion"].ToString();
                         instanceorganizacion.NombreEmpresa = reader["NombreEmpresa"].ToString();
                         instanceorganizacion.Sector = reader["sector"].ToString();
                         instanceorganizacion.UsuarioDirecto = reader["UsuarioDirecto"].ToString();
@@ -130,7 +130,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         instanceorganizacion.CorreoElectronico = reader["CorreoElectronico"].ToString();
                         instanceorganizacion.Telefono = reader["Telefono"].ToString();
                         instanceorganizacion.Estado = reader["Estado"].ToString();
-                        instanceorganizacion.Ciudad = reader["FechadeBaja"].ToString();
+                        instanceorganizacion.Ciudad = reader["Ciudad"].ToString();
                         instanceorganizacion.Direccion = reader["Direccion"].ToString();
                         listaOrganizacion.Add(instanceorganizacion);
                     }
@@ -154,13 +154,13 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.OrganizacionVinculada WHERE IdOrganiazcion = @IdOrganizacionToSearch", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.OrganizacionVinculada WHERE idOrganiazcion = @IdOrganizacionToSearch", connection))
                 {
                     command.Parameters.Add(new SqlParameter("IdOrganizacionToSearch", toSearchInBD));
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        instanceorganizacion.IdOrganizacion = reader["IdOrganizacion"].ToString();
+                        instanceorganizacion.IdOrganizacion = reader["idOrganizacion"].ToString();
                         instanceorganizacion.NombreEmpresa = reader["NombreEmpresa"].ToString();
                         instanceorganizacion.Sector = reader["Sector"].ToString();
                         instanceorganizacion.UsuarioDirecto = reader["UsuarioDirecto"].ToString();
@@ -192,7 +192,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand instancecommand = new SqlCommand("DELETE FROM dbo.OrganizacionVinculada WHERE  IdOrganizacion = @IdOrganizacionToSearch", connection))
+                using (SqlCommand instancecommand = new SqlCommand("DELETE FROM serviciosocial.OrganizacionVinculada WHERE  idOrganizacion = @IdOrganizacionToSearch", connection))
                 {
                     instancecommand.Parameters.Add(new SqlParameter("IdOrganizacionToSearch", toSearchInBD));
                     instancecommand.ExecuteNonQuery();

@@ -65,7 +65,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection instanceSqlConnection = instanceDbConnection.GetConnection())
             {
                 instanceSqlConnection.Open();
-                using (SqlCommand instanceSqlCommand = new SqlCommand("INSERT INTO dbo.Actividad VALUES(@Id, @Nombre @DiaEntrega, @MesEntrega, @AñoEntrega, @Valor)", instanceSqlConnection))
+                using (SqlCommand instanceSqlCommand = new SqlCommand("INSERT INTO serviciosocial.actividad VALUES(@Id, @Nombre, @DiaEntrega, @MesEntrega, @AñoEntrega, @Valor)", instanceSqlConnection))
                 {
                     instanceSqlCommand.Parameters.Add(new SqlParameter("@Id", instanceActividad.IdActividad));
                     instanceSqlCommand.Parameters.Add(new SqlParameter("@Nombre", instanceActividad.NombreActividad));
@@ -104,7 +104,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM dbo.Actividad", instanceSqlConnection))
+                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM serviciosocial.actividad", instanceSqlConnection))
                 {
                     SqlDataReader reader = instanceSqlCommand.ExecuteReader();
                     while (reader.Read())
@@ -142,7 +142,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM dbo.Actividad WHERE Id = @IdToSearch", instanceSqlConnection))
+                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM serviciosocial.actividad WHERE idActividad = @IdToSearch", instanceSqlConnection))
                 {
                     instanceSqlCommand.Parameters.Add(new SqlParameter("IdToSearch", toSearchInBD));
                     SqlDataReader reader = instanceSqlCommand.ExecuteReader();
@@ -175,7 +175,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand instancecommand = new SqlCommand("DELETE FROM dbo.Actividad WHERE  Id = @IdToSearch", connection))
+                using (SqlCommand instancecommand = new SqlCommand("DELETE FROM serviciosocial.actividad WHERE  idActividad = @IdToSearch", connection))
                 {
                     instancecommand.Parameters.Add(new SqlParameter("IdActividadToSearch", toSearchInBD));
                     instancecommand.ExecuteNonQuery();

@@ -70,8 +70,9 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 using (SqlConnection connection = dbConnection.GetConnection())
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Administrador VALUES(@Nombres, @ApellidoPaterno, @ApellidoMaterno, @Usuario, @Contraseña)", connection))
+                    using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.administrador VALUES(@ID, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Usuario, @Contraseña)", connection))
                     {
+                        command.Parameters.Add(new SqlParameter("@ID", administrador.IdAdministrador));
                         command.Parameters.Add(new SqlParameter("@Nombres", administrador.NombresAdministrador));
                         command.Parameters.Add(new SqlParameter("@ApellidoPaterno", administrador.ApellidoPaternoAdministrador));
                         command.Parameters.Add(new SqlParameter("@ApellidoMaterno", administrador.ApellidoMaternoAdministrador));
@@ -108,18 +109,18 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     {
                         throw (ex);
                     }
-                    using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Administrador", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.administrador", connection))
                     {
                         SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
                             Administrador administrador = new Administrador();
 
-                            administrador.NombresAdministrador = reader["Nombres"].ToString();
-                            administrador.ApellidoPaternoAdministrador = reader["ApellidoPaterno"].ToString();
-                            administrador.ApellidoMaternoAdministrador = reader["ApellidoMaterno"].ToString();
-                            administrador.UsuarioAdministrador = reader["UsuarioAdministrador"].ToString();
-                            administrador.ContraseñaAdministrador = reader["Contraseña"].ToString();
+                            administrador.NombresAdministrador = reader["nombresAdministrador"].ToString();
+                            administrador.ApellidoPaternoAdministrador = reader["apellidoPaterno"].ToString();
+                            administrador.ApellidoMaternoAdministrador = reader["apellidoMaterno"].ToString();
+                            administrador.UsuarioAdministrador = reader["usuario"].ToString();
+                            administrador.ContraseñaAdministrador = reader["contraseña"].ToString();
                             listaAdministrador.Add(administrador);
                         }
                     }
@@ -144,17 +145,17 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     {
                         throw (ex);
                     }
-                    using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Administrador WHERE idAdministrador = @idToSearch", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.administrador WHERE idAdministrador = @idToSearch", connection))
                     {
                         command.Parameters.Add(new SqlParameter("idToSearch", toSearchInBD));
                         SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            administrador.NombresAdministrador = reader["Nombres"].ToString();
-                            administrador.ApellidoPaternoAdministrador = reader["ApellidoPaterno"].ToString();
-                            administrador.ApellidoMaternoAdministrador = reader["ApellidoMaterno"].ToString();
-                            administrador.UsuarioAdministrador = reader["Usuario"].ToString();
-                            administrador.ContraseñaAdministrador = reader["Contraseña"].ToString();
+                            administrador.NombresAdministrador = reader["nombresAdministrador"].ToString();
+                            administrador.ApellidoPaternoAdministrador = reader["apellidoPaterno"].ToString();
+                            administrador.ApellidoMaternoAdministrador = reader["apellidoMaterno"].ToString();
+                            administrador.UsuarioAdministrador = reader["usuario"].ToString();
+                            administrador.ContraseñaAdministrador = reader["contraseña"].ToString();
                         }
                     }
                     connection.Close();

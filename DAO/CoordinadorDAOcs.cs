@@ -72,16 +72,16 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Coordinador VALUES(@NoPersonal, @NombresCoordinador, " +
-                    "@ApellidoPaternoCoordinador, @ApellidoMaternoCoordinador, @UsuarioCoordinador, @ContraseñaCoordinador, @CubiculoCoordinador" +
-                    "@FechaDeBajaCoodinador, @FechDeRegistroCoodinador)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.coordinador VALUES(@NumdePersonal, @contraseña, " +
+                    "@FechDeRegistroCoodinador, @FechaDeBajaCoodinador, @NombresCoordinador, @ApellidoPaternoCoordinador, @ApellidoMaternoCoordinador" +
+                    "@UsuarioCoordinador, @CubiculoCoordinador)", connection))
                 {
-                    command.Parameters.Add(new SqlParameter("@NoPersonal", coordinador.NoPersonal));
+                    command.Parameters.Add(new SqlParameter("@NumdePersonal", coordinador.NoPersonal));
                     command.Parameters.Add(new SqlParameter("@NombresCoordinador", coordinador.NombresCoordinador));
                     command.Parameters.Add(new SqlParameter("@ApellidoPaternoCoordinador", coordinador.ApellidoPaternoCoordinador));
                     command.Parameters.Add(new SqlParameter("@ApellidoMaternoCoordinador", coordinador.ApellidoMaternoCoordinador));
                     command.Parameters.Add(new SqlParameter("@UsuarioCoordinador", coordinador.UsuarioCoordinador));
-                    command.Parameters.Add(new SqlParameter("@ContraseñaCoordinador", coordinador.ContraseñaCoordinador));
+                    command.Parameters.Add(new SqlParameter("@contraseña", coordinador.ContraseñaCoordinador));
                     command.Parameters.Add(new SqlParameter("@CubiculoCoordinador", coordinador.ContraseñaCoordinador));
                     command.Parameters.Add(new SqlParameter("@FechaDeBajaCoodinador", coordinador.FechaDeBajaCoordinador));
                     command.Parameters.Add(new SqlParameter("@FechDeRegistroCoodinador", coordinador.FechaDeRegistroCoordinador));
@@ -116,21 +116,24 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Coordinador", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.coordinador", connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         Coordinador coordinador = new Coordinador();
 
+                        coordinador.NoPersonal = reader["NumdePersonal"].ToString();
+                        coordinador.ContraseñaCoordinador = reader["contraseña"].ToString();
+                        coordinador.FechaDeRegistroCoordinador = reader["fechaderegistro"].ToString();
+                        coordinador.FechaDeBajaCoordinador = reader["fechadebaja"].ToString();
                         coordinador.NombresCoordinador = reader["Nombres"].ToString();
-                        coordinador.ApellidoPaternoCoordinador = reader["ApellidoPaterno"].ToString();
-                        coordinador.ApellidoMaternoCoordinador = reader["ApellidoMaterno"].ToString();
-                        coordinador.UsuarioCoordinador = reader["UsuarioAdministrador"].ToString();
-                        coordinador.ContraseñaCoordinador = reader["Contraseña"].ToString();
-                        coordinador.CubiculoCoordinador = reader["Cubiculo"].ToString();
-                        coordinador.FechaDeBajaCoordinador = reader["FechaDeBaja"].ToString();
-                        coordinador.FechaDeRegistroCoordinador = reader["FechaDeRegistro"].ToString();
+                        coordinador.ApellidoPaternoCoordinador = reader["apellidoPaterno"].ToString();
+                        coordinador.ApellidoMaternoCoordinador = reader["apellidoMaterno"].ToString();
+                        coordinador.UsuarioCoordinador = reader["usuario"].ToString();
+                        coordinador.CubiculoCoordinador = reader["cubiculo"].ToString();
+                        
+                        
                         listaCoordinador.Add(coordinador);
                     }
                 }
@@ -155,20 +158,21 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Coordinador WHERE noPersonal = @idToSearch", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.coordinador WHERE NumdePersonal = @idToSearch", connection))
                 {
                     command.Parameters.Add(new SqlParameter("idToSearch", toSearchInBD));
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
+                        coordinador.NoPersonal = reader["NumdePersonal"].ToString();
+                        coordinador.ContraseñaCoordinador = reader["contraseña"].ToString();
+                        coordinador.FechaDeRegistroCoordinador = reader["fechaderegistro"].ToString();
+                        coordinador.FechaDeBajaCoordinador = reader["fechadebaja"].ToString();
                         coordinador.NombresCoordinador = reader["Nombres"].ToString();
-                        coordinador.ApellidoPaternoCoordinador = reader["ApellidoPaterno"].ToString();
-                        coordinador.ApellidoMaternoCoordinador = reader["ApellidoMaterno"].ToString();
-                        coordinador.UsuarioCoordinador = reader["UsuarioAdministrador"].ToString();
-                        coordinador.ContraseñaCoordinador = reader["Contraseña"].ToString();
-                        coordinador.CubiculoCoordinador = reader["Cubiculo"].ToString();
-                        coordinador.FechaDeBajaCoordinador = reader["FechaDeBaja"].ToString();
-                        coordinador.FechaDeRegistroCoordinador = reader["FechaDeRegistro"].ToString();
+                        coordinador.ApellidoPaternoCoordinador = reader["apellidoPaterno"].ToString();
+                        coordinador.ApellidoMaternoCoordinador = reader["apellidoMaterno"].ToString();
+                        coordinador.UsuarioCoordinador = reader["usuario"].ToString();
+                        coordinador.CubiculoCoordinador = reader["cubiculo"].ToString();
                     }
                 }
                 connection.Close();
@@ -190,7 +194,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("DELETE FROM dbo.coordinador WHERE NumdePersonal = @Numeroabuscar", connection))
+                using (SqlCommand command = new SqlCommand("DELETE FROM serviciosocial.coordinador WHERE NumdePersonal = @Numeroabuscar", connection))
                 {
                     command.Parameters.Add(new SqlParameter("Numeroabuscar", toSearchInBD));
                     command.ExecuteNonQuery();

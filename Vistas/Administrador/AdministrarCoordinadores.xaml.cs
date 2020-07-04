@@ -96,7 +96,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
             }
             else
             {
-                this.Close();
+                MessageBox.Show("aun no hay nada en la bd");
             }
         }
 

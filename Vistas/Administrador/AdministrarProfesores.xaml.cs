@@ -24,7 +24,11 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
     /// </summary>
     public partial class AdministrarProfesores : Window
     {
-
+        public AdministrarProfesores()
+        {
+            InitializeComponent();
+            UpdateGrid();
+        }
         public enum OperationResult
         {
             Success,
@@ -54,11 +58,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
 
         }
 
-        public AdministrarProfesores()
-        {
-            InitializeComponent();
-            UpdateGrid();
-        }
+       
 
         private void Agregar_Click(object sender, RoutedEventArgs e)
         {
@@ -78,7 +78,10 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
             }
             else
             {
-                this.Close();
+                MessageBox.Show("aun no hay nada en la bd");
+
+
+
             }
         }
 

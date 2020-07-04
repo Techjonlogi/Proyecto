@@ -26,6 +26,11 @@
         <TextBox x:Name="textBoxusuario" HorizontalAlignment="Left" Height="30" Margin="358,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
         <PasswordBox x:Name="passwordProfesor" HorizontalAlignment="Left" Margin="358,525,0,0" VerticalAlignment="Top" Height="30" Width="160"/>
         <PasswordBox x:Name="repitePasswordProfesor" HorizontalAlignment="Left" Margin="358,605,0,0" VerticalAlignment="Top" Height="30" Width="160"/>
+        <ComboBox x:Name="comboturno" HorizontalAlignment="Left" Margin="358,422,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Matutino" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="vespertino" HorizontalAlignment="Left" Width="118.4"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="201,422,0,0" TextWrapping="Wrap" Text="Turno" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

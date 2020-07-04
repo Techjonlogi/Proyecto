@@ -17,6 +17,7 @@ using Sistema_de_Prácticas_Profesionales.Pojos.Administrador;
 using Sistema_de_Prácticas_Profesionales.Controller;
 using Sistema_de_Prácticas_Profesionales.DAO;
 using Sistema_de_Prácticas_Profesionales.Vistas;
+using Sistema_de_Prácticas_Profesionales.Vistas.Administrador;
 
 namespace Formación_de_Profesionales_en_Accesibilidad
   
@@ -31,6 +32,10 @@ namespace Formación_de_Profesionales_en_Accesibilidad
             InitializeComponent();
         }
 
+        
+
+
+
         private void btn_IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
             Administrador loginAdministrador = new Administrador();
@@ -44,6 +49,19 @@ namespace Formación_de_Profesionales_en_Accesibilidad
              RegistrarPracticante reg = new RegistrarPracticante();
             reg.Show();
             this.Close();
+        }
+
+        private void administrarProfesor_Click(object sender, RoutedEventArgs e)
+        {
+            AdministrarProfesores ap = new AdministrarProfesores();
+            ap.Show();
+            
+                }
+
+        private void administrarcoordiandores_Click(object sender, RoutedEventArgs e)
+        {
+            AdministrarCoordinadores ac = new AdministrarCoordinadores();
+            ac.Show();
         }
     }
 }
