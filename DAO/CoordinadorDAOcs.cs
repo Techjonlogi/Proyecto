@@ -87,7 +87,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     {
                         command.ExecuteNonQuery();
                     }
-                    catch (SqlException e)
+                    catch (SqlException )
                     {
                         resultado = AddResult.SQLFail;
                         return resultado;
