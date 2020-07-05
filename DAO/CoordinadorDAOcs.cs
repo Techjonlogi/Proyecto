@@ -72,9 +72,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.coordinador VALUES(@NumdePersonal, @contraseña, " +
-                    "@FechDeRegistroCoodinador, @FechaDeBajaCoodinador, @NombresCoordinador, @ApellidoPaternoCoordinador, @ApellidoMaternoCoordinador" +
-                    "@UsuarioCoordinador, @CubiculoCoordinador)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.coordinador VALUES (@NumdePersonal ,@contraseña ,@FechDeRegistroCoordinador ,null ,@NombresCoordinador ,@ApellidoPaternoCoordinador ,@ApellidoMaternoCoordinador ,@UsuarioCoordinador ,@CubiculoCoordinador)", connection))
                 {
                     command.Parameters.Add(new SqlParameter("@NumdePersonal", coordinador.NoPersonal));
                     command.Parameters.Add(new SqlParameter("@NombresCoordinador", coordinador.NombresCoordinador));
@@ -82,14 +80,14 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     command.Parameters.Add(new SqlParameter("@ApellidoMaternoCoordinador", coordinador.ApellidoMaternoCoordinador));
                     command.Parameters.Add(new SqlParameter("@UsuarioCoordinador", coordinador.UsuarioCoordinador));
                     command.Parameters.Add(new SqlParameter("@contraseña", coordinador.ContraseñaCoordinador));
-                    command.Parameters.Add(new SqlParameter("@CubiculoCoordinador", coordinador.ContraseñaCoordinador));
-                    command.Parameters.Add(new SqlParameter("@FechaDeBajaCoodinador", coordinador.FechaDeBajaCoordinador));
-                    command.Parameters.Add(new SqlParameter("@FechDeRegistroCoodinador", coordinador.FechaDeRegistroCoordinador));
+                    command.Parameters.Add(new SqlParameter("@CubiculoCoordinador", coordinador.CubiculoCoordinador));
+                    
+                    command.Parameters.Add(new SqlParameter("@FechDeRegistroCoordinador", coordinador.FechaDeRegistroCoordinador));
                     try
                     {
                         command.ExecuteNonQuery();
                     }
-                    catch (SqlException)
+                    catch (SqlException e)
                     {
                         resultado = AddResult.SQLFail;
                         return resultado;

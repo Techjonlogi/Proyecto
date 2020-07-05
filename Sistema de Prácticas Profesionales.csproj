@@ -126,6 +126,9 @@
     <Compile Include="Vistas\Administrador\RegistrarProfesor.xaml.cs">
       <DependentUpon>RegistrarProfesor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\GenerarPdf.xaml.cs">
+      <DependentUpon>GenerarPdf.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\RegistrarOrganizacion.xaml.cs">
       <DependentUpon>RegistrarOrganizacion.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
     <Page Include="Vistas\Administrador\RegistrarProfesor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\GenerarPdf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\RegistrarOrganizacion.xaml">
       <SubType>Designer</SubType>

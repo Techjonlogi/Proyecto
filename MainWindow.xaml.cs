@@ -61,7 +61,7 @@ namespace Formación_de_Profesionales_en_Accesibilidad
         private void administrarcoordiandores_Click(object sender, RoutedEventArgs e)
         {
             AdministrarCoordinadores ac = new AdministrarCoordinadores();
-            ac.Show();
+            ac.ShowDialog();
         }
     }
 }

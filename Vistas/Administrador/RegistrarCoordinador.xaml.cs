@@ -121,5 +121,10 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
 
         }
+
+        private void buttonRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

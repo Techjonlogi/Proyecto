@@ -73,7 +73,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
             if (datagridCoordinadores.SelectedValue.ToString() != String.Empty)
             {
                 CoordinadorController controller = new CoordinadorController();
-                ComprobarResultado((OperationResult)controller.DeleteCoordinador(datagridCoordinadores.SelectedValue.ToString()));
+                ComprobarResultado((OperationResult)controller.DeleteCoordinador(((Coordinador)datagridCoordinadores.SelectedValue).NoPersonal));
                 UpdateGrid();
             }
             else MessageBox.Show("Debe seleccionar un celda valida para eliminar");
@@ -82,7 +82,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
         private void Agregar_Click(object sender, RoutedEventArgs e)
         {
             RegistrarCoordinador RC = new RegistrarCoordinador();
-            RC.Show();
+            RC.ShowDialog();
             this.Close();
         }
 
