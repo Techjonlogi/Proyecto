@@ -124,7 +124,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Proyecto", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM serviciosocial.proyecto", connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())

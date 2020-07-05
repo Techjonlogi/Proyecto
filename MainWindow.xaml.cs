@@ -63,5 +63,11 @@ namespace Formación_de_Profesionales_en_Accesibilidad
             AdministrarCoordinadores ac = new AdministrarCoordinadores();
             ac.ShowDialog();
         }
+
+        private void pdf_Click(object sender, RoutedEventArgs e)
+        {
+            GenerarPdf g = new GenerarPdf();
+            g.Show();
+        }
     }
 }
