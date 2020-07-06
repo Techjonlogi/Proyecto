@@ -12,9 +12,9 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Mensaje
         String emisor;
         String texto;
 
-        private string Receptor{ get => receptor; set => receptor = value; }
-        private string Emisor { get => emisor; set => emisor = value; }
-        private string  Texto { get => texto; set => texto = value; }
+        public string Receptor{ get => receptor; set => receptor = value; }
+        public string Emisor { get => emisor; set => emisor = value; }
+        public string  Texto { get => texto; set => texto = value; }
 
 
 
