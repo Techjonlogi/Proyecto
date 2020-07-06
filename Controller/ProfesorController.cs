@@ -39,10 +39,11 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         {
             ProfesorDAO instanceProfesorDAO = new ProfesorDAO();
             UsuarioDao usuarioDAO = new UsuarioDao();
-            Profesor instanceProfesor = new Profesor(idprofesor,nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro,fechadebaja,turno);
+            
+            Profesor profesor = new Profesor(idprofesor,nombresprofesor,apellidopaterno,apellidomaterno,usuario,contraseña,fechaderegistro,fechadebaja,turno);
             DateTime dateTime = DateTime.Now;
-            Usuario instanceUsuario = new Usuario(idprofesor, contraseña, "Profesor", dateTime, nombresprofesor,correo);
-            if (instanceProfesorDAO.AddProfesor(instanceProfesor) == AddResult.Success && usuarioDAO.AddUsuario(instanceUsuario) == AddResult.Success)
+            Usuario instanceusuario = new Usuario(usuario, contraseña, "Profesor", dateTime, nombresprofesor, correo);
+            if (instanceProfesorDAO.AddProfesor(profesor) == AddResult.Success)
             {
                 return AddResult.Success;
             }

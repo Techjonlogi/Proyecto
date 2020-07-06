@@ -8,12 +8,16 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Usuario
 {
     public class Usuario
     {
-        public String UserName { get; set; }
-        public String Password { get; set; }
-        public String UserType { get; set; }
-        public DateTime RegisterDate { get; set; }
+       
         public String Name { get; set; }
         public String Email { get; set; }
+        public DateTime RegisterDate { get; set; }
+        public String UserType { get; set; }
+        public String UserName { get; set; }
+        public String Password { get; set; }
+        
+        
+        
 
         public Usuario(string UserName, string Password, string UserType, DateTime RegisterDate, string Name, string Email)
         {

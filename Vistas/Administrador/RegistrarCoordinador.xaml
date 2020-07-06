@@ -16,17 +16,17 @@
         <TextBlock HorizontalAlignment="Left" Margin="112,141,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Height="23" Width="75" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="73,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="114" FontSize="14"><Run Text="Apellido Pater"/><Run Text="no"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="73,251,0,0" TextWrapping="Wrap" Text="Apellido Materno" VerticalAlignment="Top" Height="23" Width="114" FontSize="14"/>
-        <TextBlock HorizontalAlignment="Left" Margin="127,311,0,0" TextWrapping="Wrap" Text="Cubículo" VerticalAlignment="Top" Height="23" Width="60"/>
-        <TextBlock HorizontalAlignment="Left" Margin="73,368,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="73,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Repetir contraseña"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="73,311,0,0" TextWrapping="Wrap" Text="Cubículo" VerticalAlignment="Top" Height="23" Width="60"/>
+        <TextBlock HorizontalAlignment="Left" Margin="70,409,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="70,467,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Repetir contraseña"/><LineBreak/><Run/></TextBlock>
         <PasswordBox HorizontalAlignment="Left" Margin="703.388,329,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="CoordinadorPassword" HorizontalAlignment="Left" Margin="221,368,0,0" VerticalAlignment="Top" Height="24" Width="246"/>
-        <PasswordBox x:Name="CoordinadorPasswordRepite" HorizontalAlignment="Left" Margin="221,426,0,0" VerticalAlignment="Top" Height="21" Width="249"/>
+        <PasswordBox x:Name="CoordinadorPassword" HorizontalAlignment="Left" Margin="218,409,0,0" VerticalAlignment="Top" Height="24" Width="246"/>
+        <PasswordBox x:Name="CoordinadorPasswordRepite" HorizontalAlignment="Left" Margin="218,467,0,0" VerticalAlignment="Top" Height="21" Width="249"/>
         <TextBox x:Name="textboxCubiculo" HorizontalAlignment="Left" Height="23" Margin="221,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249"/>
         <Button x:Name="buttonRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="127,517,0,0" VerticalAlignment="Top" Width="75" Click="buttonRegistrar_Click"/>
         <Button x:Name="buttonRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="472,517,0,0" VerticalAlignment="Top" Width="74" Height="19" Click="buttonRegresar_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="73,476,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top"/>
-        <TextBox x:Name="textboxusuario" HorizontalAlignment="Left" Height="23" Margin="230,482,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,354,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" RenderTransformOrigin="1.125,1.792"/>
+        <TextBox x:Name="textboxusuario" HorizontalAlignment="Left" Height="23" Margin="221,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
 
     </Grid>
 </Window>

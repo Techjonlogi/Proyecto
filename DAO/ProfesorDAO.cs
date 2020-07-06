@@ -36,6 +36,10 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             {
                 throw new FormatException("Numero invalido " + profesor.IdProfesor);
             }
+            if (validarCampos.ValidarNombres(profesor.NombresProfesor) == CheckFields.ResultadosValidación.NombresInvalidos) {
+
+                throw new FormatException("Nombre Invalido " + profesor.NombresProfesor);
+            }
             else
 
             {
@@ -65,23 +69,21 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.profesor VALUES(@NumdePersonal, @FechadeRegistro, @Contraseña, @Turno, @FechadeBaja, @Nombres, @ApellidoPaterno, @ApellidoMaterno)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.profesor VALUES(@numdePersonal, @nombres, @apellidoPaterno, @apellidoMaterno, @contraseña, @turno, null, @fechadeRegistro, null, null )", connection))
                 {
-                    command.Parameters.Add(new SqlParameter("@NumdePersonal", profesor.IdProfesor));
-                    
-                    command.Parameters.Add(new SqlParameter("@Nombres", profesor.NombresProfesor));
-                    command.Parameters.Add(new SqlParameter("@ApellidoPaterno", profesor.ApellidoPaternoProfesor));
-                    command.Parameters.Add(new SqlParameter("@ApellidoMaterno", profesor.ApellidoMaternoProfesor));
-                    command.Parameters.Add(new SqlParameter("@Usuario", profesor.UsuarioProfesor));
-                    command.Parameters.Add(new SqlParameter("@Contraseña", profesor.ContraseñaProfesor));
-                    command.Parameters.Add(new SqlParameter("@FechadeRegistro", profesor.FechaRegistroProfesor));
-                    command.Parameters.Add(new SqlParameter("@FechadeBaja", profesor.FechaBajaProfesor));
-                    command.Parameters.Add(new SqlParameter("@Turno", profesor.Turno));
+                    command.Parameters.Add(new SqlParameter("@numdePersonal", profesor.IdProfesor));
+                    command.Parameters.Add(new SqlParameter("@nombres", profesor.NombresProfesor));
+                    command.Parameters.Add(new SqlParameter("@apellidoPaterno", profesor.ApellidoPaternoProfesor));
+                    command.Parameters.Add(new SqlParameter("@apellidoMaterno", profesor.ApellidoMaternoProfesor));
+                    command.Parameters.Add(new SqlParameter("@usuario", profesor.UsuarioProfesor));
+                    command.Parameters.Add(new SqlParameter("@contraseña", profesor.ContraseñaProfesor));
+                    command.Parameters.Add(new SqlParameter("@fechadeRegistro", profesor.FechaRegistroProfesor));
+                    command.Parameters.Add(new SqlParameter("@turno", profesor.Turno));
                     try
                     {
                         command.ExecuteNonQuery();
                     }
-                    catch (SqlException)
+                    catch (SqlException )
                     {
                         resultado = AddResult.SQLFail;
                         return resultado;
@@ -117,12 +119,11 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         Profesor profesor = new Profesor();
 
                         profesor.IdProfesor = reader["NumdePersonal"].ToString();
+
                        
                         profesor.NombresProfesor = reader["Nombres"].ToString();
                         profesor.ApellidoPaternoProfesor = reader["apellidoPaterno"].ToString();
                         profesor.ApellidoMaternoProfesor = reader["apellidoMaterno"].ToString();
-                        profesor.UsuarioProfesor = reader["NumdePersonal"].ToString();
-                        
                         profesor.Turno = reader["turno"].ToString();
                         profesor.FechaRegistroProfesor = reader["FechadeRegistro"].ToString();
                         profesor.FechaBajaProfesor = reader["FechadeBaja"].ToString();

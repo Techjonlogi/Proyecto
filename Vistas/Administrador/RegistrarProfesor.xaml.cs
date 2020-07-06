@@ -116,7 +116,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
                     CoordinadorController coordiandorcontroller = new CoordinadorController();
                     DateTime fecharegistro = DateTime.Today;
                     ProfesorController profesorcontroller = new ProfesorController();
-                    ComprobarResultado((OperationResult)profesorcontroller.AñadirProfesor(textboxnoPersonal.Text, textBoxnombres.Text, textBoxAPaterno.Text, textBoxAMaterno.Text, textBoxusuario.Text,passwordProfesor.Password,fecharegistro.ToString(), fecharegistro.ToString(), comboturno.Text,textBoxCorreo.Text));
+                    ComprobarResultado((OperationResult)profesorcontroller.AñadirProfesor(textboxnoPersonal.Text, textBoxnombres.Text, textBoxAPaterno.Text, textBoxAMaterno.Text, textBoxusuario.Text,passwordProfesor.Password,fecharegistro.ToString("d"), fecharegistro.ToString("d"), comboturno.Text,textBoxCorreo.Text));
                 }
             }
             else

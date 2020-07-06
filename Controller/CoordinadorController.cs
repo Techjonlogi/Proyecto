@@ -32,7 +32,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
                 Coordinador coordinador = new Coordinador();
                 coordinador.NoPersonal = noPersonal;
                 coordinador.NombresCoordinador = nombresCoordinador;
-                coordinador.ApellidoPaternoCoordinador = apellidoMaternoCoordinador;
+                coordinador.ApellidoPaternoCoordinador = apellidoPaternoCoordinador;
                 coordinador.ApellidoMaternoCoordinador = apellidoMaternoCoordinador;
                 coordinador.UsuarioCoordinador = usuarioCoordinador;
                 coordinador.ContraseñaCoordinador = contraseñaCoordinador;

@@ -91,7 +91,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
             if (dataProfesores.SelectedValue.ToString() != String.Empty)
             {
                 ProfesorController controller = new ProfesorController();
-                ComprobarResultado((OperationResult)controller.DeleteProfesor(dataProfesores.SelectedValue.ToString()));
+                ComprobarResultado((OperationResult)controller.DeleteProfesor(((Profesor)dataProfesores.SelectedValue).IdProfesor));
                 UpdateGrid();
             }
             else MessageBox.Show("Debe seleccionar un celda valida para eliminar");

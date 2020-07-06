@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Sistema_de_Prácticas_Profesionales.Logica.AddEnum;
 using Sistema_de_Prácticas_Profesionales.Pojos.Usuario;
+using System.Linq.Expressions;
 
 namespace Sistema_de_Prácticas_Profesionales.DAO
 {
@@ -50,7 +51,20 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     command.Parameters.Add(new SqlParameter("@estatus", ""));
                     command.Parameters.Add(new SqlParameter("@usuario", usuario.UserName));
                     command.Parameters.Add(new SqlParameter("@contraseña", PassHash(usuario.Password)));
-                    command.ExecuteNonQuery();
+                    try
+                    {
+                        command.ExecuteNonQuery();
+
+
+
+                    }catch(Exception ){
+
+                        resultado = AddResult.SQLFail;
+                    }
+                    
+                    
+                    
+                   
                     resultado = AddResult.Success;
                 }
                 connection.Close();

@@ -140,6 +140,7 @@
     <Compile Include="Logica\CheckFields.cs" />
     <Compile Include="DAO\IPracticanteDAO.cs" />
     <Compile Include="Pojos\Actividad\Actividad.cs" />
+    <Compile Include="Pojos\Mensaje\Mensaje.cs" />
     <Compile Include="Pojos\OrganizacionVinculada\OrganizacionVinculada.cs" />
     <Compile Include="Pojos\Practicante\Practicante.cs" />
     <Compile Include="Pojos\Practica\Practica.cs" />
@@ -264,6 +265,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vistas\Mensajes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
