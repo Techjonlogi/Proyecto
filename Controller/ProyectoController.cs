@@ -44,6 +44,11 @@ namespace Controller
             List<Proyecto> proyectos = proyectoDAO.GetProyecto();
             return proyectos;
         }
+        public Proyecto getProyecto(String id)
+        {
+            ProyectoDAO proyectoDao = new ProyectoDAO();
+            return proyectoDao.GetProyectoforID(id);
+        }
     }
 
 

@@ -55,21 +55,30 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
         private void generarpdf_Click(object sender, RoutedEventArgs e)
         {
-            GenerarArchivo();
-        }
-
-        private void GenerarArchivo(/*Proyecto proyecto,String nombreActividad, String actividad*/) 
-        {
-
+            
             if (datagridProyecto.SelectedValue.ToString() != String.Empty)
             {
+                String nombreActividad = textBoxActividad.Text;
+                String descripcionActividad = textBoxDescripcion.Text;
                 String id;
                 ProfesorController controller = new ProfesorController();
-                id=((Proyecto)datagridProyecto.SelectedValue).IdProyecto;
-                UpdateGrid();
+                id = ((Proyecto)datagridProyecto.SelectedValue).IdProyecto;
+                
+                GenerarArchivo(id, nombreActividad, descripcionActividad);
             }
             else { MessageBox.Show("Debe seleccionar un celda valida para eliminar"); }
+            
+        }
 
+
+
+
+        private void GenerarArchivo(String id,String nombreActividad, String descripcionActividad) 
+        {
+
+
+            ControladorProyecto controller = new ControladorProyecto();
+            Proyecto proyecto = new Proyecto();
             Microsoft.Win32.SaveFileDialog dialog = new Microsoft.Win32.SaveFileDialog();
             dialog.FileName = "Document";
             dialog.DefaultExt = ".Pdf";
@@ -79,15 +88,23 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
             if (result == true)
             {
+
+
+                
+
                 String filename = dialog.FileName;
 
 
-
+                proyecto = controller.getProyecto(id);
                 PdfWriter pw = new PdfWriter(filename);
                 PdfDocument pdfDocument = new PdfDocument(pw);
                 Document doc = new Document(pdfDocument, PageSize.A4);
                 doc.SetMargins(75, 35, 70, 35);
-                doc.Add(new iText.Layout.Element.Paragraph("hola"));
+                doc.Add(new iText.Layout.Element.Paragraph("identificador del proyecto: "+proyecto.IdProyecto.ToString()));
+                doc.Add(new iText.Layout.Element.Paragraph("Nombre del proyecto: "+proyecto.NombreProyecto.ToString()));
+                doc.Add(new iText.Layout.Element.Paragraph("Descripcion del proyecto: "+proyecto.Descripcion.ToString()));
+                doc.Add(new iText.Layout.Element.Paragraph("Nombre nueva Actividad: "+nombreActividad));
+                doc.Add(new iText.Layout.Element.Paragraph("Descripcion de la actividad: "+descripcionActividad));
 
                 doc.Close();
 
@@ -97,6 +114,9 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

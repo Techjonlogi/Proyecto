@@ -133,19 +133,18 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 
                         instanceproyecto.IdProyecto = reader["IdProyecto"].ToString();
                         instanceproyecto.Responsabilidades = reader["Responsabilidades"].ToString();
-                        instanceproyecto.Actividad = reader["Actividad"].ToString();
+                        instanceproyecto.Actividad = reader["Actividades"].ToString();
                         instanceproyecto.Duracion = reader["Duracion"].ToString();
                         instanceproyecto.NombreProyecto = reader["NombreProyecto"].ToString();
                         instanceproyecto.Descripcion = reader["Descripcion"].ToString();
-                        instanceproyecto.Objetivogeneral = reader["ObjetivoGeneral"].ToString();
-                        instanceproyecto.ObjetivoMediato = reader["ObjetivoMediato"].ToString();
-                        instanceproyecto.CargoEncargado = reader["CargoEncargado"].ToString();
-                        instanceproyecto.EmailEncargado = reader["EmailEncargado"].ToString();
+                        instanceproyecto.Objetivogeneral = reader["objetivoGeneral"].ToString();
+                        instanceproyecto.ObjetivoMediato = reader["objetivoMediato"].ToString();
+                        instanceproyecto.CargoEncargado = reader["cargoEncargado"].ToString();
+                        instanceproyecto.EmailEncargado = reader["emailEncargado"].ToString();
                         instanceproyecto.NombreEncargado = reader["NombreEncargado"].ToString();
                         instanceproyecto.Metodologia = reader["Metodologia"].ToString();
                         instanceproyecto.Recursos = reader["Recursos"].ToString();
-                        instanceproyecto.OrganizacionVinculada = reader["IdOrganizacionVinculada"].ToString();
-                        instanceproyecto.Coordinador = reader["numPersonalCoordinador"].ToString();
+                        
                         listaProyecto.Add(instanceproyecto);
                     }
                 }
@@ -168,27 +167,28 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand instancecommand = new SqlCommand("SELECT * FROM dbo.Profesor WHERE IdProyecto = @IdProyectoToSearch", connection))
+                using (SqlCommand instancecommand = new SqlCommand("SELECT * FROM serviciosocial.proyecto WHERE idProyecto = @IdProyectoToSearch", connection))
                 {
                     instancecommand.Parameters.Add(new SqlParameter("IdProyectoToSearch", toSearchInBD));
                     SqlDataReader reader = instancecommand.ExecuteReader();
                     while (reader.Read())
                     {
-                        instanceproyecto.IdProyecto = reader["NumdePersonal"].ToString();
+                        instanceproyecto.IdProyecto = reader["idProyecto"].ToString();
                         instanceproyecto.Responsabilidades = reader["Responsabilidades"].ToString();
-                        instanceproyecto.Actividad = reader["Actividad"].ToString();
+                        instanceproyecto.Actividad = reader["Actividades"].ToString();
                         instanceproyecto.Duracion = reader["Duracion"].ToString();
                         instanceproyecto.NombreProyecto = reader["NombreProyecto"].ToString();
                         instanceproyecto.Descripcion = reader["Descripcion"].ToString();
-                        instanceproyecto.Objetivogeneral = reader["ObjetivoGeneral"].ToString();
-                        instanceproyecto.ObjetivoMediato = reader["ObjetivoMediato"].ToString();
-                        instanceproyecto.CargoEncargado = reader["CargoEncargo"].ToString();
-                        instanceproyecto.EmailEncargado = reader["EmailEncargado"].ToString();
+                        instanceproyecto.Objetivogeneral = reader["objetivoGeneral"].ToString();
+                        instanceproyecto.ObjetivoMediato = reader["objetivoMediato"].ToString();
+                        instanceproyecto.CargoEncargado = reader["cargoEncargado"].ToString();
+                        instanceproyecto.EmailEncargado = reader["emailEncargado"].ToString();
                         instanceproyecto.NombreEncargado = reader["NombreEncargado"].ToString();
                         instanceproyecto.Metodologia = reader["Metodologia"].ToString();
                         instanceproyecto.Recursos = reader["Recursos"].ToString();
-                        instanceproyecto.OrganizacionVinculada = reader["OrganizacionVinculada"].ToString();
-                        instanceproyecto.Coordinador = reader["Coordinador"].ToString();
+                        instanceproyecto.OrganizacionVinculada = null;
+                        instanceproyecto.Coordinador = null;
+                        
 
                     }
                 }

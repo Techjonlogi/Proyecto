@@ -14,6 +14,6 @@
         <DataGrid x:Name="datagridProyecto" HorizontalAlignment="Left" Height="141" Margin="50,141,0,0" VerticalAlignment="Top" Width="463"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Text="Por"/><Run Text=" "/><Run Text="favor seleccione su proyecto al que vinculará el documento"/></TextBlock>
         <Button x:Name="generarpdf" Content="Generar" HorizontalAlignment="Left" Margin="70,719,0,0" VerticalAlignment="Top" Width="75" Click="generarpdf_Click"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="399,719,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="399,719,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>
