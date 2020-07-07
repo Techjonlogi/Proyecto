@@ -169,6 +169,12 @@
     <Compile Include="Vistas\GenerarPdf.xaml.cs">
       <DependentUpon>GenerarPdf.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Mensajes\EnviarMensaje.xaml.cs">
+      <DependentUpon>EnviarMensaje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Mensajes\VerMensajes.xaml.cs">
+      <DependentUpon>VerMensajes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\RegistrarOrganizacion.xaml.cs">
       <DependentUpon>RegistrarOrganizacion.xaml</DependentUpon>
     </Compile>
@@ -211,6 +217,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\GenerarPdf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Mensajes\EnviarMensaje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Mensajes\VerMensajes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,8 +283,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vistas\Mensajes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

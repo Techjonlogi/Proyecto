@@ -1,0 +1,17 @@
+﻿<Window x:Class="Sistema_de_Prácticas_Profesionales.Vistas.Mensajes.VerMensajes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema_de_Prácticas_Profesionales.Vistas.Mensajes"
+        mc:Ignorable="d"
+        Title="VerMensajes" Height="527" Width="621.5">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="43,38,0,0" TextWrapping="Wrap" Text="Ingrese su numero de personal o  matricula para buscar sus mensajes" VerticalAlignment="Top" FontFamily="Sitka Subheading" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="52,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DataGrid HorizontalAlignment="Left" Height="137" Margin="52,217,0,0" VerticalAlignment="Top" Width="520"/>
+        <Button Content="Buscar" HorizontalAlignment="Left" Margin="72,435,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="497,440,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
