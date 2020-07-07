@@ -23,7 +23,7 @@
         <Button x:Name="btn_IniciarSesion" Content="Iniciar sesión" HorizontalAlignment="Left" Margin="163,331,0,0" VerticalAlignment="Top" Width="85" Cursor="Hand" Click="btn_IniciarSesion_Click"/>
         <Button x:Name="administrarProfesor" Grid.ColumnSpan="2" Content="Administrar Profesor" Grid.Column="1" HorizontalAlignment="Left" Margin="64,317,0,0" VerticalAlignment="Top" Width="159" Height="24" Click="administrarProfesor_Click"/>
         <Button x:Name="administrarcoordiandores" Content="administrar coordiandores&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Left" Margin="64,271,0,0" VerticalAlignment="Top" Width="146" Grid.ColumnSpan="2" Click="administrarcoordiandores_Click"/>
-        <Button x:Name="pdf" Content="PDF" Grid.Column="2" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="75" Click="pdf_Click"/>
+        <Button x:Name="pdf" Content="PDF" Grid.Column="2" HorizontalAlignment="Left" Margin="9.2,368,0,0" VerticalAlignment="Top" Width="75" Click="pdf_Click"/>
 
     </Grid>
 </Window>
