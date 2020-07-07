@@ -14,8 +14,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="42,150,0,0" TextWrapping="Wrap" Text="Su Numero de Personal o matricula registrada" VerticalAlignment="Top" Width="198"/>
         <TextBlock HorizontalAlignment="Left" Margin="42,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"><Run Text="El numero"/><Run Text=" "/><Run Text="personal o matricula de la persona a la que enviará el mensaje"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="53,340,0,0" TextWrapping="Wrap" Text="Escriba aqui su mensaje" VerticalAlignment="Top"/>
-        <Button Content="Enviar" HorizontalAlignment="Left" Margin="63,616,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="389,621,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="63,616,0,0" VerticalAlignment="Top" Width="75" Click="btnEnviar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="389,621,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
 
     </Grid>
 </Window>

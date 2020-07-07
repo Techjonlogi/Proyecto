@@ -18,6 +18,8 @@ using Sistema_de_Prácticas_Profesionales.Controller;
 using Sistema_de_Prácticas_Profesionales.DAO;
 using Sistema_de_Prácticas_Profesionales.Vistas;
 using Sistema_de_Prácticas_Profesionales.Vistas.Administrador;
+using Sistema_de_Prácticas_Profesionales.Vistas.Mensajes;
+using Sistema_de_Prácticas_Profesionales.Pojos.Mensaje;
 
 namespace Formación_de_Profesionales_en_Accesibilidad
   
@@ -68,6 +70,12 @@ namespace Formación_de_Profesionales_en_Accesibilidad
         {
             GenerarPdf g = new GenerarPdf();
             g.Show();
+        }
+
+        private void btnMensaje_Click(object sender, RoutedEventArgs e)
+        {
+            EnviarMensaje mensajes =new EnviarMensaje();
+            mensajes.Show();
         }
     }
 }

@@ -25,20 +25,26 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarNumeropersonal(mensaje.Receptor) == CheckFields.ResultadosValidación.NúmeroVálido || validarCampos.ValidarMatricula(mensaje.Receptor) == CheckFields.ResultadosValidación.MatriculaInvalida)
+            if (validarCampos.ValidarNumeropersonal(mensaje.Receptor) == CheckFields.ResultadosValidación.NúmeroVálido || validarCampos.ValidarMatricula(mensaje.Receptor) == CheckFields.ResultadosValidación.MatriculaValida)
             {
-                throw new FormatException("Receptor Invalido " + mensaje.Receptor);
+                result = AddResult.Success;
+            } else 
+            { 
+                throw new FormatException("Receptor Invalido " + mensaje.Receptor); 
             }
-            if (validarCampos.ValidarNombres(mensaje.Emisor) == CheckFields.ResultadosValidación.NúmeroInválido || validarCampos.ValidarMatricula(mensaje.Receptor) == CheckFields.ResultadosValidación.MatriculaInvalida)
+            if (validarCampos.ValidarNumeropersonal(mensaje.Emisor) == CheckFields.ResultadosValidación.NúmeroVálido || validarCampos.ValidarNumeropersonal(mensaje.Emisor) == CheckFields.ResultadosValidación.MatriculaValida)
             {
+                result = AddResult.Success;
+                
+            }
+            else {
 
                 throw new FormatException("Emisor Invalido " + mensaje.Emisor);
             }
-            else
 
-            {
+            
                 result = AddResult.Success;
-            }
+            
             return result;
 
         }

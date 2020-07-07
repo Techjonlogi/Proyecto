@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_de_Prácticas_Profesionales.Pojos.Mensaje;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Sistema_de_Prácticas_Profesionales.Controller;
 
 namespace Sistema_de_Prácticas_Profesionales.Vistas.Mensajes
 {
@@ -22,6 +24,16 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Mensajes
         public VerMensajes()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MensajeController controller = new MensajeController();
         }
     }
 }

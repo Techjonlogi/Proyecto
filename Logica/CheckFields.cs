@@ -55,7 +55,7 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
 
         public ResultadosValidación ValidarMatricula(string matricula)
         {
-            string ValidChar = @"^[a-z][A-Z][0-9]+$"; ;
+            string ValidChar = @"^[A-Z][0-9]+$"; ;
             if (Regex.IsMatch(matricula, ValidChar))
             {
                 return ResultadosValidación.MatriculaValida;
