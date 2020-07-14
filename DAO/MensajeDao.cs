@@ -116,7 +116,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         mensaje.Receptor = reader["receptor"].ToString();
 
                         mensaje.Emisor = reader["emisor"].ToString();
-                        mensaje.Texto = reader["mensje"].ToString();
+                        mensaje.Texto = reader["mensaje"].ToString();
                         listaMensaje.Add(mensaje);
 
 

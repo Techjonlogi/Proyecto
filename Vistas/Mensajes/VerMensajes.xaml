@@ -9,9 +9,9 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="43,38,0,0" TextWrapping="Wrap" Text="Ingrese su numero de personal o  matricula para buscar sus mensajes" VerticalAlignment="Top" FontFamily="Sitka Subheading" FontSize="24"/>
         <TextBox x:Name="textBoxid" HorizontalAlignment="Left" Height="23" Margin="52,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DataGrid HorizontalAlignment="Left" Height="137" Margin="52,217,0,0" VerticalAlignment="Top" Width="520"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="72,435,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="497,440,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid x:Name="dataMensajes" HorizontalAlignment="Left" Height="137" Margin="52,217,0,0" VerticalAlignment="Top" Width="520"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="72,435,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="497,440,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
 
     </Grid>
 </Window>

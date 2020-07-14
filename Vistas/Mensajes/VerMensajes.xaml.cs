@@ -24,16 +24,33 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Mensajes
         public VerMensajes()
         {
             InitializeComponent();
+            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+       
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            MensajeController controller = new MensajeController();
+            UpdateGrid(textBoxid.Text);
+        }
+
+        private void UpdateGrid(String id)
+        {
+            MensajeController Controller = new MensajeController();
+            dataMensajes.ItemsSource = null;
+            if (Controller.GetMensajes(id).Any())
+            {
+                dataMensajes.ItemsSource = Controller.GetMensajes(id);
+            }
+            else
+            {
+                MessageBox.Show("aun no hay nada en la bd");
+            }
         }
     }
 }

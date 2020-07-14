@@ -77,5 +77,11 @@ namespace Formación_de_Profesionales_en_Accesibilidad
             EnviarMensaje mensajes =new EnviarMensaje();
             mensajes.Show();
         }
+
+        private void btnVerMensajes_Click(object sender, RoutedEventArgs e)
+        {
+            VerMensajes vm = new VerMensajes();
+                vm.Show();
+        }
     }
 }
