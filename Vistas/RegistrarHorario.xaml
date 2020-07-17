@@ -1,0 +1,16 @@
+﻿<Window x:Class="Sistema_de_Prácticas_Profesionales.Vistas.RegistrarHorario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema_de_Prácticas_Profesionales.Vistas"
+        mc:Ignorable="d"
+        Title="RegistrarHorario" Height="348.75" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="85,89,0,0" TextWrapping="Wrap" Text="Seleccione El Archivo a subir" VerticalAlignment="Top"/>
+        <Button x:Name="btnSeleccionar" Content="SeleccionarArchivo" HorizontalAlignment="Left" Margin="559,172,0,0" VerticalAlignment="Top" Width="131"/>
+        <TextBox x:Name="textBoxRuta" HorizontalAlignment="Left" Height="23" Margin="222,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
+        <Button x:Name="btnSubirArchivo" Content="Subir Archivo" HorizontalAlignment="Left" Margin="324,275,0,0" VerticalAlignment="Top" Width="74"/>
+
+    </Grid>
+</Window>

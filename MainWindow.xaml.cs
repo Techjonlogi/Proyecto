@@ -83,5 +83,11 @@ namespace Formación_de_Profesionales_en_Accesibilidad
             VerMensajes vm = new VerMensajes();
                 vm.Show();
         }
+
+        private void btnRegistrarPlan_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarPlanActividades rp = new RegistrarPlanActividades();
+            rp.Show();
+        }
     }
 }
