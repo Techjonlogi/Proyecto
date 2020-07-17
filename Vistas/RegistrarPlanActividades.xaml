@@ -8,8 +8,8 @@
         Title="RegistrarPlanActividades" Height="450" Width="800">
     <Grid>
         <Button x:Name="btnSeleccionarArchivo" Content="Seleccionar Archivo" HorizontalAlignment="Left" Margin="638,253,0,0" VerticalAlignment="Top" Width="107" Height="32" Click="btnSeleccionarArchivo_Click"/>
-        <Button x:Name="btnSubirArchivo" Content="Guardar Plan" HorizontalAlignment="Left" Margin="320,319,0,0" VerticalAlignment="Top" Width="119" Height="41"/>
-        <TextBox x:Name="txtBoxRuta" HorizontalAlignment="Left" Height="23" Margin="191,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="381" IsEnabled="False"/>
+        <Button x:Name="btnSubirArchivo" Content="Guardar Plan" HorizontalAlignment="Left" Margin="320,319,0,0" VerticalAlignment="Top" Width="119" Height="41" Click="btnSubirArchivo_Click"/>
+        <TextBox x:Name="textBoxRuta" HorizontalAlignment="Left" Height="23" Margin="191,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="381" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="39,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="290" FontFamily="Rockwell Extra Bold" FontSize="24"><Run Text="Seleccione el Archivo a"/><Run Text=" "/><Run Text="Subir"/><LineBreak/><Run/></TextBlock>
 
     </Grid>

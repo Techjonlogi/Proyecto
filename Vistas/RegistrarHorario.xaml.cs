@@ -11,7 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Diagnostics;
+using Sistema_de_Prácticas_Profesionales.Controller;
+using Microsoft.Win32;
 namespace Sistema_de_Prácticas_Profesionales.Vistas
 {
     /// <summary>
@@ -24,6 +26,70 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             InitializeComponent();
         }
 
-        
+
+
+
+        public enum OperationResult
+        {
+            Success,
+            NullOrganization,
+            InvalidOrganization,
+            UnknowFail,
+            SQLFail,
+            ExistingRecord
+        }
+
+
+
+
+
+        private void ComprobarResultado(OperationResult result)
+        {
+            if (result == OperationResult.Success)
+            {
+                MessageBox.Show("Añadido con exito");
+                this.Close();
+            }
+            else if (result == OperationResult.UnknowFail)
+            {
+                MessageBox.Show("Error desconocido");
+            }
+            else if (result == OperationResult.SQLFail)
+            {
+                MessageBox.Show("Error de la base de datos, intente mas tarde");
+            }
+            else if (result == OperationResult.ExistingRecord)
+            {
+                MessageBox.Show("El registro ya existe en el sistema");
+            }
+        }
+
+
+
+
+
+        private void btnSeleccionar_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialogo = new OpenFileDialog();
+            dialogo.ShowDialog();
+            textBoxRuta.Text = dialogo.FileName;
+        }
+
+        private void btnSubirArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            if (textBoxRuta.Text == String.Empty)
+            {
+
+                MessageBox.Show("Debe Seleccionar un archivo primero");
+
+
+
+            }
+            else {
+                DocumentoController controller = new DocumentoController();
+               ComprobarResultado((OperationResult) controller.AddDocumento(textBoxRuta.Text));
+            
+            }
+        }
     }
 }

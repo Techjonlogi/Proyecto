@@ -8,9 +8,9 @@
         Title="RegistrarHorario" Height="293.75" Width="522">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="56,50,0,0" TextWrapping="Wrap" Text="Seleccione El Archivo a subir" VerticalAlignment="Top"/>
-        <Button x:Name="btnSeleccionar" Content="SeleccionarArchivo" HorizontalAlignment="Left" Margin="355,143,0,0" VerticalAlignment="Top" Width="131"/>
-        <TextBox x:Name="textBoxRuta" HorizontalAlignment="Left" Height="23" Margin="56,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
-        <Button x:Name="btnSubirArchivo" Content="Subir Archivo" HorizontalAlignment="Left" Margin="233,223,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="btnSeleccionar" Content="SeleccionarArchivo" HorizontalAlignment="Left" Margin="355,143,0,0" VerticalAlignment="Top" Width="131" Click="btnSeleccionar_Click"/>
+        <TextBox x:Name="textBoxRuta" HorizontalAlignment="Left" Height="23" Margin="56,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" IsEnabled="False"/>
+        <Button x:Name="btnSubirArchivo" Content="Subir Archivo" HorizontalAlignment="Left" Margin="233,223,0,0" VerticalAlignment="Top" Width="74" Click="btnSubirArchivo_Click"/>
 
     </Grid>
 </Window>

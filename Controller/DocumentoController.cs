@@ -27,7 +27,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
 
 
 
-        public OperationResult AddCoordinador(String ruta)
+        public OperationResult AddDocumento(String ruta)
         {
             OperationResult operation = OperationResult.Success;
             
