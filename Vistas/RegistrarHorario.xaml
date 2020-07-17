@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sistema_de_Prácticas_Profesionales.Vistas"
         mc:Ignorable="d"
-        Title="RegistrarHorario" Height="348.75" Width="800">
+        Title="RegistrarHorario" Height="293.75" Width="522">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="85,89,0,0" TextWrapping="Wrap" Text="Seleccione El Archivo a subir" VerticalAlignment="Top"/>
-        <Button x:Name="btnSeleccionar" Content="SeleccionarArchivo" HorizontalAlignment="Left" Margin="559,172,0,0" VerticalAlignment="Top" Width="131"/>
-        <TextBox x:Name="textBoxRuta" HorizontalAlignment="Left" Height="23" Margin="222,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
-        <Button x:Name="btnSubirArchivo" Content="Subir Archivo" HorizontalAlignment="Left" Margin="324,275,0,0" VerticalAlignment="Top" Width="74"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,50,0,0" TextWrapping="Wrap" Text="Seleccione El Archivo a subir" VerticalAlignment="Top"/>
+        <Button x:Name="btnSeleccionar" Content="SeleccionarArchivo" HorizontalAlignment="Left" Margin="355,143,0,0" VerticalAlignment="Top" Width="131"/>
+        <TextBox x:Name="textBoxRuta" HorizontalAlignment="Left" Height="23" Margin="56,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
+        <Button x:Name="btnSubirArchivo" Content="Subir Archivo" HorizontalAlignment="Left" Margin="233,223,0,0" VerticalAlignment="Top" Width="74"/>
 
     </Grid>
 </Window>

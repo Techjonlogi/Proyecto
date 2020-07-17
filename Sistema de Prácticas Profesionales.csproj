@@ -111,6 +111,7 @@
     <Compile Include="Controller\ActividadController.cs" />
     <Compile Include="Controller\AdministradorController.cs" />
     <Compile Include="Controller\CoordinadorController.cs" />
+    <Compile Include="Controller\DocumentoController.cs" />
     <Compile Include="Controller\MensajeController.cs" />
     <Compile Include="Controller\OrganizacionVinculadaController.cs" />
     <Compile Include="Controller\PracticaController.cs" />
@@ -121,9 +122,11 @@
     <Compile Include="DAO\ActividadDAO.cs" />
     <Compile Include="DAO\AdministradorDAO.cs" />
     <Compile Include="DAO\CoordinadorDAOcs.cs" />
+    <Compile Include="DAO\DocumentoDao.cs" />
     <Compile Include="DAO\IActividadDAO.cs" />
     <Compile Include="DAO\IAdministradorDAO.cs" />
     <Compile Include="DAO\ICoordinadorDAO.cs" />
+    <Compile Include="DAO\IDocumentoDao.cs" />
     <Compile Include="DAO\IMensajeDao.cs" />
     <Compile Include="DAO\IOrganizacionVinculadaDao.cs" />
     <Compile Include="DAO\IPracticaDAO.cs" />
@@ -143,6 +146,7 @@
     <Compile Include="Logica\CheckFields.cs" />
     <Compile Include="DAO\IPracticanteDAO.cs" />
     <Compile Include="Pojos\Actividad\Actividad.cs" />
+    <Compile Include="Pojos\Documento\DocumentoPracticas.cs" />
     <Compile Include="Pojos\Mensaje\Mensaje.cs" />
     <Compile Include="Pojos\OrganizacionVinculada\OrganizacionVinculada.cs" />
     <Compile Include="Pojos\Practicante\Practicante.cs" />
