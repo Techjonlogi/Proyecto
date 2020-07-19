@@ -22,5 +22,17 @@ namespace Sistema_de_Prácticas_Profesionales.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string tipoUsuario {
+            get {
+                return ((string)(this["tipoUsuario"]));
+            }
+            set {
+                this["tipoUsuario"] = value;
+            }
+        }
     }
 }

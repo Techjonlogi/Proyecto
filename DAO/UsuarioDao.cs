@@ -26,6 +26,72 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             }
             return stringBuilderValue.ToString();
         }
+
+
+
+
+        public AddResult doLoging(String username,String password) {
+
+            AddResult resultado = AddResult.UnknowFail;
+            DbConnection dbConnection = new DbConnection();
+            using (SqlConnection connection = dbConnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                }
+                catch (SqlException)
+                {
+                    resultado = AddResult.SQLFail;
+                    return resultado;
+                }
+
+                using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Usuarios WHERE Usuario = @usuario AND contraseña = @contraseña", connection))
+                {
+                    command.Parameters.Add(new SqlParameter("@usuario", username));
+                    command.Parameters.Add(new SqlParameter("@contraseña", password));
+
+                    try
+                    {
+                        
+                        SqlDataReader reader = command.ExecuteReader();
+                        Usuario usuario = new Usuario();
+                        while (reader.Read()) {
+                            
+                            usuario.Password = reader["contraseña"].ToString();
+                            usuario.UserName = reader["Usuario"].ToString();
+                            resultado = AddResult.Success;
+                            Properties.Settings.Default.tipoUsuario = reader["Tipo_Usuario"].ToString();
+                        }
+
+                        if (usuario.UserName == null) {
+                            resultado = AddResult.InvalidOrganization;
+                        
+                        }
+
+                    }
+                    catch (SqlException) {
+
+                        resultado = AddResult.NullObject;
+                    
+                    }
+                    catch (Exception e)
+                    {
+
+                        resultado = AddResult.SQLFail;
+                    }
+
+                    
+                }
+                connection.Close();
+            }
+            return resultado;
+
+
+        }
+        
+        
+        
         public AddResult AddUsuario(Usuario usuario)
         {
             AddResult resultado = AddResult.UnknowFail;

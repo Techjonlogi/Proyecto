@@ -140,5 +140,20 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
             }
             return ResultadosValidación.Correoinválido;
         }
+
+
+        public ResultadosValidación ValidaEspacios(string cadena)
+        {
+            string patrón = @"^\S+$";
+            if (Regex.IsMatch(cadena, patrón))
+            {
+                return ResultadosValidación.UsuarioValido;
+            }
+            return ResultadosValidación.UsuarioInvalido;
+        }
+
+
+
+
     }
 }

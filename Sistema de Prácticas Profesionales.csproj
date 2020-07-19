@@ -119,6 +119,7 @@
     <Compile Include="Controller\ProfesorController.cs" />
     <Compile Include="Controller\ProyectoController.cs" />
     <Compile Include="Controller\ResponsableDeProyectoController.cs" />
+    <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="DAO\ActividadDAO.cs" />
     <Compile Include="DAO\AdministradorDAO.cs" />
     <Compile Include="DAO\CoordinadorDAOcs.cs" />
@@ -172,6 +173,12 @@
     </Compile>
     <Compile Include="Vistas\GenerarPdf.xaml.cs">
       <DependentUpon>GenerarPdf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\MainPracticante.xaml.cs">
+      <DependentUpon>MainPracticante.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\MainUsuario.xaml.cs">
+      <DependentUpon>MainUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Mensajes\EnviarMensaje.xaml.cs">
       <DependentUpon>EnviarMensaje.xaml</DependentUpon>
@@ -227,6 +234,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\GenerarPdf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\MainPracticante.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\MainUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

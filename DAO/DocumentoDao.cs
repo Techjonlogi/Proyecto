@@ -66,7 +66,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Documentos VALUES (@ruta)", connection))
                 {
                     command.Parameters.Add(new SqlParameter("@ruta", documento.RutaDocumento));
-                   ;
+                   
                     try
                     {
                         command.ExecuteNonQuery();
