@@ -49,7 +49,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
                 MensajeDao mensajedao = new MensajeDao();
                 operation = (OperationResult)mensajedao.addMensaje(coordinador);
            
-                operation = OperationResult.ExistingRecord;
+                
             
 
             return operation;

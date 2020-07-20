@@ -26,17 +26,18 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
 
        
 
-        private void buttonAdministrarCoordinadores_Click(object sender, RoutedEventArgs e)
-        {
-            AdministrarCoordinadores administrarcoordinadores = new AdministrarCoordinadores();
-            administrarcoordinadores.ShowDialog();
-
-        }
+       
 
         private void buttonAdministrarProfesores_Click(object sender, RoutedEventArgs e)
         {
             AdministrarProfesores administrarprofesores = new AdministrarProfesores();
             administrarprofesores.ShowDialog();
+        }
+
+        private void buttonAdministrarCoordinadores_Click_1(object sender, RoutedEventArgs e)
+        {
+            AdministrarCoordinadores administrarcoordinadores = new AdministrarCoordinadores();
+            administrarcoordinadores.ShowDialog();
         }
     }
 }

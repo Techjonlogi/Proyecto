@@ -18,7 +18,7 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.Profesor
         private String contraseñaProfesor;
         private String fechaRegistroProfesor;
         private String fechaBajaProfesor;
-        private string turno;
+        private String turno;
 
 
 

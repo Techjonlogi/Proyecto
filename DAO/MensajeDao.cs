@@ -32,7 +32,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             { 
                 throw new FormatException("Receptor Invalido " + mensaje.Receptor); 
             }
-            if (validarCampos.ValidarNumeropersonal(mensaje.Emisor) == CheckFields.ResultadosValidación.NúmeroVálido || validarCampos.ValidarNumeropersonal(mensaje.Emisor) == CheckFields.ResultadosValidación.MatriculaValida)
+            if (validarCampos.ValidarNumeropersonal(mensaje.Emisor) == CheckFields.ResultadosValidación.NúmeroVálido || validarCampos.ValidarMatricula(mensaje.Emisor) == CheckFields.ResultadosValidación.MatriculaValida)
             {
                 result = AddResult.Success;
                 
