@@ -56,19 +56,25 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         private void generarpdf_Click(object sender, RoutedEventArgs e)
         {
             
-            if (datagridProyecto.SelectedValue.ToString() != String.Empty)
-            {
-                String nombreActividad = textBoxActividad.Text;
-                String descripcionActividad = textBoxDescripcion.Text;
-                String id;
-                ProfesorController controller = new ProfesorController();
-                id = ((Proyecto)datagridProyecto.SelectedValue).IdProyecto;
+                if (datagridProyecto.SelectedValue.ToString() != String.Empty)
+                {
+                    String nombreActividad = textBoxActividad.Text;
+                    String descripcionActividad = textBoxDescripcion.Text;
+                    String id;
+                    ProfesorController controller = new ProfesorController();
+                    id = ((Proyecto)datagridProyecto.SelectedValue).IdProyecto;
+
+                    GenerarArchivo(id, nombreActividad, descripcionActividad);
+                }else
+                {
+                MessageBox.Show("Debe seleccionar un celda valida para eliminar");
+                }
+           
                 
-                GenerarArchivo(id, nombreActividad, descripcionActividad);
-            }
-            else { MessageBox.Show("Debe seleccionar un celda valida para eliminar"); }
-            
         }
+             
+            
+        
 
 
 

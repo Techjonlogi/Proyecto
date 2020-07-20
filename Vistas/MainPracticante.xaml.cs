@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formación_de_Profesionales_en_Accesibilidad;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,31 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         public MainPracticante()
         {
             InitializeComponent();
+        }
+
+        private void btnGenerarReporte_Click(object sender, RoutedEventArgs e)
+        {
+            GenerarPdf generarpdf = new GenerarPdf();
+            generarpdf.ShowDialog();
+        }
+
+        private void btnAñadirHorario_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarHorario registrarhorario = new RegistrarHorario();
+            registrarhorario.ShowDialog();
+        }
+
+        private void btnPlandeActividades_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarPlanActividades registrarplan = new RegistrarPlanActividades();
+            registrarplan.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwindow = new MainWindow();
+            this.Close();
+            mainwindow.Show();
         }
     }
 }

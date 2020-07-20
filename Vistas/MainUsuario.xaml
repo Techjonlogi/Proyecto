@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainUsuario" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="btnBuzón" Content="Consultar Buzón" HorizontalAlignment="Left" Margin="71,225,0,0" VerticalAlignment="Top" Width="171" Height="40" FontSize="18" Click="btnBuzón_Click"/>
+        <Button x:Name="btnMensaje" Content="Enviar Mensaje" HorizontalAlignment="Left" Margin="559,225,0,0" VerticalAlignment="Top" Width="171" Height="41" FontSize="18" Click="btnMensaje_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="88,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="311" FontSize="24"><Run Text="Bienvenido"/><Run Text=" ¿Q"/><Run Text="u"/><Run Text="é"/><Run Text=" desea hacer"/><Run Text="?"/></TextBlock>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="361,360,0,0" VerticalAlignment="Top" Width="99" Height="30" Click="btnSalir_Click"/>
+
     </Grid>
 </Window>

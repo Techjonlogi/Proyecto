@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="MainPracticante" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="btnGenerarReporte" Content="Generar Reporte Mensual" HorizontalAlignment="Left" Margin="44,215,0,0" VerticalAlignment="Top" Width="151" Height="37" RenderTransformOrigin="0.5,0.5" Click="btnGenerarReporte_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.268"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="94,54,0,0" TextWrapping="Wrap" Text="Bienvenido, escoja que desea hacer" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:Name="btnAñadirHorario" Content="Añadir Horario" HorizontalAlignment="Left" Margin="318,215,0,0" VerticalAlignment="Top" Width="150" Height="36" Click="btnAñadirHorario_Click"/>
+        <Button x:Name="btnPlandeActividades" Content="Añadir Plan de actividades" HorizontalAlignment="Left" Margin="576,215,0,0" VerticalAlignment="Top" Width="150" Height="36" Click="btnPlandeActividades_Click"/>
+        <Button Content="Salir" HorizontalAlignment="Left" Margin="318,346,0,0" VerticalAlignment="Top" Width="170" Height="48" Click="Button_Click"/>
+
     </Grid>
 </Window>

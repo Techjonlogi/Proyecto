@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Formación_de_Profesionales_en_Accesibilidad;
+using Sistema_de_Prácticas_Profesionales.Vistas.Mensajes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,25 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         public MainUsuario()
         {
             InitializeComponent();
+        }
+
+        private void btnBuzón_Click(object sender, RoutedEventArgs e)
+        {
+            VerMensajes vermensajes = new VerMensajes();
+            vermensajes.ShowDialog();
+        }
+
+        private void btnMensaje_Click(object sender, RoutedEventArgs e)
+        {
+            EnviarMensaje enviarmensjae = new EnviarMensaje();
+            enviarmensjae.Show();
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+            this.Close();
         }
     }
 }

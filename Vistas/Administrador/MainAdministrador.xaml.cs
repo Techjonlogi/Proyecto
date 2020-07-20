@@ -24,14 +24,19 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void buttonAdministrarCoordinadores_Click(object sender, RoutedEventArgs e)
         {
+            AdministrarCoordinadores administrarcoordinadores = new AdministrarCoordinadores();
+            administrarcoordinadores.ShowDialog();
 
+        }
+
+        private void buttonAdministrarProfesores_Click(object sender, RoutedEventArgs e)
+        {
+            AdministrarProfesores administrarprofesores = new AdministrarProfesores();
+            administrarprofesores.ShowDialog();
         }
     }
 }
