@@ -56,7 +56,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         private void generarpdf_Click(object sender, RoutedEventArgs e)
         {
             
-                if (datagridProyecto.SelectedValue.ToString() != String.Empty)
+                if (datagridProyecto.SelectedIndex > -1)
                 {
                     String nombreActividad = textBoxActividad.Text;
                     String descripcionActividad = textBoxDescripcion.Text;
@@ -65,6 +65,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
                     id = ((Proyecto)datagridProyecto.SelectedValue).IdProyecto;
 
                     GenerarArchivo(id, nombreActividad, descripcionActividad);
+
                 }else
                 {
                 MessageBox.Show("Debe seleccionar un celda valida para eliminar");

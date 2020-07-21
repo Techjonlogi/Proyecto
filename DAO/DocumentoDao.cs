@@ -11,7 +11,7 @@ using Conection;
 
 namespace Sistema_de_Prácticas_Profesionales.DAO
 {
-    class DocumentoDao:IDocumentoDao
+    public class DocumentoDao:IDocumentoDao
     {
 
 

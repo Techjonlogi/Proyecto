@@ -88,7 +88,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
         private void buttonEliminar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (dataProfesores.SelectedValue.ToString() != String.Empty)
+            if (dataProfesores.SelectedIndex>-1)
             {
                 ProfesorController controller = new ProfesorController();
                 ComprobarResultado((OperationResult)controller.DeleteProfesor(((Profesor)dataProfesores.SelectedValue).IdProfesor));

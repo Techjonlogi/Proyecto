@@ -70,7 +70,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
 
         private void buttonEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if (datagridCoordinadores.SelectedValue.ToString() != String.Empty)
+            if (datagridCoordinadores.SelectedIndex > -1)
             {
                 CoordinadorController controller = new CoordinadorController();
                 ComprobarResultado((OperationResult)controller.DeleteCoordinador(((Coordinador)datagridCoordinadores.SelectedValue).NoPersonal));

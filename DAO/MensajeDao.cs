@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Sistema_de_Prácticas_Profesionales.DAO
 {
-     class MensajeDao : IMensajeDao
+     public class MensajeDao : IMensajeDao
     {
         private AddResult CheckObjectMensaje(Mensaje mensaje)
         {

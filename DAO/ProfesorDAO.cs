@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace Sistema_de_Prácticas_Profesionales.DAO
 {
-    class ProfesorDAO : IProfesorDAO
+    public class ProfesorDAO : IProfesorDAO
     {
 
         private AddResult CheckObjectProfesor(Profesor profesor)
@@ -83,7 +83,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     {
                         command.ExecuteNonQuery();
                     }
-                    catch (SqlException e )
+                    catch (SqlException  )
                     {
                         resultado = AddResult.SQLFail;
                         return resultado;

@@ -12,7 +12,7 @@
         <Button x:Name="buttonRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="711,27,0,0" VerticalAlignment="Top" Width="49" Height="49"/>
         <Button x:Name="buttonEditar" Content="Editar" HorizontalAlignment="Left" Margin="341,366,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="A continuación, la lista de los coordinadores ya registrados" HorizontalAlignment="Left" Margin="85,36,0,0" VerticalAlignment="Top" Height="40" Width="488" FontWeight="Bold"/>
-        <DataGrid x:Name="datagridCoordinadores" HorizontalAlignment="Left" Height="238" Margin="54,81,0,0" VerticalAlignment="Top" Width="540"/>
+        <DataGrid x:Name="datagridCoordinadores" HorizontalAlignment="Left" Height="238" Margin="54,81,0,0" VerticalAlignment="Top" Width="540" CanUserAddRows="False" IsReadOnly="True"/>
         <TextBlock HorizontalAlignment="Left" Margin="597,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFE80B0B"><Run Text="Nota:"/><LineBreak/><Run Text="Si desea eliminar un coordiandor, porfavor seleccione el numero de personal "/><Run Text="correspondiente al"/><Run Text=" coordiandor"/><LineBreak/><Run/></TextBlock>
 
     </Grid>
