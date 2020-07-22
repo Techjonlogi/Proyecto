@@ -12,8 +12,8 @@ namespace Sistema_de_Prácticas_Profesionales.Pojos.OrganizacionVinculada
         private String nombreEmpresa;
         private String sector;
         private String usuarioDirecto;
-        private String usuarioIndirecto;//pendiente de cambio, hablar con los compas
-        private String correoElectronico;//pendiente de cambio, hablar con los compas
+        private String usuarioIndirecto;
+        private String correoElectronico;
         private String telefono;
         private String estado;
         private String ciudad;
