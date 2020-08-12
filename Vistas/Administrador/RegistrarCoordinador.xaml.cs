@@ -72,6 +72,27 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             {
                 MessageBox.Show("La contraseña es muy débil \n Intenta combinar letras mayúsculas, minúsculas y números");
             }
+            else if (validarCampos.ValidarNombres(textboxNombre.Text) == Logica.CheckFields.ResultadosValidación.NombresInvalidos)
+            {
+                MessageBox.Show("El nombre que usten ingresó no es valido");
+            }
+            else if (validarCampos.ValidarNombres(textboxAPaterno.Text) == Logica.CheckFields.ResultadosValidación.NombresInvalidos)
+            {
+                MessageBox.Show("El apellido paterno ingresado no es valido");
+            }
+            else if (validarCampos.ValidarNombres(textboxAMaterno.Text) == Logica.CheckFields.ResultadosValidación.NombresInvalidos)
+            {
+                MessageBox.Show("El apellido Materno ingresado no es valido");
+            }
+            else if (validarCampos.ValidarNúmero(textboxCubiculo.Text) == Logica.CheckFields.ResultadosValidación.NúmeroInválido)
+            {
+                MessageBox.Show("El Cubiculo ingresado no es valido");
+            }
+            else if (validarCampos.ValidarUsuario(textboxusuario.Text) == Logica.CheckFields.ResultadosValidación.UsuarioInvalido)
+            {
+                MessageBox.Show("El usuario ingresado no es valido");
+            }
+
             else
             {
                 check = ChecResults.Passed;

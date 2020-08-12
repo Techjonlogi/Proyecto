@@ -65,7 +65,7 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
 
         public ResultadosValidación ValidarNombres(string nombres)
         {
-            string ValidChar = @"^(?=.*[a-z]).{3,35}$";
+            string ValidChar = @"^[\w'\-,.][^0-9_!¡?÷?¿\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$";
             if (Regex.IsMatch(nombres, ValidChar))
             {
                 return ResultadosValidación.NombresValidos;
@@ -118,7 +118,7 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
 
         public ResultadosValidación ValidarUsuario(string usuario)
         {
-            string ValidChar = @"^(?=.*[a-z]).{3,35}$";
+            string ValidChar = @"^[a-zA-Z0-9]+$";
             if (Regex.IsMatch(usuario, ValidChar))
             {
                 return ResultadosValidación.UsuarioValido;

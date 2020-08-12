@@ -50,7 +50,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         private ChecResults CheckEmptyFields()
         {
             ChecResults check = ChecResults.Failed;
-            if (textboxnoPersonal.Text == String.Empty || textBoxnombres.Text == String.Empty || textBoxAPaterno.Text == String.Empty || textBoxAMaterno.Text == String.Empty || textBoxCorreo.Text == String.Empty || textBoxusuario.Text == String.Empty || passwordProfesor.Password == String.Empty || repitePasswordProfesor.Password == String.Empty)
+            if (textboxnoPersonal.Text == String.Empty || textBoxnombres.Text == String.Empty || textBoxAPaterno.Text == String.Empty || textBoxAMaterno.Text == String.Empty || textBoxCorreo.Text == String.Empty || textBoxusuario.Text == String.Empty || passwordProfesor.Password == String.Empty || repitePasswordProfesor.Password == String.Empty || comboturno.SelectedIndex>-1)
             {
                 check = ChecResults.Failed;
             }
@@ -78,7 +78,26 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             {
                 MessageBox.Show("La contraseña es muy débil \n Intenta combinar letras mayúsculas, minúsculas y números");
             }
-            else
+            else if (validarCampos.ValidarNombres(textBoxnombres.Text) == Logica.CheckFields.ResultadosValidación.NombresInvalidos)
+            {
+                MessageBox.Show("El nombre que ingresó no es valido");
+            }
+            else if (validarCampos.ValidarNombres(textBoxAPaterno.Text) == Logica.CheckFields.ResultadosValidación.NombresInvalidos)
+            {
+                MessageBox.Show("El Apellido Paterno que ingresó no es valido");
+            }
+            else if (validarCampos.ValidarNombres(textBoxAMaterno.Text) == Logica.CheckFields.ResultadosValidación.NombresInvalidos)
+            {
+                MessageBox.Show("El Apellido Materno que ingresó no es valido");
+            }
+            else if (validarCampos.ValidarCorreo(textBoxCorreo.Text) == Logica.CheckFields.ResultadosValidación.Correoinválido)
+            {
+                MessageBox.Show("El Correo que ingresó no es valido");
+            }
+            else if (validarCampos.ValidarUsuario(textBoxusuario.Text) == Logica.CheckFields.ResultadosValidación.UsuarioInvalido)
+            {
+                MessageBox.Show("El Usuario que ingresó no es valido");
+            } else
             {
                 check = ChecResults.Passed;
             }
