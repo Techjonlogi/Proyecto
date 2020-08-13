@@ -46,6 +46,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 
         public AddResult AddActividad(Actividad instanceActividad)
         {
+            
             AddResult instanceAddResult = AddResult.UnknowFail;
             DbConnection instanceDbConnection = new DbConnection();
             AddResult checkForEmpty = AddResult.UnknowFail;
