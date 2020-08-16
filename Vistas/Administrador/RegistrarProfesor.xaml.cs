@@ -50,7 +50,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         private ChecResults CheckEmptyFields()
         {
             ChecResults check = ChecResults.Failed;
-            if (textboxnoPersonal.Text == String.Empty || textBoxnombres.Text == String.Empty || textBoxAPaterno.Text == String.Empty || textBoxAMaterno.Text == String.Empty || textBoxCorreo.Text == String.Empty || textBoxusuario.Text == String.Empty || passwordProfesor.Password == String.Empty || repitePasswordProfesor.Password == String.Empty || comboturno.SelectedIndex>-1)
+            if (textboxnoPersonal.Text == String.Empty || textBoxnombres.Text == String.Empty || textBoxAPaterno.Text == String.Empty || textBoxAMaterno.Text == String.Empty || textBoxCorreo.Text == String.Empty || textBoxusuario.Text == String.Empty || passwordProfesor.Password == String.Empty || repitePasswordProfesor.Password == String.Empty || comboturno.SelectedIndex==-1)
             {
                 check = ChecResults.Failed;
             }

@@ -35,20 +35,38 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         /// <param name="correo">correo.</param>
         /// <param name="contraseña"> contraseña.</param>
         /// <returns>Resultado de la operación</returns>
-        public AddResult AñadirProfesor(string idprofesor, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string turno, string correo)
+        public OperationResult AñadirProfesor(string idprofesor, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string turno, string correo)
         {
+            OperationResult operation = OperationResult.UnknowFail;
             ProfesorDAO instanceProfesorDAO = new ProfesorDAO();
             UsuarioDao usuarioDAO = new UsuarioDao();
-            
-            Profesor profesor = new Profesor(idprofesor,nombresprofesor,apellidopaterno,apellidomaterno,usuario,contraseña,fechaderegistro,fechadebaja,turno);
-            DateTime dateTime = DateTime.Now;
-            Usuario instanceusuario = new Usuario(usuario, contraseña, "Profesor", dateTime, nombresprofesor, correo);
-            if (instanceProfesorDAO.AddProfesor(profesor) == AddResult.Success)
-            {
-                return AddResult.Success;
-            }
-            return AddResult.UnknowFail;
 
+            if (GetNoPersonalProfesor(idprofesor).IdProfesor == null)
+            {
+                Profesor profesor = new Profesor(idprofesor, nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro, fechadebaja, turno);
+                DateTime dateTime = DateTime.Now;
+                Usuario instanceusuario = new Usuario(usuario, contraseña, "Profesor", dateTime, nombresprofesor, correo);
+                ProfesorDAO dao  = new ProfesorDAO();
+                operation = (OperationResult)dao.AddProfesor(profesor);
+            }
+            else {
+
+                operation = OperationResult.ExistingRecord;
+            }
+
+            return operation;
+
+
+        }
+
+       
+
+
+
+        public Profesor GetNoPersonalProfesor(String noPersonal)
+        {
+            ProfesorDAO dao = new ProfesorDAO ();
+            return dao.GetProfesorforID(noPersonal);
         }
 
         public List<Profesor> GetProfesor()

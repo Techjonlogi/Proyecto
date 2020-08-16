@@ -160,9 +160,9 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         profesor.NombresProfesor = reader["Nombres"].ToString();
                         profesor.ApellidoPaternoProfesor = reader["apellidoPaterno"].ToString();
                         profesor.ApellidoMaternoProfesor = reader["apellidoMaterno"].ToString();
-                        profesor.UsuarioProfesor = reader["usuario"].ToString();
-                        profesor.FechaRegistroProfesor = reader["FechaRegistro"].ToString();
-                        profesor.FechaBajaProfesor = reader["FechaBaja"].ToString();
+                        
+                        profesor.FechaRegistroProfesor = reader["fechaDeregistro"].ToString();
+                        profesor.FechaBajaProfesor = reader["FechaDeBaja"].ToString();
 
                     }
                 }
