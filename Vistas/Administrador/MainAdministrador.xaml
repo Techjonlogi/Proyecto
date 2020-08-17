@@ -9,11 +9,11 @@
     <Grid>
         <Label Content="Bienvenido! " HorizontalAlignment="Left" Margin="60,23,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontWeight="Bold"/>
         <Label Content="¿Qué desea hacer?" HorizontalAlignment="Left" Margin="180,23,0,0" VerticalAlignment="Top" Width="234" FontSize="18"/>
-        <Button x:Name="buttonAdministrarProfesores"  Content="Administrar profesores" HorizontalAlignment="Left" Margin="60,102,0,0" VerticalAlignment="Top" Width="139" Height="70" Click="buttonAdministrarProfesores_Click"/>
-        <Button x:Name="buttonAdministrarCoordinadores" Content="Administrar Coordinadores" HorizontalAlignment="Left" Margin="43,265,0,0" VerticalAlignment="Top" Width="156" Height="70" Click="buttonAdministrarCoordinadores_Click_1"/>
+        <Button x:Name="btnAdministrarProfesores"  Content="Administrar profesores" HorizontalAlignment="Left" Margin="60,102,0,0" VerticalAlignment="Top" Width="139" Height="70" Click="buttonAdministrarProfesores_Click"/>
+        <Button x:Name="btnAdministrarCoordinadores" Content="Administrar Coordinadores" HorizontalAlignment="Left" Margin="43,265,0,0" VerticalAlignment="Top" Width="156" Height="70" Click="buttonAdministrarCoordinadores_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="251,102,0,0" TextWrapping="Wrap" Text="Le permite organizar los profesores ya registrados, así como eliminarlos o agregar nuevos profesores" VerticalAlignment="Top" Height="70" Width="289" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"/>
         <TextBlock HorizontalAlignment="Left" Margin="251,265,0,0" TextWrapping="Wrap" Text="Le permite organizar los coordinadores ya registrados, así como eliminarlos o agregar nuevos coordinadores" VerticalAlignment="Top" Height="70" Width="289" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"/>
-        <Button x:Name="buttonSalir" Content="Salir" HorizontalAlignment="Left" Margin="592,357,0,0" VerticalAlignment="Top" Width="75" Click="buttonSalir_Click"/>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="592,357,0,0" VerticalAlignment="Top" Width="75" Click="buttonSalir_Click"/>
 
     </Grid>
 </Window>
