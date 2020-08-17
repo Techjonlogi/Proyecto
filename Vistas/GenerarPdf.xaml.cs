@@ -68,7 +68,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
 
                 }else
                 {
-                MessageBox.Show("Debe seleccionar un celda valida para eliminar");
+                MessageBox.Show("Debe seleccionar un celda valida para generar el archivo");
                 }
            
                 

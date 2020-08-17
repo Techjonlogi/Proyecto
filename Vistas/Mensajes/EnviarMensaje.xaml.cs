@@ -102,9 +102,11 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Mensajes
 
         private void btnEnviar_Click(object sender, RoutedEventArgs e)
         {
-            MensajeController controller = new MensajeController();
-            ComprobarResultado((OperationResult)controller.AddMensaje(textBoxReceptor.Text, textBoxEmisor.Text, textBoxMensaje.Text));
-
+            if (CheckFields() == ChecResults.Passed)
+            {
+                MensajeController controller = new MensajeController();
+                ComprobarResultado((OperationResult)controller.AddMensaje(textBoxReceptor.Text, textBoxEmisor.Text, textBoxMensaje.Text));
+            }
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

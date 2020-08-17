@@ -27,7 +27,59 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Mensajes
             
         }
 
-       
+
+        private enum ChecResults
+        {
+            Passed, Failed
+        }
+
+        public enum OperationResult
+        {
+            Success,
+            NullOrganization,
+            InvalidOrganization,
+            UnknowFail,
+            SQLFail,
+            ExistingRecord
+        }
+
+
+        private ChecResults CheckEmptyFields()
+        {
+            ChecResults check = ChecResults.Failed;
+            if (textBoxid.Text == String.Empty)
+            {
+                check = ChecResults.Failed;
+            }
+            else
+            {
+                check = ChecResults.Passed;
+            }
+            return check;
+        }
+
+
+        private ChecResults CheckFields()
+        {
+            ChecResults check = ChecResults.Failed;
+            Logica.CheckFields validarCampos = new Logica.CheckFields();
+            if (CheckEmptyFields() == ChecResults.Failed)
+            {
+                MessageBox.Show("Existen campos sin llenar");
+                check = ChecResults.Failed;
+            }
+            else if (validarCampos.ValidarMatricula(textBoxid.Text) == Logica.CheckFields.ResultadosValidación.MatriculaValida || validarCampos.ValidarNumeropersonal(textBoxid.Text) == Logica.CheckFields.ResultadosValidación.NúmeroVálido)
+            {
+                check = ChecResults.Passed;
+                
+            }
+            
+            else
+            {
+                MessageBox.Show("Numero o Matricula invalida, porfavor ingrese algo valido");
+            }
+            return check;
+        }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -36,7 +88,10 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Mensajes
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            UpdateGrid(textBoxid.Text);
+            if (CheckFields() == ChecResults.Passed)
+            {
+                UpdateGrid(textBoxid.Text);
+            }
         }
 
         private void UpdateGrid(String id)
