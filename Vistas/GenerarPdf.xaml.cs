@@ -39,6 +39,65 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         }
 
 
+
+
+
+
+
+
+        private enum ChecResults
+        {
+            Passed, Failed
+        }
+
+        public enum OperationResult
+        {
+            Success,
+            NullCoordinador,
+            InvaliCoordinador,
+            UnknowFail,
+            SQLFail,
+            ExistingRecord
+
+        }
+
+        private ChecResults CheckEmptyFields()
+        {
+            ChecResults check = ChecResults.Failed;
+            if (textBoxActividad.Text == String.Empty || textBoxDescripcion.Text == String.Empty)
+            {
+                check = ChecResults.Failed;
+            }
+            else
+            {
+                check = ChecResults.Passed;
+            }
+            return check;
+        }
+
+        private ChecResults CheckFields()
+        {
+            ChecResults check = ChecResults.Failed;
+            Logica.CheckFields validarCampos = new Logica.CheckFields();
+            if (CheckEmptyFields() == ChecResults.Failed)
+            {
+                MessageBox.Show("Existen campos sin llenar");
+                check = ChecResults.Failed;
+            }
+            
+
+            else
+            {
+                check = ChecResults.Passed;
+            }
+            return check;
+        }
+
+
+
+
+
+
         private void UpdateGrid()
         {
             ControladorProyecto controller = new ControladorProyecto();
@@ -56,7 +115,10 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
         private void generarpdf_Click(object sender, RoutedEventArgs e)
         {
             
+
                 if (datagridProyecto.SelectedIndex > -1)
+                {
+                if (CheckFields() == ChecResults.Passed)
                 {
                     String nombreActividad = textBoxActividad.Text;
                     String descripcionActividad = textBoxDescripcion.Text;
@@ -65,13 +127,14 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
                     id = ((Proyecto)datagridProyecto.SelectedValue).IdProyecto;
 
                     GenerarArchivo(id, nombreActividad, descripcionActividad);
-
-                }else
-                {
-                MessageBox.Show("Debe seleccionar un celda valida para generar el archivo");
                 }
-           
-                
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un celda valida para generar el archivo");
+                }
+
+            
         }
              
             
@@ -118,7 +181,7 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas
             }
 
 
-
+            this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

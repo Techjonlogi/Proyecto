@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formación_de_Profesionales_en_Accesibilidad;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,13 @@ namespace Sistema_de_Prácticas_Profesionales.Vistas.Administrador
         {
             AdministrarCoordinadores administrarcoordinadores = new AdministrarCoordinadores();
             administrarcoordinadores.ShowDialog();
+        }
+
+        private void buttonSalir_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

@@ -13,6 +13,7 @@
         <Button x:Name="buttonAdministrarCoordinadores" Content="Administrar Coordinadores" HorizontalAlignment="Left" Margin="43,265,0,0" VerticalAlignment="Top" Width="156" Height="70" Click="buttonAdministrarCoordinadores_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="251,102,0,0" TextWrapping="Wrap" Text="Le permite organizar los profesores ya registrados, así como eliminarlos o agregar nuevos profesores" VerticalAlignment="Top" Height="70" Width="289" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"/>
         <TextBlock HorizontalAlignment="Left" Margin="251,265,0,0" TextWrapping="Wrap" Text="Le permite organizar los coordinadores ya registrados, así como eliminarlos o agregar nuevos coordinadores" VerticalAlignment="Top" Height="70" Width="289" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"/>
+        <Button x:Name="buttonSalir" Content="Salir" HorizontalAlignment="Left" Margin="592,357,0,0" VerticalAlignment="Top" Width="75" Click="buttonSalir_Click"/>
 
     </Grid>
 </Window>
