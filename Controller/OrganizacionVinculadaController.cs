@@ -29,20 +29,20 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             if (GetOrganizacionVinculadaById(id).IdOrganizacion == null)
             {
 
-                OrganizacionVinculada instanceorganizacion = new OrganizacionVinculada();
-                instanceorganizacion.CorreoElectronico = Correo;
-                instanceorganizacion.Direccion = Direccion;
-                instanceorganizacion.NombreEmpresa = Nombre;
-                instanceorganizacion.IdOrganizacion = id;
-                instanceorganizacion.Sector = Sector;
-                instanceorganizacion.Telefono = Telefono;
-                instanceorganizacion.UsuarioDirecto = usuarioDirecto;
-                instanceorganizacion.UsuarioIndirecto = usuarioIndirecto;
-                instanceorganizacion.Estado = estado;
-                instanceorganizacion.Ciudad = ciudad;
-                OrganizacionVinculadaDAO instanceorganizacionDAO = new OrganizacionVinculadaDAO();
+                OrganizacionVinculada organizacion = new OrganizacionVinculada();
+                organizacion.CorreoElectronico = Correo;
+                organizacion.Direccion = Direccion;
+                organizacion.NombreEmpresa = Nombre;
+                organizacion.IdOrganizacion = id;
+                organizacion.Sector = Sector;
+                organizacion.Telefono = Telefono;
+                organizacion.UsuarioDirecto = usuarioDirecto;
+                organizacion.UsuarioIndirecto = usuarioIndirecto;
+                organizacion.Estado = estado;
+                organizacion.Ciudad = ciudad;
+                OrganizacionVinculadaDAO organizacionDAO = new OrganizacionVinculadaDAO();
 
-                operation = (OperationResult)instanceorganizacionDAO.AddOrganizacion(instanceorganizacion);
+                operation = (OperationResult)organizacionDAO.AddOrganizacion(organizacion);
             }
             else
             {
@@ -53,20 +53,20 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         }
         public List<OrganizacionVinculada> GetOrganizacion()
         {
-            OrganizacionVinculadaDAO instanceorganizacionDAO = new OrganizacionVinculadaDAO();
-            List<OrganizacionVinculada> list = instanceorganizacionDAO.GetOrganizacion();
+            OrganizacionVinculadaDAO organizacionDAO = new OrganizacionVinculadaDAO();
+            List<OrganizacionVinculada> list = organizacionDAO.GetOrganizacion();
             return list;
         }
 
         public OrganizacionVinculada GetOrganizacionVinculadaById(String id)
         {
-            OrganizacionVinculadaDAO instanceorganizacionDAO = new OrganizacionVinculadaDAO();
-            return instanceorganizacionDAO.GetOrganizacionforID(id);
+            OrganizacionVinculadaDAO eorganizacionDAO = new OrganizacionVinculadaDAO();
+            return eorganizacionDAO.GetOrganizacionforID(id);
         }
         public OperationResult DeleteOrganizacionVinculadaById(String id)
         {
-            OrganizacionVinculadaDAO instanceorganizacionDAO = new OrganizacionVinculadaDAO();
-            return (OperationResult)instanceorganizacionDAO.DeleteOrganizacionByID(id);
+            OrganizacionVinculadaDAO organizacionDAO = new OrganizacionVinculadaDAO();
+            return (OperationResult)organizacionDAO.DeleteOrganizacionByID(id);
         }
        
     }

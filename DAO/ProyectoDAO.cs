@@ -14,37 +14,37 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 {
     public class ProyectoDAO
     {
-        private AddResult CheckObjectProyecto(Proyecto instanceproyecto)
+        private AddResult CheckObjectProyecto(Proyecto proyecto)
         {
             CheckFields validarCampos = new CheckFields();
             AddResult instanceresult = AddResult.UnknowFail;
-            if (instanceproyecto.IdProyecto == String.Empty ||
-                instanceproyecto.Responsabilidades == String.Empty ||
-                instanceproyecto.Actividad == String.Empty ||
-                instanceproyecto.Duracion == String.Empty ||
-                instanceproyecto.NombreProyecto == String.Empty ||
-                instanceproyecto.Descripcion == String.Empty ||
-                instanceproyecto.Objetivogeneral == String.Empty ||
-                instanceproyecto.ObjetivoMediato == String.Empty ||
-                instanceproyecto.CargoEncargado == String.Empty ||
-                instanceproyecto.EmailEncargado == String.Empty ||
-                instanceproyecto.NombreEncargado == String.Empty ||
-                instanceproyecto.Metodologia == String.Empty ||
-                instanceproyecto.Recursos == String.Empty ||
-                instanceproyecto.OrganizacionVinculada == null ||
-                instanceproyecto.Coordinador == null)
+            if (proyecto.IdProyecto == String.Empty ||
+                proyecto.Responsabilidades == String.Empty ||
+                proyecto.Actividad == String.Empty ||
+                proyecto.Duracion == String.Empty ||
+                proyecto.NombreProyecto == String.Empty ||
+                proyecto.Descripcion == String.Empty ||
+                proyecto.Objetivogeneral == String.Empty ||
+                proyecto.ObjetivoMediato == String.Empty ||
+                proyecto.CargoEncargado == String.Empty ||
+                proyecto.EmailEncargado == String.Empty ||
+                proyecto.NombreEncargado == String.Empty ||
+                proyecto.Metodologia == String.Empty ||
+                proyecto.Recursos == String.Empty ||
+                proyecto.OrganizacionVinculada == null ||
+                proyecto.Coordinador == null)
             {
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (validarCampos.ValidarMatricula(instanceproyecto.IdProyecto) == CheckFields.ResultadosValidación.MatriculaInvalida)
+            if (validarCampos.ValidarMatricula(proyecto.IdProyecto) == CheckFields.ResultadosValidación.MatriculaInvalida)
             {
-                throw new FormatException("id de proyecto invalido " + instanceproyecto.IdProyecto);
+                throw new FormatException("id de proyecto invalido " + proyecto.IdProyecto);
             }
             else
-            if (validarCampos.ValidarNombres(instanceproyecto.NombreProyecto) == CheckFields.ResultadosValidación.NombresInvalidos)
+            if (validarCampos.ValidarNombres(proyecto.NombreProyecto) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
-                throw new FormatException("Nombre inválido " + instanceproyecto.NombreProyecto);
+                throw new FormatException("Nombre inválido " + proyecto.NombreProyecto);
             }
             else
             {
@@ -53,19 +53,19 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             return instanceresult;
         }
 
-        public AddResult AddProyecto(Proyecto instanceproyecto)
+        public AddResult AddProyecto(Proyecto proyecto)
         {
-            AddResult instanceresultado = AddResult.UnknowFail;
+            AddResult resultado = AddResult.UnknowFail;
             DbConnection dbConnection = new DbConnection();
-            AddResult instancecheckForEmpty = AddResult.UnknowFail;
+            AddResult checkForEmpty = AddResult.UnknowFail;
             try
             {
-                instancecheckForEmpty = CheckObjectProyecto(instanceproyecto);
+                checkForEmpty = CheckObjectProyecto(proyecto);
             }
             catch (ArgumentNullException)
             {
-                instanceresultado = AddResult.NullObject;
-                return instanceresultado;
+                resultado = AddResult.NullObject;
+                return resultado;
             }
             catch (FormatException ex)
             {
@@ -76,35 +76,35 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 connection.Open();
                 using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Profesor VALUES(@IdProyecto, @Responsabilidades, @Actividad, @Duracion, @NombreProyecto, @Descripcion, @ObjetivoGeneral, @ObjetivoMediato, @CargoEncargado, @EmailEncargado, @NombreEncargado, @Metodologia, @Recursos, @IdOrganizacionVinculada, @NumPersonalCoordinador)", connection))
                 {
-                    command.Parameters.Add(new SqlParameter("@IdProyecto", instanceproyecto.IdProyecto));
-                    command.Parameters.Add(new SqlParameter("@Responsabilidades", instanceproyecto.Responsabilidades));
-                    command.Parameters.Add(new SqlParameter("@Actividad", instanceproyecto.Actividad));
-                    command.Parameters.Add(new SqlParameter("@Duracion", instanceproyecto.Duracion));
-                    command.Parameters.Add(new SqlParameter("@NombreProyecto", instanceproyecto.NombreProyecto));
-                    command.Parameters.Add(new SqlParameter("@Descripcion", instanceproyecto.Descripcion));
-                    command.Parameters.Add(new SqlParameter("@ObjetivoGeneral", instanceproyecto.Objetivogeneral));
-                    command.Parameters.Add(new SqlParameter("@ObjetivoMediato", instanceproyecto.ObjetivoMediato));
-                    command.Parameters.Add(new SqlParameter("@CargoEncargado", instanceproyecto.CargoEncargado));
-                    command.Parameters.Add(new SqlParameter("@EmailEncargado", instanceproyecto.EmailEncargado));
-                    command.Parameters.Add(new SqlParameter("@NombreEncargado", instanceproyecto.NombreEncargado));
-                    command.Parameters.Add(new SqlParameter("@Metodologia", instanceproyecto.Metodologia));
-                    command.Parameters.Add(new SqlParameter("@Recursos", instanceproyecto.Recursos));
-                    command.Parameters.Add(new SqlParameter("@IdOrganizacionVinculada", instanceproyecto.OrganizacionVinculada));
-                    command.Parameters.Add(new SqlParameter("@NumPersonalCoordinador", instanceproyecto.Coordinador));
+                    command.Parameters.Add(new SqlParameter("@IdProyecto", proyecto.IdProyecto));
+                    command.Parameters.Add(new SqlParameter("@Responsabilidades",proyecto.Responsabilidades));
+                    command.Parameters.Add(new SqlParameter("@Actividad", proyecto.Actividad));
+                    command.Parameters.Add(new SqlParameter("@Duracion", proyecto.Duracion));
+                    command.Parameters.Add(new SqlParameter("@NombreProyecto", proyecto.NombreProyecto));
+                    command.Parameters.Add(new SqlParameter("@Descripcion", proyecto.Descripcion));
+                    command.Parameters.Add(new SqlParameter("@ObjetivoGeneral", proyecto.Objetivogeneral));
+                    command.Parameters.Add(new SqlParameter("@ObjetivoMediato", proyecto.ObjetivoMediato));
+                    command.Parameters.Add(new SqlParameter("@CargoEncargado", proyecto.CargoEncargado));
+                    command.Parameters.Add(new SqlParameter("@EmailEncargado", proyecto.EmailEncargado));
+                    command.Parameters.Add(new SqlParameter("@NombreEncargado", proyecto.NombreEncargado));
+                    command.Parameters.Add(new SqlParameter("@Metodologia", proyecto.Metodologia));
+                    command.Parameters.Add(new SqlParameter("@Recursos", proyecto.Recursos));
+                    command.Parameters.Add(new SqlParameter("@IdOrganizacionVinculada", proyecto.OrganizacionVinculada));
+                    command.Parameters.Add(new SqlParameter("@NumPersonalCoordinador", proyecto.Coordinador));
                     try
                     {
                         command.ExecuteNonQuery();
                     }
                     catch (SqlException)
                     {
-                        instanceresultado = AddResult.SQLFail;
-                        return instanceresultado;
+                        resultado = AddResult.SQLFail;
+                        return resultado;
                     }
-                    instanceresultado = AddResult.Success;
+                    resultado = AddResult.Success;
                 }
                 connection.Close();
             }
-            return instanceresultado;
+            return resultado;
         }
 
 
@@ -129,23 +129,23 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        Proyecto instanceproyecto = new Proyecto();
+                        Proyecto proyecto = new Proyecto();
 
-                        instanceproyecto.IdProyecto = reader["IdProyecto"].ToString();
-                        instanceproyecto.Responsabilidades = reader["Responsabilidades"].ToString();
-                        instanceproyecto.Actividad = reader["Actividades"].ToString();
-                        instanceproyecto.Duracion = reader["Duracion"].ToString();
-                        instanceproyecto.NombreProyecto = reader["NombreProyecto"].ToString();
-                        instanceproyecto.Descripcion = reader["Descripcion"].ToString();
-                        instanceproyecto.Objetivogeneral = reader["objetivoGeneral"].ToString();
-                        instanceproyecto.ObjetivoMediato = reader["objetivoMediato"].ToString();
-                        instanceproyecto.CargoEncargado = reader["cargoEncargado"].ToString();
-                        instanceproyecto.EmailEncargado = reader["emailEncargado"].ToString();
-                        instanceproyecto.NombreEncargado = reader["NombreEncargado"].ToString();
-                        instanceproyecto.Metodologia = reader["Metodologia"].ToString();
-                        instanceproyecto.Recursos = reader["Recursos"].ToString();
+                        proyecto.IdProyecto = reader["IdProyecto"].ToString();
+                        proyecto.Responsabilidades = reader["Responsabilidades"].ToString();
+                        proyecto.Actividad = reader["Actividades"].ToString();
+                        proyecto.Duracion = reader["Duracion"].ToString();
+                        proyecto.NombreProyecto = reader["NombreProyecto"].ToString();
+                        proyecto.Descripcion = reader["Descripcion"].ToString();
+                        proyecto.Objetivogeneral = reader["objetivoGeneral"].ToString();
+                        proyecto.ObjetivoMediato = reader["objetivoMediato"].ToString();
+                        proyecto.CargoEncargado = reader["cargoEncargado"].ToString();
+                        proyecto.EmailEncargado = reader["emailEncargado"].ToString();
+                        proyecto.NombreEncargado = reader["NombreEncargado"].ToString();
+                        proyecto.Metodologia = reader["Metodologia"].ToString();
+                        proyecto.Recursos = reader["Recursos"].ToString();
                         
-                        listaProyecto.Add(instanceproyecto);
+                        listaProyecto.Add(proyecto);
                     }
                 }
                 connection.Close();
@@ -155,7 +155,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 
         public Proyecto GetProyectoforID(String toSearchInBD)
         {
-            Proyecto instanceproyecto = new Proyecto();
+            Proyecto proyecto = new Proyecto();
             DbConnection dbconnection = new DbConnection();
             using (SqlConnection connection = dbconnection.GetConnection())
             {
@@ -173,28 +173,28 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     SqlDataReader reader = instancecommand.ExecuteReader();
                     while (reader.Read())
                     {
-                        instanceproyecto.IdProyecto = reader["idProyecto"].ToString();
-                        instanceproyecto.Responsabilidades = reader["Responsabilidades"].ToString();
-                        instanceproyecto.Actividad = reader["Actividades"].ToString();
-                        instanceproyecto.Duracion = reader["Duracion"].ToString();
-                        instanceproyecto.NombreProyecto = reader["NombreProyecto"].ToString();
-                        instanceproyecto.Descripcion = reader["Descripcion"].ToString();
-                        instanceproyecto.Objetivogeneral = reader["objetivoGeneral"].ToString();
-                        instanceproyecto.ObjetivoMediato = reader["objetivoMediato"].ToString();
-                        instanceproyecto.CargoEncargado = reader["cargoEncargado"].ToString();
-                        instanceproyecto.EmailEncargado = reader["emailEncargado"].ToString();
-                        instanceproyecto.NombreEncargado = reader["NombreEncargado"].ToString();
-                        instanceproyecto.Metodologia = reader["Metodologia"].ToString();
-                        instanceproyecto.Recursos = reader["Recursos"].ToString();
-                        instanceproyecto.OrganizacionVinculada = null;
-                        instanceproyecto.Coordinador = null;
+                        proyecto.IdProyecto = reader["idProyecto"].ToString();
+                        proyecto.Responsabilidades = reader["Responsabilidades"].ToString();
+                        proyecto.Actividad = reader["Actividades"].ToString();
+                        proyecto.Duracion = reader["Duracion"].ToString();
+                        proyecto.NombreProyecto = reader["NombreProyecto"].ToString();
+                        proyecto.Descripcion = reader["Descripcion"].ToString();
+                        proyecto.Objetivogeneral = reader["objetivoGeneral"].ToString();
+                        proyecto.ObjetivoMediato = reader["objetivoMediato"].ToString();
+                        proyecto.CargoEncargado = reader["cargoEncargado"].ToString();
+                        proyecto.EmailEncargado = reader["emailEncargado"].ToString();
+                        proyecto.NombreEncargado = reader["NombreEncargado"].ToString();
+                        proyecto.Metodologia = reader["Metodologia"].ToString();
+                        proyecto.Recursos = reader["Recursos"].ToString();
+                        proyecto.OrganizacionVinculada = null;
+                        proyecto.Coordinador = null;
                         
 
                     }
                 }
                 connection.Close();
             }
-            return instanceproyecto;
+            return proyecto;
         }
 
 

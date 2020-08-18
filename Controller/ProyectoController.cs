@@ -30,9 +30,9 @@ namespace Controller
             string nombreencargado, string metodologia, string recursos, string IdCoordinador, string actividades)
         {
             ProyectoDAO proyectoDAO = new ProyectoDAO();
-            Coordinador instanceCoordinador = new Coordinador(IdCoordinador);
-            OrganizacionVinculada instanceOrganizacion = new OrganizacionVinculada();
-            Proyecto proyecto = new Proyecto(idproyecto,responsabilidades,actividades, duracion,nombreProyecto, descripcion, objetivogeneral, objetivomediato,cargoencargado,emailencargado, nombreencargado, metodologia, recursos, instanceOrganizacion, instanceCoordinador);
+            Coordinador coordinador = new Coordinador(IdCoordinador);
+            OrganizacionVinculada organizacion = new OrganizacionVinculada();
+            Proyecto proyecto = new Proyecto(idproyecto,responsabilidades,actividades, duracion,nombreProyecto, descripcion, objetivogeneral, objetivomediato,cargoencargado,emailencargado, nombreencargado, metodologia, recursos,organizacion, coordinador);
             return proyectoDAO.AddProyecto(proyecto);
         }
 

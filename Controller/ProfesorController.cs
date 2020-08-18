@@ -38,16 +38,16 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         public OperationResult AñadirProfesor(string idprofesor, string nombresprofesor, string apellidopaterno, string apellidomaterno, string usuario, string contraseña, string fechaderegistro, string fechadebaja,string turno, string correo)
         {
             OperationResult operation = OperationResult.UnknowFail;
-            ProfesorDAO instanceProfesorDAO = new ProfesorDAO();
-            UsuarioDao usuarioDAO = new UsuarioDao();
+            
+            
 
             if (GetNoPersonalProfesor(idprofesor).IdProfesor == null)
             {
                 Profesor profesor = new Profesor(idprofesor, nombresprofesor, apellidopaterno, apellidomaterno, usuario, contraseña, fechaderegistro, fechadebaja, turno);
                 DateTime dateTime = DateTime.Now;
                 Usuario instanceusuario = new Usuario(usuario, contraseña, "Profesor", dateTime, nombresprofesor, correo);
-                ProfesorDAO dao  = new ProfesorDAO();
-                operation = (OperationResult)dao.AddProfesor(profesor);
+                ProfesorDAO profesordao  = new ProfesorDAO();
+                operation = (OperationResult)profesordao.AddProfesor(profesor);
             }
             else {
 
@@ -65,20 +65,20 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
 
         public Profesor GetNoPersonalProfesor(String noPersonal)
         {
-            ProfesorDAO dao = new ProfesorDAO ();
-            return dao.GetProfesorforID(noPersonal);
+            ProfesorDAO profesordao = new ProfesorDAO ();
+            return profesordao.GetProfesorforID(noPersonal);
         }
 
         public List<Profesor> GetProfesor()
         {
-            ProfesorDAO dao = new ProfesorDAO();
-            List<Profesor> list = dao.GetProfesor();
+            ProfesorDAO profesordao = new ProfesorDAO();
+            List<Profesor> list = profesordao.GetProfesor();
             return list;
         }
         public OperationResult DeleteProfesor(String Matricula)
         {
-           ProfesorDAO dao = new ProfesorDAO();
-            return (OperationResult)dao.DeleteProfesorByID(Matricula);
+           ProfesorDAO profesordao = new ProfesorDAO();
+            return (OperationResult)profesordao.DeleteProfesorByID(Matricula);
         }
 
     }

@@ -18,9 +18,9 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
 
         public AddResult doLoging(String username,String password)
         {
-            UsuarioDao dao = new UsuarioDao();
+            UsuarioDao usuariodao = new UsuarioDao();
             AddResult resultado = new AddResult();
-            resultado = dao.doLoging(username, password);
+            resultado = usuariodao.doLoging(username, password);
 
             return resultado;
 

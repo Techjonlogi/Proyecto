@@ -14,32 +14,32 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 {
     public class OrganizacionVinculadaDAO : IOrganizacionVinculadaDAO
     {
-        private AddResult CheckObjectOrganizacion(OrganizacionVinculada instanceorganizacion)
+        private AddResult CheckObjectOrganizacion(OrganizacionVinculada organizacion)
         {
             CheckFields instancevalidarCampos = new CheckFields();
             AddResult instanceresult = AddResult.UnknowFail;
-            if (instanceorganizacion.IdOrganizacion == String.Empty ||
-                instanceorganizacion.NombreEmpresa == String.Empty ||
-                instanceorganizacion.Sector == String.Empty ||
-                instanceorganizacion.UsuarioDirecto == String.Empty ||
-                instanceorganizacion.UsuarioIndirecto == String.Empty ||
-                instanceorganizacion.CorreoElectronico == String.Empty ||
-                instanceorganizacion.Telefono == String.Empty ||
-                instanceorganizacion.Estado == String.Empty ||
-                instanceorganizacion.Ciudad == String.Empty ||
-                instanceorganizacion.Direccion == String.Empty)
+            if (organizacion.IdOrganizacion == String.Empty ||
+                organizacion.NombreEmpresa == String.Empty ||
+                organizacion.Sector == String.Empty ||
+                organizacion.UsuarioDirecto == String.Empty ||
+                organizacion.UsuarioIndirecto == String.Empty ||
+                organizacion.CorreoElectronico == String.Empty ||
+                organizacion.Telefono == String.Empty ||
+                organizacion.Estado == String.Empty ||
+                organizacion.Ciudad == String.Empty ||
+                organizacion.Direccion == String.Empty)
             {
                 throw new FormatException("Existen campos vacíos ");
             }
             else
-            if (instancevalidarCampos.ValidarMatricula(instanceorganizacion.IdOrganizacion) == CheckFields.ResultadosValidación.MatriculaInvalida)
+            if (instancevalidarCampos.ValidarMatricula(organizacion.IdOrganizacion) == CheckFields.ResultadosValidación.MatriculaInvalida)
             {
-                throw new FormatException("ID invalida " + instanceorganizacion.IdOrganizacion);
+                throw new FormatException("ID invalida " + organizacion.IdOrganizacion);
             }
             else
-            if (instancevalidarCampos.ValidarNombres(instanceorganizacion.NombreEmpresa) == CheckFields.ResultadosValidación.NombresInvalidos)
+            if (instancevalidarCampos.ValidarNombres(organizacion.NombreEmpresa) == CheckFields.ResultadosValidación.NombresInvalidos)
             {
-                throw new FormatException("Nombre inválido " + instanceorganizacion.NombreEmpresa);
+                throw new FormatException("Nombre inválido " + organizacion.NombreEmpresa);
             }
             else
             {
@@ -52,7 +52,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 
         public AddResult AddOrganizacion(OrganizacionVinculada instanceorganizacion)
         {
-            AddResult instanceresultado = AddResult.UnknowFail;
+            AddResult resultado = AddResult.UnknowFail;
             DbConnection dbConnection = new DbConnection();
             AddResult checkForEmpty = AddResult.UnknowFail;
             try
@@ -61,8 +61,8 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             }
             catch (ArgumentNullException)
             {
-                instanceresultado = AddResult.NullObject;
-                return instanceresultado;
+                resultado = AddResult.NullObject;
+                return resultado;
             }
             catch (FormatException ex)
             {
@@ -71,32 +71,32 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand instancecommand = new SqlCommand("INSERT INTO serviciosocial.OrganizacionVinculada VALUES(@IdOrganizacion, @NombreEmpresa, @Sector, @UsuarioDirecto, @UsuarioIndirecto, @CorreoElectronico, @Telefono, @Estado, @Ciudad, @Direccion)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO serviciosocial.OrganizacionVinculada VALUES(@IdOrganizacion, @NombreEmpresa, @Sector, @UsuarioDirecto, @UsuarioIndirecto, @CorreoElectronico, @Telefono, @Estado, @Ciudad, @Direccion)", connection))
                 {
-                    instancecommand.Parameters.Add(new SqlParameter("@IdOrganizacion", instanceorganizacion.IdOrganizacion));
-                    instancecommand.Parameters.Add(new SqlParameter("@NombreEmpresa", instanceorganizacion.NombreEmpresa));
-                    instancecommand.Parameters.Add(new SqlParameter("@Sector", instanceorganizacion.Sector));
-                    instancecommand.Parameters.Add(new SqlParameter("@UsuarioDirecto", instanceorganizacion.UsuarioDirecto));
-                    instancecommand.Parameters.Add(new SqlParameter("@UsuarioIndirecto", instanceorganizacion.UsuarioIndirecto));
-                    instancecommand.Parameters.Add(new SqlParameter("@CorreoElectronico", instanceorganizacion.CorreoElectronico));
-                    instancecommand.Parameters.Add(new SqlParameter("@Telefono", instanceorganizacion.Telefono));
-                    instancecommand.Parameters.Add(new SqlParameter("@Estado", instanceorganizacion.Estado));
-                    instancecommand.Parameters.Add(new SqlParameter("@Ciudad", instanceorganizacion.Ciudad));
-                    instancecommand.Parameters.Add(new SqlParameter("@Direccion", instanceorganizacion.Direccion));
+                    command.Parameters.Add(new SqlParameter("@IdOrganizacion", instanceorganizacion.IdOrganizacion));
+                    command.Parameters.Add(new SqlParameter("@NombreEmpresa", instanceorganizacion.NombreEmpresa));
+                    command.Parameters.Add(new SqlParameter("@Sector", instanceorganizacion.Sector));
+                    command.Parameters.Add(new SqlParameter("@UsuarioDirecto", instanceorganizacion.UsuarioDirecto));
+                    command.Parameters.Add(new SqlParameter("@UsuarioIndirecto", instanceorganizacion.UsuarioIndirecto));
+                    command.Parameters.Add(new SqlParameter("@CorreoElectronico", instanceorganizacion.CorreoElectronico));
+                    command.Parameters.Add(new SqlParameter("@Telefono", instanceorganizacion.Telefono));
+                    command.Parameters.Add(new SqlParameter("@Estado", instanceorganizacion.Estado));
+                    command.Parameters.Add(new SqlParameter("@Ciudad", instanceorganizacion.Ciudad));
+                    command.Parameters.Add(new SqlParameter("@Direccion", instanceorganizacion.Direccion));
                     try
                     {
-                        instancecommand.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
                     }
                     catch (SqlException)
                     {
-                        instanceresultado = AddResult.SQLFail;
-                        return instanceresultado;
+                        resultado = AddResult.SQLFail;
+                        return resultado;
                     }
-                    instanceresultado = AddResult.Success;
+                    resultado = AddResult.Success;
                 }
                 connection.Close();
             }
-            return instanceresultado;
+            return resultado;
         }
 
 
@@ -120,19 +120,19 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        OrganizacionVinculada instanceorganizacion = new OrganizacionVinculada();
+                        OrganizacionVinculada organizacion = new OrganizacionVinculada();
 
-                        instanceorganizacion.IdOrganizacion = reader["idOrganizacion"].ToString();
-                        instanceorganizacion.NombreEmpresa = reader["NombreEmpresa"].ToString();
-                        instanceorganizacion.Sector = reader["sector"].ToString();
-                        instanceorganizacion.UsuarioDirecto = reader["UsuarioDirecto"].ToString();
-                        instanceorganizacion.UsuarioIndirecto = reader["UsuarioIndirecto"].ToString();
-                        instanceorganizacion.CorreoElectronico = reader["CorreoElectronico"].ToString();
-                        instanceorganizacion.Telefono = reader["Telefono"].ToString();
-                        instanceorganizacion.Estado = reader["Estado"].ToString();
-                        instanceorganizacion.Ciudad = reader["Ciudad"].ToString();
-                        instanceorganizacion.Direccion = reader["Direccion"].ToString();
-                        listaOrganizacion.Add(instanceorganizacion);
+                        organizacion.IdOrganizacion = reader["idOrganizacion"].ToString();
+                        organizacion.NombreEmpresa = reader["NombreEmpresa"].ToString();
+                        organizacion.Sector = reader["sector"].ToString();
+                        organizacion.UsuarioDirecto = reader["UsuarioDirecto"].ToString();
+                        organizacion.UsuarioIndirecto = reader["UsuarioIndirecto"].ToString();
+                        organizacion.CorreoElectronico = reader["CorreoElectronico"].ToString();
+                        organizacion.Telefono = reader["Telefono"].ToString();
+                        organizacion.Estado = reader["Estado"].ToString();
+                        organizacion.Ciudad = reader["Ciudad"].ToString();
+                        organizacion.Direccion = reader["Direccion"].ToString();
+                        listaOrganizacion.Add(organizacion);
                     }
                 }
                 connection.Close();
@@ -142,7 +142,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
 
         public OrganizacionVinculada GetOrganizacionforID(String toSearchInBD)
         {
-            OrganizacionVinculada instanceorganizacion = new OrganizacionVinculada();
+            OrganizacionVinculada organizacion = new OrganizacionVinculada();
             DbConnection dbconnection = new DbConnection();
             using (SqlConnection connection = dbconnection.GetConnection())
             {
@@ -160,22 +160,22 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        instanceorganizacion.IdOrganizacion = reader["idOrganizacion"].ToString();
-                        instanceorganizacion.NombreEmpresa = reader["NombreEmpresa"].ToString();
-                        instanceorganizacion.Sector = reader["Sector"].ToString();
-                        instanceorganizacion.UsuarioDirecto = reader["UsuarioDirecto"].ToString();
-                        instanceorganizacion.UsuarioIndirecto = reader["UsuarioIndirecto"].ToString();
-                        instanceorganizacion.CorreoElectronico = reader["CorreoElectronico"].ToString();
-                        instanceorganizacion.Telefono = reader["Telefono"].ToString();
-                        instanceorganizacion.Estado = reader["Estado"].ToString();
-                        instanceorganizacion.Ciudad = reader["Ciudad"].ToString();
-                        instanceorganizacion.Direccion = reader["Direccion"].ToString();
+                        organizacion.IdOrganizacion = reader["idOrganizacion"].ToString();
+                        organizacion.NombreEmpresa = reader["NombreEmpresa"].ToString();
+                        organizacion.Sector = reader["Sector"].ToString();
+                        organizacion.UsuarioDirecto = reader["UsuarioDirecto"].ToString();
+                        organizacion.UsuarioIndirecto = reader["UsuarioIndirecto"].ToString();
+                        organizacion.CorreoElectronico = reader["CorreoElectronico"].ToString();
+                        organizacion.Telefono = reader["Telefono"].ToString();
+                        organizacion.Estado = reader["Estado"].ToString();
+                        organizacion.Ciudad = reader["Ciudad"].ToString();
+                        organizacion.Direccion = reader["Direccion"].ToString();
 
                     }
                 }
                 connection.Close();
             }
-            return instanceorganizacion;
+            return organizacion;
         }
 
         public AddResult DeleteOrganizacionByID(String toSearchInBD)
@@ -192,10 +192,10 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand instancecommand = new SqlCommand("DELETE FROM serviciosocial.OrganizacionVinculada WHERE  idOrganizacion = @IdOrganizacionToSearch", connection))
+                using (SqlCommand command = new SqlCommand("DELETE FROM serviciosocial.OrganizacionVinculada WHERE  idOrganizacion = @IdOrganizacionToSearch", connection))
                 {
-                    instancecommand.Parameters.Add(new SqlParameter("IdOrganizacionToSearch", toSearchInBD));
-                    instancecommand.ExecuteNonQuery();
+                    command.Parameters.Add(new SqlParameter("IdOrganizacionToSearch", toSearchInBD));
+                    command.ExecuteNonQuery();
                     result = AddResult.Success;
                 }
                 connection.Close();

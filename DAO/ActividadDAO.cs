@@ -47,8 +47,8 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
         public AddResult AddActividad(Actividad instanceActividad)
         {
             
-            AddResult instanceAddResult = AddResult.UnknowFail;
-            DbConnection instanceDbConnection = new DbConnection();
+            AddResult addResult = AddResult.UnknowFail;
+            DbConnection dbConnection = new DbConnection();
             AddResult checkForEmpty = AddResult.UnknowFail;
             try
             {
@@ -56,58 +56,58 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
             }
             catch (ArgumentNullException)
             {
-                instanceAddResult = AddResult.NullObject;
-                return instanceAddResult;
+                addResult = AddResult.NullObject;
+                return addResult;
             }
             catch (FormatException ex)
             {
                 throw ex;
             }
-            using (SqlConnection instanceSqlConnection = instanceDbConnection.GetConnection())
+            using (SqlConnection instanceSqlConnection = dbConnection.GetConnection())
             {
                 instanceSqlConnection.Open();
-                using (SqlCommand instanceSqlCommand = new SqlCommand("INSERT INTO serviciosocial.actividad VALUES(@Id, @Nombre, @DiaEntrega, @MesEntrega, @AñoEntrega, @Valor)", instanceSqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO serviciosocial.actividad VALUES(@Id, @Nombre, @DiaEntrega, @MesEntrega, @AñoEntrega, @Valor)", instanceSqlConnection))
                 {
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@Id", instanceActividad.IdActividad));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@Nombre", instanceActividad.NombreActividad));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@DiaEntrega", instanceActividad.DiaEntregaActividad));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@MesEntrega", instanceActividad.MesEntregaActividad));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@AñoEntrega", instanceActividad.AñoEntregaActividad));
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("@Valor", instanceActividad.ValorActividad));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Id", instanceActividad.IdActividad));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Nombre", instanceActividad.NombreActividad));
+                    sqlCommand.Parameters.Add(new SqlParameter("@DiaEntrega", instanceActividad.DiaEntregaActividad));
+                    sqlCommand.Parameters.Add(new SqlParameter("@MesEntrega", instanceActividad.MesEntregaActividad));
+                    sqlCommand.Parameters.Add(new SqlParameter("@AñoEntrega", instanceActividad.AñoEntregaActividad));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Valor", instanceActividad.ValorActividad));
                     try
                     {
-                        instanceSqlCommand.ExecuteNonQuery();
+                        sqlCommand.ExecuteNonQuery();
                     }
                     catch (SqlException)
                     {
-                        instanceAddResult = AddResult.SQLFail;
-                        return instanceAddResult;
+                        addResult = AddResult.SQLFail;
+                        return addResult;
                     }
-                    instanceAddResult = AddResult.Success;
+                    addResult = AddResult.Success;
                 }
                 instanceSqlConnection.Close();
             }
-            return instanceAddResult;
+            return addResult;
         }
 
         public List<Actividad> GetActividad()
         {
 
-            List<Actividad> instanceListaActividad = new List<Actividad>();
-            DbConnection instanceDbConnection = new DbConnection();
-            using (SqlConnection instanceSqlConnection = instanceDbConnection.GetConnection())
+            List<Actividad> listaActividad = new List<Actividad>();
+            DbConnection dbConnection = new DbConnection();
+            using (SqlConnection sqlConnection = dbConnection.GetConnection())
             {
                 try
                 {
-                    instanceSqlConnection.Open();
+                   sqlConnection.Open();
                 }
                 catch (SqlException ex)
                 {
                     throw (ex);
                 }
-                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM serviciosocial.actividad", instanceSqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM serviciosocial.actividad", sqlConnection))
                 {
-                    SqlDataReader reader = instanceSqlCommand.ExecuteReader();
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
                     while (reader.Read())
                     {
                         Actividad actividad = new Actividad();
@@ -119,47 +119,47 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                         actividad.AñoEntregaActividad = reader["AñoEntrega"].ToString();
                         actividad.ValorActividad = Convert.ToDouble(reader["Valor"].ToString());
 
-                        instanceListaActividad.Add(actividad);
+                        listaActividad.Add(actividad);
                     }
                 }
-                instanceSqlConnection.Close();
+                sqlConnection.Close();
             }
-            return instanceListaActividad;
+            return listaActividad;
         }
 
 
 
         public Actividad GetActividadID(String toSearchInBD)
         {
-            Actividad instanceActividad = new Actividad();
-            DbConnection instanceDbConnection = new DbConnection();
-            using (SqlConnection instanceSqlConnection = instanceDbConnection.GetConnection())
+            Actividad actividad = new Actividad();
+            DbConnection dbConnection = new DbConnection();
+            using (SqlConnection sqlConnection = dbConnection.GetConnection())
             {
                 try
                 {
-                    instanceSqlConnection.Open();
+                    sqlConnection.Open();
                 }
                 catch (SqlException ex)
                 {
                     throw (ex);
                 }
-                using (SqlCommand instanceSqlCommand = new SqlCommand("SELECT * FROM serviciosocial.actividad WHERE idActividad = @IdToSearch", instanceSqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM serviciosocial.actividad WHERE idActividad = @IdToSearch", sqlConnection))
                 {
-                    instanceSqlCommand.Parameters.Add(new SqlParameter("IdToSearch", toSearchInBD));
-                    SqlDataReader reader = instanceSqlCommand.ExecuteReader();
+                    sqlCommand.Parameters.Add(new SqlParameter("IdToSearch", toSearchInBD));
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
                     while (reader.Read())
                     {
-                        instanceActividad.IdActividad = reader["Id"].ToString();
-                        instanceActividad.NombreActividad = reader["Nombre"].ToString();
-                        instanceActividad.DiaEntregaActividad = Convert.ToInt32(reader["DiaEntrega"].ToString());
-                        instanceActividad.MesEntregaActividad = Convert.ToInt32(reader["MesEntrega"].ToString());
-                        instanceActividad.AñoEntregaActividad = reader["AñoEntrega"].ToString();
-                        instanceActividad.ValorActividad = Convert.ToDouble(reader["SectorSocial"].ToString());
+                        actividad.IdActividad = reader["Id"].ToString();
+                        actividad.NombreActividad = reader["Nombre"].ToString();
+                        actividad.DiaEntregaActividad = Convert.ToInt32(reader["DiaEntrega"].ToString());
+                        actividad.MesEntregaActividad = Convert.ToInt32(reader["MesEntrega"].ToString());
+                        actividad.AñoEntregaActividad = reader["AñoEntrega"].ToString();
+                        actividad.ValorActividad = Convert.ToDouble(reader["SectorSocial"].ToString());
                     }
                 }
-                instanceSqlConnection.Close();
+                sqlConnection.Close();
             }
-            return instanceActividad;
+            return actividad;
         }
 
         public AddResult DeleteActividadID(String toSearchInBD)
@@ -176,10 +176,10 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
                 {
                     throw (ex);
                 }
-                using (SqlCommand instancecommand = new SqlCommand("DELETE FROM serviciosocial.actividad WHERE  idActividad = @IdToSearch", connection))
+                using (SqlCommand command = new SqlCommand("DELETE FROM serviciosocial.actividad WHERE  idActividad = @IdToSearch", connection))
                 {
-                    instancecommand.Parameters.Add(new SqlParameter("IdActividadToSearch", toSearchInBD));
-                    instancecommand.ExecuteNonQuery();
+                    command.Parameters.Add(new SqlParameter("IdActividadToSearch", toSearchInBD));
+                    command.ExecuteNonQuery();
                     result = AddResult.Success;
                 }
                 connection.Close();

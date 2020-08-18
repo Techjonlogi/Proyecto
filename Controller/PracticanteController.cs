@@ -29,16 +29,16 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             OperationResult operation = OperationResult.UnknowFail;
             if (GetAlumnoByMatricula(Matricula).MatriculaPracticante == null)
             {
-                Practicante instancePracticante = new Practicante();
-                instancePracticante.MatriculaPracticante = Matricula;
-                instancePracticante.NombresPracticante = Nombre;
-                instancePracticante.ApellidoPaternoPracticante = apellidoPaterno;
-                instancePracticante.ApellidoMaternoPracticante = apellidoMaterno;
-                instancePracticante.PeriodoPracticante = periodo;
+                Practicante practicante = new Practicante();
+                practicante.MatriculaPracticante = Matricula;
+                practicante.NombresPracticante = Nombre;
+                practicante.ApellidoPaternoPracticante = apellidoPaterno;
+                practicante.ApellidoMaternoPracticante = apellidoMaterno;
+                practicante.PeriodoPracticante = periodo;
                 
                 
-                PracticanteDAO instancePracticanteDAO = new PracticanteDAO();
-                if ((OperationResult)instancePracticanteDAO.AddPracticante(instancePracticante) == OperationResult.Success)
+                PracticanteDAO practicanteDAO = new PracticanteDAO();
+                if ((OperationResult)practicanteDAO.AddPracticante(practicante) == OperationResult.Success)
                 {
                     if (CreateUserForAlumno(Matricula, Contraseña, Nombre) == OperationResult.Success)
                     {
@@ -85,20 +85,20 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
         }*/
         public List<Practicante> GetAlumno()
         {
-            PracticanteDAO instancePracticanteDAO = new PracticanteDAO();
-            List<Practicante> list = instancePracticanteDAO.GetPracticante();
+            PracticanteDAO practicanteDAO = new PracticanteDAO();
+            List<Practicante> list = practicanteDAO.GetPracticante();
             return list;
         }
 
         public Practicante GetAlumnoByMatricula(String Matricula)
         {
-            PracticanteDAO instancePracticanteDAO = new PracticanteDAO();
-            return instancePracticanteDAO.GetPracticanteMatricula(Matricula);
+            PracticanteDAO practicanteDAO = new PracticanteDAO();
+            return practicanteDAO.GetPracticanteMatricula(Matricula);
         }
         public OperationResult DeleteAlumno(String Matricula)
         {
-            PracticanteDAO instancePracticanteDAO = new PracticanteDAO();
-            return (OperationResult)instancePracticanteDAO.DeletePracticanteByMatricula(Matricula);
+            PracticanteDAO practicanteDAO = new PracticanteDAO();
+            return (OperationResult)practicanteDAO.DeletePracticanteByMatricula(Matricula);
         }
 
     }
