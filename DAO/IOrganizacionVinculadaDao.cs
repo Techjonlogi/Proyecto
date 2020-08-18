@@ -13,7 +13,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     {
         List<OrganizacionVinculada> GetOrganizacion();
         OrganizacionVinculada GetOrganizacionforID(String idToSearch);
-        AddResult AddOrganizacion(OrganizacionVinculada Organizacion);
+        AddResult AddOrganizacion(OrganizacionVinculada organizacion);
 
     }
 }

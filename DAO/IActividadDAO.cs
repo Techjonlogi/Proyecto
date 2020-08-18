@@ -12,7 +12,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     {
         List<Actividad> GetActividad();
         Actividad GetActividadID(String idToSearch);
-        AddResult AddActividad(Actividad instanceActividad);
+        AddResult AddActividad(Actividad actividad);
 
     }
 }

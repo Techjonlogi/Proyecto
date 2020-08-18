@@ -11,6 +11,6 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     interface IUsuarioDao
 
     {
-        AddResult AddUsuario(Usuario organizacion);
+        AddResult AddUsuario(Usuario usuario);
     }
 }

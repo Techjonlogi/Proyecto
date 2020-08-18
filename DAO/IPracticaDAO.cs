@@ -12,7 +12,7 @@ namespace Sistema_de_Prácticas_Profesionales.DAO
     {
         List<Practica> GetPractica();
         Practica GetPracticaNombre(String idToSearch);
-        AddResult AddPractica(Practica instancePractica);
+        AddResult AddPractica(Practica practica);
         AddResult DeletePracticaNombre(String toSearchInBD);
     }
 }
