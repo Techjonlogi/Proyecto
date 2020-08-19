@@ -23,7 +23,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             ExistingRecord
         }
         public OperationResult AddCoordinador(String noPersonal, String nombresCoordinador, String apellidoPaternoCoordinador,
-            String apellidoMaternoCoordinador, String usuarioCoordinador, String contraseñaCoordinador, String CubiculoCoordinador,
+            String apellidoMaternoCoordinador, String usuarioCoordinador, String contraseñaCoordinador, String cubiculoCoordinador,
             String fechaBajaCoordinador, String fechaRegistroCoordinador)
         {
             OperationResult operation = OperationResult.UnknowFail;
@@ -36,7 +36,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
                 coordinador.ApellidoMaternoCoordinador = apellidoMaternoCoordinador;
                 coordinador.UsuarioCoordinador = usuarioCoordinador;
                 coordinador.ContraseñaCoordinador = contraseñaCoordinador;
-                coordinador.CubiculoCoordinador = CubiculoCoordinador;
+                coordinador.CubiculoCoordinador = cubiculoCoordinador;
                 coordinador.FechaDeRegistroCoordinador = fechaRegistroCoordinador;
                 CoordinadorDAO coordinadorDAO = new CoordinadorDAO();
                 operation = (OperationResult)coordinadorDAO.AddCoordinador(coordinador);
@@ -60,10 +60,10 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             List<Coordinador> list = coordinador.GetCoordinador();
             return list;
         }
-        public OperationResult DeleteCoordinador(String Matricula)
+        public OperationResult DeleteCoordinador(String noPersonal)
         {
             CoordinadorDAO DAO = new CoordinadorDAO();
-            return (OperationResult)DAO.DeleteCoordiandorpornumerodePersonal(Matricula);
+            return (OperationResult)DAO.DeleteCoordiandorpornumerodePersonal(noPersonal);
         }
     }
 }

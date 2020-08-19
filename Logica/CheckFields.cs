@@ -84,20 +84,20 @@ namespace Sistema_de_Prácticas_Profesionales.Logica
         }
 
 
-        public ResultadosValidación ValidarNumeropersonal(string númeroInt)
+        public ResultadosValidación ValidarNumeropersonal(string número )
         {
             string patrón = @"^[100-10000]*$";
-            if (Regex.IsMatch(númeroInt, patrón))
+            if (Regex.IsMatch(número, patrón))
             {
                 return ResultadosValidación.NúmeroVálido;
             }
             return ResultadosValidación.NúmeroInválido;
         }
 
-        public ResultadosValidación ValidarNúmero(string númeroInt)
+        public ResultadosValidación ValidarNúmero(string número)
         {
             string patrón = @"^[0-9]*$";
-            if (Regex.IsMatch(númeroInt, patrón))
+            if (Regex.IsMatch(número, patrón))
             {
                 return ResultadosValidación.NúmeroVálido;
             }

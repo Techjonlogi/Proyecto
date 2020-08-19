@@ -24,14 +24,14 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             SQLFail,
             ExistingRecord
         }
-        public OperationResult AddAlumno(String Matricula, String Nombre, String Carrera, String Contraseña, String apellidoPaterno, String apellidoMaterno, String periodo)
+        public OperationResult AddAlumno(String matricula, String nombre, String carrera, String contraseña, String apellidoPaterno, String apellidoMaterno, String periodo)
         {
             OperationResult operation = OperationResult.UnknowFail;
-            if (GetAlumnoByMatricula(Matricula).MatriculaPracticante == null)
+            if (GetAlumnoByMatricula(matricula).MatriculaPracticante == null)
             {
                 Practicante practicante = new Practicante();
-                practicante.MatriculaPracticante = Matricula;
-                practicante.NombresPracticante = Nombre;
+                practicante.MatriculaPracticante = matricula;
+                practicante.NombresPracticante = nombre;
                 practicante.ApellidoPaternoPracticante = apellidoPaterno;
                 practicante.ApellidoMaternoPracticante = apellidoMaterno;
                 practicante.PeriodoPracticante = periodo;
@@ -40,13 +40,13 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
                 PracticanteDAO practicanteDAO = new PracticanteDAO();
                 if ((OperationResult)practicanteDAO.AddPracticante(practicante) == OperationResult.Success)
                 {
-                    if (CreateUserForAlumno(Matricula, Contraseña, Nombre) == OperationResult.Success)
+                    if (CreateUserForAlumno(matricula, contraseña, nombre) == OperationResult.Success)
                     {
                         operation = OperationResult.Success;
                     }
                     else
                     {
-                        DeleteAlumno(Matricula);
+                        DeleteAlumno(matricula);
                         operation = OperationResult.UnknowFail;
                     }
                 }
@@ -69,20 +69,7 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             return op;
         
         }
-        /*private OperationResult CreateUserForAlumno(String Matricula, String Password, String Nombre)
-        {
-            OperationResult operation = OperationResult.UnknowFail;
-            Usuario user = new Usuario();
-            user.Name = Nombre;
-            user.Email = Matricula + "@estudiantes.uv.mx";
-            user.UserType = "Alumno";
-            user.UserName = Matricula;
-            user.Password = Password;
-            user.RegisterDate = DateTime.Today;
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            operation = (OperationResult)usuarioDAO.AddUsuario(user);
-            return operation;
-        }*/
+       
         public List<Practicante> GetAlumno()
         {
             PracticanteDAO practicanteDAO = new PracticanteDAO();

@@ -75,10 +75,10 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             List<Profesor> list = profesordao.GetProfesor();
             return list;
         }
-        public OperationResult DeleteProfesor(String Matricula)
+        public OperationResult DeleteProfesor(String noProfesor)
         {
            ProfesorDAO profesordao = new ProfesorDAO();
-            return (OperationResult)profesordao.DeleteProfesorByID(Matricula);
+            return (OperationResult)profesordao.DeleteProfesorByID(noProfesor);
         }
 
     }

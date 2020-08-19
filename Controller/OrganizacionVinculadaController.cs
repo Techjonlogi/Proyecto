@@ -23,19 +23,19 @@ namespace Sistema_de_Prácticas_Profesionales.Controller
             SQLFail,
             ExistingRecord
         }
-        public OperationResult AddOrganizacion(String id, String Nombre, String Direccion, String Sector, String Telefono, String Correo, String usuarioDirecto, String usuarioIndirecto,String estado, String ciudad)
+        public OperationResult AddOrganizacion(String id, String nombre, String direccion, String sector, String telefono, String correo, String usuarioDirecto, String usuarioIndirecto,String estado, String ciudad)
         {
             OperationResult operation = OperationResult.UnknowFail;
             if (GetOrganizacionVinculadaById(id).IdOrganizacion == null)
             {
 
                 OrganizacionVinculada organizacion = new OrganizacionVinculada();
-                organizacion.CorreoElectronico = Correo;
-                organizacion.Direccion = Direccion;
-                organizacion.NombreEmpresa = Nombre;
+                organizacion.CorreoElectronico = correo;
+                organizacion.Direccion = direccion;
+                organizacion.NombreEmpresa = nombre;
                 organizacion.IdOrganizacion = id;
-                organizacion.Sector = Sector;
-                organizacion.Telefono = Telefono;
+                organizacion.Sector = sector;
+                organizacion.Telefono = telefono;
                 organizacion.UsuarioDirecto = usuarioDirecto;
                 organizacion.UsuarioIndirecto = usuarioIndirecto;
                 organizacion.Estado = estado;
